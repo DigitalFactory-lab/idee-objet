@@ -273,7 +273,12 @@ function moduleContacts(c){
   if(mW>maxW&&/[.@]/.test(str)){
     let pieces=str.includes('@')?str.replace('@','@|').split('|'):str.replace(/\.(?=[^.]*$)/,'.|').split('|');
     if(pieces.length<2)pieces=[str];
-    if(pieces.length>1){out+=text(mid,416,pieces[0],17,'#151515',700,'text-anchor="middle"');out+=text(mid,437,pieces.slice(1).join(''),17,'#151515',700,'text-anchor="middle"');}
+    if(pieces.length>1){
+      const l1=pieces[0],l2=pieces.slice(1).join('');let f2=19;
+      const wide=()=>{context.font=`700 ${f2}px Poppins,Arial,sans-serif`;return Math.max(context.measureText(l1).width,context.measureText(l2).width);};
+      while(f2>12&&wide()>maxW)f2--;
+      const fit=t=>{context.font=`700 ${f2}px Poppins,Arial,sans-serif`;return context.measureText(t).width>maxW?` textLength="${maxW}" lengthAdjust="spacingAndGlyphs"`:'';};
+      out+=text(mid,418,l1,f2,'#151515',700,`text-anchor="middle"${fit(l1)}`);out+=text(mid,418+f2+4,l2,f2,'#151515',700,`text-anchor="middle"${fit(l2)}`);}
     else out+=text(mid,425,str,font,'#151515',700,`text-anchor="middle" textLength="${maxW}" lengthAdjust="spacingAndGlyphs"`);
   }else out+=text(mid,425,str,font,'#151515',700,`text-anchor="middle"${mW>maxW?` textLength="${maxW}" lengthAdjust="spacingAndGlyphs"`:''}`);
  });return out;
@@ -282,12 +287,13 @@ function contentElements(i,c,preview=true){
  const name=title().toLocaleUpperCase('fr-BE');let a='';const qr=qrActive();
  switch(i){
  case 0:{ // Original Minimaliste — unchanged.
-   a+=fitText(112,235,name,328,46,c.text,700);
+   a+=fitText(112,qr?205:222,simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),328,44,c.text,700);
+   a+=fitText(112,qr?258:275,simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE'),328,44,c.text,700);
    if(!qr){a+=contactsVertical(497,151,68,c,{size:22,max:316});}
    else{
     const fields=[['phone',state.phone],['email',state.email],['website',state.website]];
     fields.forEach(([kind,val],idx)=>{a+=contactRow(496,145+idx*65,kind,val,c,{size:21,max:305});});
-    if(simplify(state.location))a+=contactRow(112,363,'location',state.location,c,{size:20,max:300});
+    if(simplify(state.location))a+=contactRow(112,340,'location',state.location,c,{size:20,max:300});
     a+=qrAt(683,300,144,c,preview);
    }break;
  }
@@ -304,13 +310,11 @@ function contentElements(i,c,preview=true){
     a+=line(351,182,351,351,'#627184',1.8,.6);
     a+=rightAlignedLines(390,205,c,contactItems,385,50);
    }else{
-    // QR off: two-column details, no empty QR reserve.
+    // QR off: one centred column, evenly spaced between the rule and the bottom band.
     const vals=contactItems.filter(([k,v])=>simplify(v));
     a+=`<path d="M93 155H806" stroke="${c.accent}" stroke-width="3" opacity=".42"/>`;
-    vals.forEach(([k,v],i)=>{
-      const col=i%2,row=Math.floor(i/2);
-      a+=contactRow(105+col*385,246+row*92,k,v,c,{size:24,max:300});
-    });
+    const step=vals.length>2?58:72, top=272-(vals.length-1)*step/2;
+    vals.forEach(([k,v],i)=>{a+=contactRow(250,top+i*step,k,v,c,{size:26,max:480});});
    }
    if(simplify(state.website)){
     a+=fitCenteredText(450,464,simplify(state.website),650,23,'#FFFFFF',500,2.0);
@@ -325,13 +329,22 @@ function contentElements(i,c,preview=true){
  }
  case 3:{ // Pop color, strong typography on solid colored background.
    const fields=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]];
-   a+=fitText(58,154,simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),475,80,'#111116',900,{family:'Montserrat,Poppins,Arial,sans-serif'});
-   a+=fitText(58,237,simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE'),475,80,'#111116',900,{family:'Montserrat,Poppins,Arial,sans-serif'});
    const active=fields.filter(([,v])=>simplify(v));
-   active.forEach(([kind,val],i)=>{
-    a+=contactRow(65,295+i*49,kind,val,c,{size:24,max:450});
-   });
-   a+=line(586,144,586,434,'#151515',2.6);
+   if(qr){
+    a+=fitText(58,154,simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),475,80,'#111116',900,{family:'Montserrat,Poppins,Arial,sans-serif'});
+    a+=fitText(58,237,simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE'),475,80,'#111116',900,{family:'Montserrat,Poppins,Arial,sans-serif'});
+    active.forEach(([kind,val],i)=>{a+=contactRow(65,295+i*49,kind,val,c,{size:24,max:450});});
+    a+=line(586,144,586,434,'#151515',2.6);
+   }else{
+    a+=fitText(58,165,simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),780,96,'#111116',900,{family:'Montserrat,Poppins,Arial,sans-serif'});
+    a+=fitText(58,262,simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE'),780,96,'#111116',900,{family:'Montserrat,Poppins,Arial,sans-serif'});
+    a+=`<path d="M60 300H200" stroke="#111116" stroke-width="9" stroke-linecap="round"/>`;
+    // phone + location side by side, then e-mail and website on full-width rows
+    const get=k=>simplify(state[k]);let y=358;
+    if(get('phone')||get('location')){a+=contactRow(65,y,'phone',state.phone,c,{size:24,max:330});a+=contactRow(get('phone')?465:65,y,'location',state.location,c,{size:24,max:330});y+=50;}
+    if(get('email')){a+=contactRow(65,y,'email',state.email,c,{size:24,max:720});y+=50;}
+    if(get('website')){a+=contactRow(65,y,'website',state.website,c,{size:24,max:720});}
+   }
    if(qr){
     a+=text(744,174,'SCANNE-MOI',22,'#121212',700,'text-anchor="middle"');
         a+=qrAt(615,190,252,c,preview); // QR agrandi
@@ -355,8 +368,8 @@ function contentElements(i,c,preview=true){
  case 5:{ // Elegant floral single sided design.
    const ink=c.text,floralLight=(c.text==='#FFFFFF');
    // Text remains on the left; botanical motif is set apart on the right.
-   a+=fitText(96,252,simplify(state.firstName||'Prénom').toUpperCase(),420,50,ink,900,{letterSpacing:1,family:'Fraunces,Georgia,serif'}); // style vintage « Rogue Back » : Fraunces Black (OFL)
-   a+=fitText(96,307,simplify(state.lastName||'Nom').toUpperCase(),420,50,ink,900,{letterSpacing:1,family:'Fraunces,Georgia,serif'});
+   a+=fitText(96,252,simplify(state.firstName||'Prénom').toUpperCase(),380,50,ink,900,{letterSpacing:1,family:'Fraunces,Georgia,serif'}); // style vintage « Rogue Back » : Fraunces Black (OFL)
+   a+=fitText(96,307,simplify(state.lastName||'Nom').toUpperCase(),380,50,ink,900,{letterSpacing:1,family:'Fraunces,Georgia,serif'});
    const active=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]].filter(([,v])=>simplify(v));
    active.forEach(([kind,val],i)=>{
      // Hairline botanical typography; keep line-length inside the left white space.
@@ -390,12 +403,17 @@ function badgeElements(i,c,preview=true){
  const job=state.profession,qr=qrActive(),MONT='Montserrat,Poppins,Arial,sans-serif',FRAU='Fraunces,Georgia,serif';let a='';
  switch(i){
  case 0:{ // Minimaliste : identité entre les deux filets, QR à droite.
-   const w=qr?320:620;
-   a+=fitText(112,200,first,w,46,c.text,700);
-   a+=fitText(112,256,last,w,46,c.text,700);
-   a+=`<path d="M114 288H170" stroke="${c.accent}" stroke-width="5" stroke-linecap="round"/>`;
-   a+=wrapText(112,334,job,w,26,c.accent,600,34);
-   if(qr)a+=qrAt(560,128,244,c,preview);
+   if(qr){
+    a+=fitText(112,200,first,320,46,c.text,700);
+    a+=fitText(112,256,last,320,46,c.text,700);
+    a+=`<path d="M114 288H170" stroke="${c.accent}" stroke-width="5" stroke-linecap="round"/>`;
+    a+=wrapText(112,334,job,320,26,c.accent,600,34);
+    a+=qrAt(560,128,244,c,preview);
+   }else{
+    a+=fitText(112,228,first,320,48,c.text,700);
+    a+=fitText(112,288,last,320,48,c.text,700);
+    a+=wrapText(505,240,job,340,34,c.accent,600,46);
+   }
    break;}
  case 1:{ // Bandeau graphique : nom en tête, QR encadré à gauche, profession à droite.
    a+=fitCenteredText(450,108,`${first} ${last}`,690,59,c.text,750,1.2);
@@ -408,7 +426,7 @@ function badgeElements(i,c,preview=true){
     a+=wrapText(392,258,job,430,36,c.dark,600,46);
    }else{
     a+=`<path d="M93 155H806" stroke="${c.accent}" stroke-width="3" opacity=".42"/>`;
-    a+=wrapText(450,275,job,700,40,c.dark,600,52,{anchor:'middle'});
+    a+=wrapText(450,268,job,700,48,c.dark,600,60,{anchor:'middle'});
    }
    break;}
  case 2:{ // QR essentiel : identité à gauche, QR pointillé à droite, profession sous le filet.
@@ -418,10 +436,10 @@ function badgeElements(i,c,preview=true){
    a+=qrAt(660,98,206,c,preview);
    break;}
  case 3:{ // Typographie XXL : prénom et nom Montserrat Black, profession en gras.
-   a+=fitText(58,154,first,qr?475:760,80,'#111116',900,{family:MONT});
-   a+=fitText(58,237,last,qr?475:760,80,'#111116',900,{family:MONT});
-   a+=`<path d="M60 274H200" stroke="#111116" stroke-width="9" stroke-linecap="round"/>`;
-   a+=wrapText(58,338,job,qr?480:760,36,'#111116',700,46);
+   a+=fitText(58,qr?154:172,first,qr?475:780,qr?80:100,'#111116',900,{family:MONT});
+   a+=fitText(58,qr?237:274,last,qr?475:780,qr?80:100,'#111116',900,{family:MONT});
+   a+=`<path d="M60 ${qr?274:314}H200" stroke="#111116" stroke-width="9" stroke-linecap="round"/>`;
+   a+=wrapText(58,qr?338:384,job,qr?480:780,qr?36:42,'#111116',700,qr?46:52);
    if(qr){
     a+=line(586,144,586,434,'#151515',2.6);
     a+=text(744,174,'SCANNE-MOI',22,'#121212',700,'text-anchor="middle"');
@@ -439,14 +457,15 @@ function badgeElements(i,c,preview=true){
    break;}
  case 5:{ // Botanique : prénom et nom en Fraunces, profession fine, QR sur une pastille claire lisible.
    const ink=c.text;
-   a+=fitText(96,232,first,qr?420:520,50,ink,900,{letterSpacing:1,family:FRAU});
-   a+=fitText(96,287,last,qr?420:520,50,ink,900,{letterSpacing:1,family:FRAU});
-   a+=`<path d="M98 318H168" stroke="${ink}" stroke-width="2"/>`;
-   a+=wrapText(96,362,job,qr?400:520,23,ink,400,34,{upper:true,letterSpacing:3});
+   const y0=qr?50:0; // with a QR, the text column moves down below it
    if(qr){
-    a+=`<rect x="664" y="262" width="210" height="210" rx="16" fill="${c.pale}"/>`;
-    a+=qrAt(669,267,200,c,preview);
+    a+=`<rect x="96" y="34" width="156" height="156" rx="14" fill="${c.pale}"/>`;
+    a+=qrAt(99,37,150,c,preview);
    }
+   a+=fitText(96,(qr?268:232),first,380,qr?44:50,ink,900,{letterSpacing:1,family:FRAU});
+   a+=fitText(96,(qr?318:287),last,380,qr?44:50,ink,900,{letterSpacing:1,family:FRAU});
+   a+=`<path d="M98 ${qr?344:318}H168" stroke="${ink}" stroke-width="2"/>`;
+   a+=wrapText(96,qr?384:362,job,400,qr?21:23,ink,400,qr?30:34,{upper:true,letterSpacing:3});
    break;}
  }
  return a;

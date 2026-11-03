@@ -29,7 +29,7 @@
 <body>
 <div class="app-shell">
   <header class="df-bar"><a class="df-brand" href="partie2.html#etape-6"><span class="mark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<small>PARTIE 2 · EXERCICE FINAL</small></span></a><nav class="df-nav" aria-label="Outils"><a href="machines.html">Les machines DF</a><a href="qr-code.html">Générateur QR →</a><a class="dark" href="partie2.html#etape-6">← Retour à l’atelier</a></nav></header>
-  <section class="hero"><div><div class="eyebrow">Créateur de cartes de visite</div><h1>Ta carte. <span style="color:#5b60a8">Prête à fabriquer.</span></h1><p>Personnalise le visuel, puis exporte le tracé laser en SVG, le gabarit UV et le PDF couleur UV avec un fond perdu de 2 mm tout autour.</p></div><div class="hero-meta"><span><b></b> 6 compositions</span><span><b></b> 4 palettes</span><span><b></b> 85 × 45 mm</span></div></section>
+  <section class="hero"><div><div class="eyebrow">Créateur de cartes de visite</div><h1>Ta carte. <span style="color:#5b60a8">Prête à fabriquer.</span></h1><p>Personnalise le visuel, puis exporte le gabarit découpe laser &amp; UV et le PDF couleur UV, avec un fond perdu de 2 mm tout autour.</p></div><div class="hero-meta"><span><b></b> 6 compositions</span><span><b></b> 4 palettes</span><span><b></b> 85 × 45 mm</span></div></section>
   <main class="layout">
     <div class="editor">
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">01</span> Choisis ton modèle</div><span class="section-help">6 propositions</span></div><div class="models" id="modelChoices"></div></section>
@@ -53,11 +53,10 @@
       <div class="preview-top"><div><div class="preview-title">Aperçu en temps réel</div><div class="preview-sub">Recto de la carte sur plexiglas blanc</div></div><div class="status" id="status"><i></i><span>Prêt à exporter</span></div></div>
       <div class="stage"><div class="card-visual" id="cardPreview"></div><div class="size-readout"><span class="ruler"></span><span>85 × 45 mm · paysage</span><span class="ruler"></span></div></div>
       <div class="preview-footer"><div class="selected-name" id="selectedLabel">Modèle 1 · Bandeau graphique</div><p class="selected-details" id="selectedDetails">Bleu nuit · nom et coordonnées</p><div class="notice" id="exportNotice" role="status"></div>
-        <div class="production-export"><div class="production-heading"><span class="production-step">01</span><div><strong>Découpe laser</strong><small>Contour vectoriel seul · 85 × 45 mm · angles R 1,8 mm</small></div></div><div class="action-row"><button type="button" class="secondary-action" id="downloadCutSvg">Découpe · SVG</button></div></div>
-        <div class="production-export"><div class="production-heading"><span class="production-step">02</span><div><strong>Gabarit de positionnement UV</strong><small>Page 89 × 49 mm · contour 85 × 45 mm centré · fond perdu 2 mm</small></div></div><button type="button" class="wide-production" id="downloadGuidePdf">Gabarit UV · PDF</button></div>
-        <div class="production-export prominent"><div class="production-heading"><span class="production-step">03</span><div><strong>Impression UV · PDF couleur</strong><small>Page 89 × 49 mm · carte utile 85 × 45 mm · fond perdu 2 mm · 600 dpi</small></div></div><button type="button" class="wide-production main-action" id="downloadUvPdf">Télécharger le PDF couleur UV</button></div>
+        <div class="production-export"><div class="production-heading"><span class="production-step">01</span><div><strong>Gabarit découpe laser &amp; UV</strong><small>PDF vectoriel · page 89 × 49 mm · contour noir 85 × 45 mm centré · angles R 1,8 mm</small></div></div><button type="button" class="wide-production" id="downloadGuidePdf">Gabarit découpe laser &amp; UV · PDF</button></div>
+        <div class="production-export prominent"><div class="production-heading"><span class="production-step">02</span><div><strong>Impression UV · PDF couleur</strong><small>Page 89 × 49 mm · carte utile 85 × 45 mm · fond perdu 2 mm · 600 dpi</small></div></div><button type="button" class="wide-production main-action" id="downloadUvPdf">Télécharger le PDF couleur UV</button></div>
         <details class="secondary-exports"><summary>Exports complémentaires</summary><div class="action-row"><button type="button" class="secondary-action" id="downloadPng">PNG · 600 dpi</button><button type="button" class="secondary-action" id="downloadSvg">Visuel · SVG</button><button type="button" class="wide" id="printButton">Imprimer depuis le navigateur</button></div></details>
-        <p class="print-tip"><b>Important :</b> le fichier laser est désormais fourni uniquement en SVG. Le gabarit UV et le PDF couleur UV sont générés sur une page de <b>89 × 49 mm</b>, avec le contour utile de la carte <b>85 × 45 mm</b> centré et un <b>fond perdu de 2 mm</b> tout autour pour la sécurité en cas de décalage. Le gabarit est un repère de placement : <b>ne pas le lancer comme image à imprimer</b>. Le PDF UV est en RVB, sans calque d'encre blanche ; choisir les paramètres de blanc/profil dans VersaWorks et vérifier l'échelle à 100 % avant production.</p>
+        <p class="print-tip"><b>Important :</b> un seul gabarit vectoriel (PDF, contour noir) sert à la fois pour la découpe laser et pour caler l’impression UV. Le gabarit et le PDF couleur UV sont générés sur une page de <b>89 × 49 mm</b>, avec le contour utile de la carte <b>85 × 45 mm</b> centré et un <b>fond perdu de 2 mm</b> tout autour pour la sécurité en cas de décalage. Le gabarit est un repère de placement : <b>ne pas le lancer comme image à imprimer</b>. Le PDF UV est en RVB, sans calque d'encre blanche ; choisir les paramètres de blanc/profil dans VersaWorks et vérifier l'échelle à 100 % avant production.</p>
       </div>
     </aside>
   </main>
@@ -118,7 +117,9 @@ const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
 const simplify=s=>String(s??'').trim().replace(/\s+/g,' ');
 function title(){return simplify([state.firstName,state.lastName].filter(Boolean).join(' '))||'PRÉNOM NOM';}
 function hasImage(){return !!state.qrData;}
-function qrActive(){return state.model===2||state.showQR;}
+const QR_UNAVAILABLE=[5]; // Botanique : pas de QR
+function qrAllowed(m=state.model){return !QR_UNAVAILABLE.includes(m);}
+function qrActive(){return qrAllowed()&&(state.model===2||state.showQR);}
 function missingQR(){return qrActive()&&!hasImage();}
 function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(window._toastT);window._toastT=setTimeout(()=>$('toast').classList.remove('show'),3400);}
 function text(x,y,t,size=28,color='#222',weight=500,extra=''){return `<text x="${x}" y="${y}" font-family="Poppins,Arial,sans-serif" font-size="${size}" fill="${color}" font-weight="${weight}" ${extra}>${esc(t)}</text>`;}
@@ -174,17 +175,17 @@ function waveContacts(c,y){
   if(simplify(state.email)&&simplify(state.website))out+=line(608,y-34,608,y+3,c.text,2.1);
   return out;
 }
-function mockQR(x,y,size,c){let out=`<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="#fff" stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"/>`;
+function mockQR(x,y,size,c){let out=`<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="#fff"${state.model===2?` stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"`:''}/>`;
  const p=22;const s=20;[[x+p,y+p],[x+size-p-s,y+p],[x+p,y+size-p-s]].forEach(([a,b])=>{out+=`<rect x="${a}" y="${b}" width="${s}" height="${s}" fill="none" stroke="${c.text}" stroke-width="4"/>`;});
  out+=text(x+size/2,y+size/2+8,'QR',20,c.accent,700,`text-anchor="middle"`);return out;}
 function qrAt(x,y,size,c,preview=true){if(!qrActive())return '';
  if(!hasImage())return preview?mockQR(x,y,size,c):'';
- // The approved cyan dotted QR frame stays visible after an imported QR replaces the placeholder.
+ // Dotted QR frame: only on the « QR essentiel » model (2).
  // Leave a white quiet zone; do not draw the mock QR's finder squares over the real code.
  const inner=16;
  return `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="#fff"/>`+
    `<image x="${x+inner}" y="${y+inner}" width="${size-inner*2}" height="${size-inner*2}" preserveAspectRatio="xMidYMid meet" href="${esc(state.qrData)}"/>`+
-   `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="none" stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"/>`;
+   (state.model===2?`<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="none" stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"/>`:'');
 }
 // Original, procedurally drawn botanical line art: scalable vector paths, no external image.
 function bloomShape(stroke){
@@ -295,7 +296,7 @@ function contentElements(i,c,preview=true){
     a+=text(168,172,'Scanne-moi',20,'#FFFFFF',600,'text-anchor="middle"');
     // Lightweight corner markers in the chosen palette, preserving imported QR readability.
     a+=`<path d="M83 205v-15q0-11 12-11h16 M275 179h19q12 0 12 12v18 M84 340v15q0 12 12 12h16 M277 367h18q12 0 12-12v-16" stroke="${c.accent}" fill="none" stroke-width="3" stroke-linecap="round"/>`;
-    a+=qrAt(116,208,165,c,preview);
+    a+=qrAt(112.5,190.5,165,c,preview); // centred between the four rounded corner markers
     a+=line(351,182,351,351,'#627184',1.8,.6);
     a+=rightAlignedLines(390,205,c,contactItems,385,50);
    }else{
@@ -386,8 +387,8 @@ function buildSVG(model=state.model,color=state.color,preview=true,clipRounded=t
 function drawChoices(){const c=palettesFor(state.model)[state.color];$('modelChoices').innerHTML=MODELS.map(m=>{const was=state.model;state.model=m.id;let svg=buildSVG(m.id,state.color,true);state.model=was;return `<button type="button" class="model ${m.id===state.model?'active':''}" data-model="${m.id}" aria-pressed="${m.id===state.model}"><div class="model-art">${svg}</div><div class="model-footer"><span class="model-name">${esc(m.name)}</span><span class="model-check">✓</span></div></button>`;}).join('');$('modelChoices').querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{state.model=Number(button.dataset.model);render();}));
 $('colorChoices').innerHTML=palettesFor(state.model).map((c,i)=>`<button type="button" class="palette ${i===state.color?'active':''}" data-color="${i}" aria-pressed="${i===state.color}"><div class="palette-swatches"><span style="background:${c.dark}"></span><span style="background:${c.accent}"></span><span style="background:${c.bright}"></span></div><span class="name">${esc(c.name)}</span></button>`).join('');$('colorChoices').querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{state.color=Number(button.dataset.color);render();}));}
 function render(){drawChoices();$('cardPreview').innerHTML=buildSVG();const required=state.model===2;
- $('qrRequired').textContent=required?'Obligatoire':'Facultatif';$('qrRequired').className=required?'required':'optional';$('qrHelp').textContent=required?'QR code requis pour ce modèle':'Afficher le QR code sur la carte';
- $('qrToggle').classList.toggle('on',qrActive());$('qrToggle').setAttribute('aria-checked',String(qrActive()));$('qrToggle').disabled=required;
+ $('qrRequired').textContent=required?'Obligatoire':'Facultatif';$('qrRequired').className=required?'required':'optional';const noQr=!qrAllowed();$('qrHelp').textContent=noQr?'Pas de QR code sur ce modèle':required?'QR code requis pour ce modèle':'Afficher le QR code sur la carte';if(noQr){$('qrRequired').textContent='Indisponible';$('qrRequired').className='optional';}
+ $('qrToggle').classList.toggle('on',qrActive());$('qrToggle').setAttribute('aria-checked',String(qrActive()));$('qrToggle').disabled=required||noQr;$('importButton').disabled=noQr;
  $('qrFileName').textContent=state.qrName||'PNG, JPG, WebP ou SVG';$('qrThumbnail').innerHTML=hasImage()?`<img alt="Aperçu du QR importé" src="${esc(state.qrData)}">`:'▦';$('removeQr').hidden=!hasImage();
  const miss=missingQR();$('status').classList.toggle('error',miss);$('status').querySelector('span').textContent=miss?'QR à importer':'Prêt à exporter';
  $('selectedLabel').textContent=MODELS[state.model].name;$('selectedDetails').textContent=`${palettesFor(state.model)[state.color].name} · ${MODELS[state.model].detail}`;
@@ -395,7 +396,7 @@ function render(){drawChoices();$('cardPreview').innerHTML=buildSVG();const requ
  ['downloadPng','downloadSvg','printButton','downloadUvPdf'].forEach(id=>$(id).disabled=miss);
 }
 for(const key of Object.keys(DEFAULT))$(key).addEventListener('input',e=>{state[key]=e.target.value;render();});
-$('qrToggle').addEventListener('click',()=>{if(state.model===2)return;state.showQR=!state.showQR;render();});
+$('qrToggle').addEventListener('click',()=>{if(state.model===2||!qrAllowed())return;state.showQR=!state.showQR;render();});
 $('importButton').addEventListener('click',()=>$('qrInput').click());$('removeQr').addEventListener('click',()=>{state.qrData='';state.qrName='';state.showQR=false;$('qrInput').value='';render();});
 function bufferToDataUrl(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(new Error('Impossible de lire le fichier.'));r.readAsDataURL(file);});}
 function safeSvgData(svgText){const doc=new DOMParser().parseFromString(svgText,'image/svg+xml');if(doc.querySelector('parsererror')||doc.documentElement.localName!=='svg')throw new Error('Le SVG n’est pas valide.');
@@ -428,10 +429,6 @@ const BLEED_MM=2;
 const UV_W_MM=CARD_W_MM+2*BLEED_MM;
 const UV_H_MM=CARD_H_MM+2*BLEED_MM;
 const BLEED_UNITS=BLEED_MM*10;
-function cutSvg(){
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_MM} ${CARD_H_MM}"><title>Découpe laser ${CARD_W_MM} x ${CARD_H_MM} mm</title><rect x="0" y="0" width="${CARD_W_MM}" height="${CARD_H_MM}" rx="${CORNER_R_MM}" ry="${CORNER_R_MM}" fill="none" stroke="#FF0000" stroke-width="0.001"/></svg>`;
-}
-function cutSvgFile(){download(new Blob([cutSvg()],{type:'image/svg+xml;charset=utf-8'}),'DF-gabarit-decoupe-85x45.svg');toast('SVG de découpe : 85 × 45 mm, contour vectoriel seul.');}
 function mmToPt(n){return n*72/25.4;}
 const pdfEncoder=new TextEncoder();
 function pdfDoc(objects){
@@ -454,7 +451,7 @@ function guidePdf(){
   const pageW=mmToPt(UV_W_MM),pageH=mmToPt(UV_H_MM),r=mmToPt(CORNER_R_MM);
   const contour=roundedPathPdf(mmToPt(CARD_W_MM),mmToPt(CARD_H_MM),r);
   const insetX=mmToPt(BLEED_MM), insetY=mmToPt(BLEED_MM);
-  const command=`q\n0.20 0.26 0.37 RG\n${mmToPt(0.12).toFixed(7)} w\n1 0 0 1 ${insetX.toFixed(6)} ${insetY.toFixed(6)} cm\n${contour}\nS\nQ\n`;
+  const command=`q\n0 0 0 RG\n${mmToPt(0.36).toFixed(7)} w\n1 0 0 1 ${insetX.toFixed(6)} ${insetY.toFixed(6)} cm\n${contour}\nS\nQ\n`;
   const stream=pdfEncoder.encode(command);
   return pdfDoc([['<< /Type /Catalog /Pages 2 0 R >>'],['<< /Type /Pages /Count 1 /Kids [3 0 R] >>'],[`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageW.toFixed(6)} ${pageH.toFixed(6)}] /Resources << >> /Contents 4 0 R >>`],[`<< /Length ${stream.length} >>\nstream\n`,stream,'\nendstream']]);
 }
@@ -495,8 +492,7 @@ async function imagePdf(){
   const content=pdfEncoder.encode(`q\n${pageW.toFixed(7)} 0 0 ${pageH.toFixed(7)} 0 0 cm\n/Artwork Do\nQ\n`);
   return pdfDoc([['<< /Type /Catalog /Pages 2 0 R >>'],['<< /Type /Pages /Count 1 /Kids [3 0 R] >>'],[`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageW.toFixed(6)} ${pageH.toFixed(6)}] /Resources << /XObject << /Artwork 4 0 R >> >> /Contents 5 0 R >>`],[`<< /Type /XObject /Subtype /Image /Width ${pw} /Height ${ph} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode /Length ${compressed.length} >>\nstream\n`,compressed,'\nendstream'],[`<< /Length ${content.length} >>\nstream\n`,content,'\nendstream']]);
 }
-$('downloadCutSvg').addEventListener('click',cutSvgFile);
-$('downloadGuidePdf').addEventListener('click',()=>{download(guidePdf(),'DF-gabarit-placement-UV-89x49-avec-debord.pdf');toast('Gabarit UV : page 89 × 49 mm, contour utile 85 × 45 mm centré.');});
+$('downloadGuidePdf').addEventListener('click',()=>{download(guidePdf(),'DF-gabarit-decoupe-laser-UV-89x49.pdf');toast('Gabarit découpe laser & UV : PDF vectoriel, contour noir 85 × 45 mm centré.');});
 $('downloadUvPdf').addEventListener('click',async()=>{
   if(missingQR()){toast('Importe le QR obligatoire avant d’exporter le PDF couleur.');return;}
   const b=$('downloadUvPdf');b.disabled=true;b.textContent='Préparation du PDF UV…';

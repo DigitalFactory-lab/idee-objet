@@ -20,6 +20,6 @@ Exercice final : renseigner `APP_URL` en haut de `partie2.js` quand l’appli de
 
 ### Outils de l’exercice final (écran 06 de la partie 2)
 
-- `studio-carte.html` : Studio carte de visite plexi 85 × 45 mm (6 modèles : Minimaliste, Bandeau graphique, QR essentiel, Typographie XXL, Modules arrondis, Botanique ; 4 palettes par modèle ; QR encadré) ; exports découpe laser (SVG), gabarit UV et PDF couleur UV 600 dpi sur une page 89 × 49 mm (fond perdu 2 mm).
+- `studio-carte.html` : Studio carte de visite plexi 85 × 45 mm (6 modèles : Minimaliste, Bandeau graphique, QR essentiel, Typographie XXL, Modules arrondis, Botanique ; 4 palettes par modèle ; QR encadré) ; exports : un gabarit PDF vectoriel commun découpe laser & UV (contour noir 85 × 45 mm sur page 89 × 49 mm) et le PDF couleur UV 600 dpi (fond perdu 2 mm). QR sans contour pointillé sauf sur « QR essentiel » ; pas de QR sur « Botanique ».
 - `qr-code.html` : générateur de QR code (vCard ou URL), PNG transparent à importer dans le Studio.
 - Charte commune : `assets/outils.css`. Bibliothèque QR intégrée localement (`assets/vendor/qrcode*.js`, qrcode-generator 1.4.4, licence MIT) pour fonctionner hors ligne.

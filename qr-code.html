@@ -9,6 +9,7 @@
 <!-- qrcode-generator 1.4.4 (MIT, Kazuhiko Arase), intégré localement pour fonctionner hors ligne -->
 <script src="assets/vendor/qrcode.js"></script>
 <script src="assets/vendor/qrcode_UTF8.js"></script>
+<script src="assets/telechargement.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -467,10 +468,7 @@
       .toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'qr';
     const canvas = document.querySelector('#qrcode canvas');
     if (!canvas) return;
-    const link = document.createElement('a');
-    link.download = slug + '-QR.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
+    canvas.toBlob(blob => { if (blob) window.dfDownload(blob, slug + '-QR.png'); }, 'image/png');
   }
 
   document.querySelectorAll('input').forEach(input => {

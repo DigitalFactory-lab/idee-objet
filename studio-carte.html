@@ -260,7 +260,7 @@ function moduleContacts(c){
  source.forEach(([k,v],i)=>{
   const mid=x0+inner*(i+.5);
   if(i>0)out+=`<path d="M${(x0+inner*i).toFixed(1)} 362V459" stroke="#1B1B1B" stroke-width="5"/>`;
-  out+=icon(k,mid-15,346,'#151515',30,3.6);
+  out+=icon(k,mid-15,366,'#151515',30,3.6); // icône rapprochée du texte
   const maxW=inner-24;let font=21;
   context.font=`700 ${font}px Poppins,Arial,sans-serif`;
   while(font>15&&context.measureText(simplify(v)).width>maxW){font--;context.font=`700 ${font}px Poppins,Arial,sans-serif`;}

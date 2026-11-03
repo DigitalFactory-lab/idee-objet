@@ -37,22 +37,22 @@
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">03</span> Remplis tes informations</div><span class="section-help">Sans fonction</span></div>
         <div class="fields"><div class="field"><label for="firstName">Prénom</label><input id="firstName" maxlength="60" value="Camille" autocomplete="given-name"></div><div class="field"><label for="lastName">Nom</label><input id="lastName" maxlength="60" value="Dupont" autocomplete="family-name"></div>
         <div class="field"><label for="phone">Téléphone</label><input id="phone" maxlength="60" value="0470 00 00 00" inputmode="tel" autocomplete="tel"></div><div class="field"><label for="email">E-mail</label><input id="email" maxlength="80" value="camille@exemple.be" inputmode="email" autocomplete="email"></div>
-        <div class="field"><label for="website">Site web</label><input id="website" maxlength="90" value="www.exemple.be" autocomplete="url"></div><div class="field"><label for="location">Ville / localisation</label><input id="location" maxlength="70" value="Liège, Belgique"></div></div>
-        <p class="microcopy">Les champs laissés vides ne s'affichent pas sur la carte. La typographie et la mise en page sont prédéfinies.</p>
+        <div class="field"><label for="website">Site web (facultatif)</label><input id="website" maxlength="90" value="www.exemple.be" autocomplete="url"></div><div class="field"><label for="location">Ville / localisation</label><input id="location" maxlength="70" value="Liège, Belgique"></div></div>
+        <p class="microcopy">Les champs vides disparaissent automatiquement ; la mise en page s’adapte, même sans site web. La typographie et la mise en page sont prédéfinies.</p>
       </section>
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">04</span> Ajoute ton QR code</div><span class="section-help">Image importée</span></div>
         <div class="qr-card"><div class="qr-header"><span class="qr-label">QR code personnel</span><span id="qrRequired" class="optional">Facultatif</span></div>
           <div class="switch-line"><span id="qrHelp">Afficher le QR code sur la carte</span><button type="button" id="qrToggle" class="toggle" role="switch" aria-label="Afficher le QR code" aria-checked="false"></button></div>
           <div class="file-area" id="dropTarget"><div class="qr-square" id="qrThumbnail" aria-hidden="true">▦</div><div class="file-actions"><button type="button" class="import-btn" id="importButton">+ Importer un QR</button><div class="file-name" id="qrFileName">PNG, JPG, WebP ou SVG</div></div><button type="button" id="removeQr" class="remove-btn" hidden>Retirer</button></div>
           <input class="screen-reader" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,image/png,image/jpeg,image/webp,image/svg+xml" id="qrInput">
-          <p class="file-help">Le QR code n'est pas généré ici. Importe ton QR déjà créé : l’encadré pointillé reste visible après l’importation et dans le PDF UV. Le placement du QR est adapté à chaque composition. Le fichier reste sur cet appareil.</p><p class="df-next"><span>Pas encore de QR code ?</span><a href="qr-code.html">Le créer avec le générateur →</a></p>
+          <p class="file-help">Le QR code n'est pas généré ici. Importe ton QR déjà créé : l’encadré pointillé reste visible après l’importation et dans le PDF UV. Le placement du QR s’adapte à chaque composition. Le fichier reste sur cet appareil.</p><p class="df-next"><span>Pas encore de QR code ?</span><a href="qr-code.html">Le créer avec le générateur →</a></p>
         </div>
       </section>
     </div>
     <aside class="preview-panel" aria-label="Aperçu et impression">
       <div class="preview-top"><div><div class="preview-title">Aperçu en temps réel</div><div class="preview-sub">Recto de la carte sur plexiglas blanc</div></div><div class="status" id="status"><i></i><span>Prêt à exporter</span></div></div>
       <div class="stage"><div class="card-visual" id="cardPreview"></div><div class="size-readout"><span class="ruler"></span><span>85 × 45 mm · paysage</span><span class="ruler"></span></div></div>
-      <div class="preview-footer"><div class="selected-name" id="selectedLabel">Modèle 4 · Organique</div><p class="selected-details" id="selectedDetails">Bleu nuit · nom et coordonnées</p><div class="notice" id="exportNotice" role="status"></div>
+      <div class="preview-footer"><div class="selected-name" id="selectedLabel">Modèle 1 · Bandeau graphique</div><p class="selected-details" id="selectedDetails">Bleu nuit · nom et coordonnées</p><div class="notice" id="exportNotice" role="status"></div>
         <div class="production-export"><div class="production-heading"><span class="production-step">01</span><div><strong>Découpe laser</strong><small>Contour vectoriel seul · 85 × 45 mm · angles R 1,8 mm</small></div></div><div class="action-row"><button type="button" class="secondary-action" id="downloadCutSvg">Découpe · SVG</button></div></div>
         <div class="production-export"><div class="production-heading"><span class="production-step">02</span><div><strong>Gabarit de positionnement UV</strong><small>Page 89 × 49 mm · contour 85 × 45 mm centré · fond perdu 2 mm</small></div></div><button type="button" class="wide-production" id="downloadGuidePdf">Gabarit UV · PDF</button></div>
         <div class="production-export prominent"><div class="production-heading"><span class="production-step">03</span><div><strong>Impression UV · PDF couleur</strong><small>Page 89 × 49 mm · carte utile 85 × 45 mm · fond perdu 2 mm · 600 dpi</small></div></div><button type="button" class="wide-production main-action" id="downloadUvPdf">Télécharger le PDF couleur UV</button></div>
@@ -69,12 +69,12 @@
 <script>
 'use strict';
 const MODELS=[
- {id:0,name:'Original · Minimaliste',detail:'Barres fines · contacts à droite'},
- {id:1,name:'Modèle 1 · Bandeau',detail:'Diagonales · contacts à droite'},
- {id:2,name:'Modèle 2 · QR code',detail:'QR obligatoire · contacts en bas'},
- {id:3,name:'Modèle 3 · Lignes',detail:'Ondulations · contacts en bas'},
- {id:4,name:'Modèle 4 · Organique',detail:'Courbes translucides · contacts à gauche'},
- {id:5,name:'Modèle 5 · Signature',detail:'Aplat contrasté · pastilles'}
+ {id:0,name:'Minimaliste',detail:'Composition épurée · coordonnées à droite'},
+ {id:1,name:'Bandeau graphique',detail:'Nom centré · QR à gauche · bandeau en bas'},
+ {id:2,name:'QR essentiel',detail:'QR obligatoire · coordonnées en bas'},
+ {id:3,name:'Typographie XXL',detail:'Fond vif · identité typographique forte'},
+ {id:4,name:'Modules arrondis',detail:'Encadrés noirs · panneau QR coloré'},
+ {id:5,name:'Botanique',detail:'Grand dessin floral au trait · typographie fine'}
 ];
 const COLORS=[
  {name:'Bleu nuit',dark:'#1E3A57',accent:'#318FE1',bright:'#A7D5FF',pale:'#EAF3FD',text:'#202B38'},
@@ -82,9 +82,36 @@ const COLORS=[
  {name:'Turquoise',dark:'#123C57',accent:'#17A8B8',bright:'#A3E2E9',pale:'#E7FAFB',text:'#173241'},
  {name:'Graphite',dark:'#2C3340',accent:'#448DEF',bright:'#ACD3F8',pale:'#EDF2F7',text:'#232932'}
 ];
+const MODEL_COLORS={
+ 1:[
+  {name:'Violet',dark:'#5B3B7D',accent:'#8F55BD',bright:'#BC92E2',pale:'#F8F3FC',text:'#152C3B'},
+  {name:'Bleu',dark:'#194899',accent:'#245FBB',bright:'#8DB6F9',pale:'#EDF4FF',text:'#152C3B'},
+  {name:'Turquoise',dark:'#0B858D',accent:'#05A4AB',bright:'#77D7D9',pale:'#E6F9F9',text:'#152C3B'},
+  {name:'Fuchsia',dark:'#A01B74',accent:'#D51E96',bright:'#E984C6',pale:'#FFF0FA',text:'#152C3B'}
+ ],
+ 3:[
+  {name:'Citron flash',dark:'#191B1B',accent:'#D5FF00',bright:'#F0FF70',pale:'#EAFEA0',text:'#101115'},
+  {name:'Cyan électrique',dark:'#191B1B',accent:'#08DDE5',bright:'#9DFAFB',pale:'#D2FFFF',text:'#101115'},
+  {name:'Rose pop',dark:'#191B1B',accent:'#F727B2',bright:'#FFA1DC',pale:'#FFE2F4',text:'#101115'},
+  {name:'Orange intense',dark:'#191B1B',accent:'#FF8D0B',bright:'#FFD27B',pale:'#FFF0CE',text:'#101115'}
+ ],
+ 4:[
+  {name:'Citron flash',dark:'#151515',accent:'#DBFF04',bright:'#F3FF9F',pale:'#F7FFD1',text:'#141414'},
+  {name:'Cyan',dark:'#151515',accent:'#12DCE6',bright:'#A2FAFA',pale:'#D9FBFE',text:'#141414'},
+  {name:'Magenta',dark:'#151515',accent:'#F92CB3',bright:'#FFADE0',pale:'#FFE0F4',text:'#141414'},
+  {name:'Orange',dark:'#151515',accent:'#FF9209',bright:'#FFCC86',pale:'#FFF1D8',text:'#141414'}
+ ],
+ 5:[
+  {name:'Ardoise',dark:'#455664',accent:'#FFFFFF',bright:'#DCE6E9',pale:'#E6ECEF',text:'#FFFFFF',floralInk:'#FFFFFF',bg:'#455664'},
+  {name:'Sauge',dark:'#7A8C78',accent:'#FDFDF5',bright:'#D9E6D7',pale:'#F4F7ED',text:'#FFFFFF',floralInk:'#FFFFFF',bg:'#7A8C78'},
+  {name:'Vieux rose',dark:'#AE8C91',accent:'#FFFAF7',bright:'#F5DADF',pale:'#FFF4F4',text:'#FFFFFF',floralInk:'#FFFCF6',bg:'#AE8C91'},
+  {name:'Ivoire',dark:'#F9F6F0',accent:'#364651',bright:'#C7B9AF',pale:'#FFFFFF',text:'#263742',floralInk:'#364651',bg:'#FAF8F4'}
+ ]
+};
+function palettesFor(model=state.model){return MODEL_COLORS[model]||COLORS;}
 const CARD_W_MM=85, CARD_H_MM=45, CORNER_R_MM=1.8;
 const DEFAULT={firstName:'Camille',lastName:'Dupont',phone:'0470 00 00 00',email:'camille@exemple.be',website:'www.exemple.be',location:'Liège, Belgique'};
-let state={model:4,color:0,showQR:false,qrData:'',qrName:'',...DEFAULT};
+let state={model:1,color:0,showQR:false,qrData:'',qrName:'',...DEFAULT};
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
 const simplify=s=>String(s??'').trim().replace(/\s+/g,' ');
@@ -103,6 +130,13 @@ function fitText(x,y,value,maxWidth,size,color,weight=700,opts={}){
   const adjustment=w>maxWidth?` textLength="${maxWidth}" lengthAdjust="spacingAndGlyphs"`:'';
   return text(x,y,words,current,color,weight,`${adjustment} ${opts.letterSpacing?`letter-spacing="${opts.letterSpacing}"`:''}`);
 }
+function fitCenteredText(cx,y,value,maxWidth,size,color,weight=700,letterSpacing=0){
+ let label=simplify(value), current=size;
+ context.font=`${weight} ${current}px Poppins,Arial,sans-serif`;
+ while(current>20&&context.measureText(label).width>maxWidth){current--;context.font=`${weight} ${current}px Poppins,Arial,sans-serif`;}
+ const scaled=context.measureText(label).width>maxWidth?`textLength="${maxWidth}" lengthAdjust="spacingAndGlyphs"`:'';
+ return text(cx,y,label,current,color,weight,`text-anchor="middle" ${scaled} ${letterSpacing?`letter-spacing="${letterSpacing}"`:''}`);
+}
 function line(x1,y1,x2,y2,color,width=2,opacity=1){return `<path d="M${x1} ${y1}H${x2}" stroke="${color}" stroke-width="${width}" opacity="${opacity}"/>`.replace(`M${x1} ${y1}H${x2}`,`M${x1} ${y1}L${x2} ${y2}`);}
 function icon(type,x,y,color,sz=28){const a={phone:'<path d="M4 3 9 9 7 13c4 7 9 12 16 15l4-5 5 5-4 5c-3 2-7 1-12-2C8 26 3 21 1 12 0 8 2 5 4 3Z"/>',email:'<rect x="2" y="6" width="28" height="19" rx="2"/><path d="m3 7 13 10L29 7"/>',website:'<circle cx="16" cy="16" r="14"/><path d="M2 16h28M16 2c-7 8-7 20 0 28M16 2c7 8 7 20 0 28"/>',location:'<path d="M16 30C8 21 5 17 5 12a11 11 0 0 1 22 0c0 5-3 9-11 18Z"/><circle cx="16" cy="12" r="4"/>'};return `<g transform="translate(${x} ${y}) scale(${sz/32})" stroke="${color}" fill="none" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">${a[type]||''}</g>`;}
 function contactRow(x,y,type,value,c,options={}){if(!simplify(value))return '';
@@ -114,10 +148,17 @@ function contactRow(x,y,type,value,c,options={}){if(!simplify(value))return '';
   return `${deco}${icon(type,x+3,y-27,isPastille?c.dark:c.text,28)}${text(x+48,y,label,size,c.text,500)}`;
 }
 function contactsVertical(x,start,step,c,opts={}){let out='';const fields=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]].filter(([,v])=>simplify(v));fields.forEach(([type,val],i)=>{out+=contactRow(x,start+i*step,type,val,c,opts);});return out;}
-function contactsHorizontal(c,y,qrOn=false){let items=[['phone',state.phone],['email',state.email],['website',state.website]].filter(([,v])=>simplify(v));
- let xs=qrOn?[65,285,515]:[70,345,610];let widths=qrOn?[180,208,230]:[230,240,245];
- let out='';items.forEach(([type,val],i)=>{const x=xs[i]||70;const w=widths[i]||220;out+=contactRow(x,y,type,val,c,{size:23,max:w-42});});
- if(items.length===0&&simplify(state.location))out+=contactRow(70,y,'location',state.location,c,{size:23});return out;
+function contactsHorizontal(c,y,qrOn=false){
+ // Keep the approved three-zone layout when website exists.
+ // Without a website, the location takes the freed zone. Fewer entries spread out evenly.
+ let items=[['phone',state.phone],['email',state.email],['website',state.website]].filter(([,v])=>simplify(v));
+ if(!simplify(state.website)&&simplify(state.location))items.push(['location',state.location]);
+ let xs=[],widths=[];
+ if(items.length>=3){xs=qrOn?[65,285,515]:[70,345,610];widths=qrOn?[180,208,230]:[230,240,245];}
+ else if(items.length===2){xs=[115,460];widths=[300,300];}
+ else if(items.length===1){xs=[320];widths=[330];}
+ let out='';items.forEach(([type,val],i)=>{out+=contactRow(xs[i],y,type,val,c,{size:22,max:widths[i]-42});});
+ return out;
 }
 function waveContacts(c,y){
   // Approved reference: three evenly aligned items with two vertical separators.
@@ -144,104 +185,189 @@ function qrAt(x,y,size,c,preview=true){if(!qrActive())return '';
    `<image x="${x+inner}" y="${y+inner}" width="${size-inner*2}" height="${size-inner*2}" preserveAspectRatio="xMidYMid meet" href="${esc(state.qrData)}"/>`+
    `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="none" stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"/>`;
 }
+// Original, procedurally drawn botanical line art: scalable vector paths, no external image.
+function bloomShape(stroke){
+ let s=`<g fill="none" stroke="${stroke}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">`;
+ const petals=[
+  'M0 0 C-32 -42 -88 -65 -88 -148 C-25 -119 5 -73 0 0Z',
+  'M0 0 C10 -63 0 -139 68 -179 C84 -106 65 -51 0 0Z',
+  'M0 0 C48 -48 94 -119 168 -96 C131 -35 72 -4 0 0Z',
+  'M0 0 C75 -12 144 20 159 84 C83 99 36 51 0 0Z',
+  'M0 0 C42 40 61 110 16 164 C-40 111 -34 45 0 0Z',
+  'M0 0 C-47 52 -105 85 -166 51 C-123 -21 -58 -33 0 0Z',
+  'M0 0 C-65 -8 -158 -25 -166 -92 C-88 -101 -37 -55 0 0Z'
+ ];
+ const pts=[[0,-137],[49,-158],[148,-82],[139,72],[15,142],[-147,44],[-144,-80]];
+ petals.forEach((d,i)=>{
+  s+=`<path d="${d}"/>`;
+  const [tx,ty]=pts[i];const norm=Math.hypot(tx,ty);const nx=-ty/norm,ny=tx/norm;
+  s+=`<path d="M0 0 Q${Math.round(tx*.25-8)} ${Math.round(ty*.55)} ${tx} ${ty}" stroke-width="1.45" opacity=".92"/>`;
+  // Fine curved secondary veins on either side of the main rib.
+  for(let j=1;j<=4;j++){
+    const t=.14+j*.12;
+    for(const side of [-1,1]){
+      const ax=tx*t*.7,ay=ty*t*.7;
+      const bx=tx*(t+.18)+nx*side*18,by=ty*(t+.18)+ny*side*18;
+      const cx=tx*(t+.10)+nx*side*7,cy=ty*(t+.10)+ny*side*7;
+      s+=`<path d="M${ax.toFixed(1)} ${ay.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${bx.toFixed(1)} ${by.toFixed(1)}" stroke-width=".92" opacity=".76"/>`;
+    }
+  }
+ });
+ for(let i=0;i<31;i++){
+  let a=i*2.399963229728653,r=6+Math.sqrt(i)*3.2;
+  const x=(Math.cos(a)*r).toFixed(1),y=(Math.sin(a)*r).toFixed(1);
+  s+=`<circle cx="${x}" cy="${y}" r="1.8" stroke-width="1"/>`;
+ }
+ s+=`<path d="M-24 18 C-87 68 -102 131 -151 202 M-109 127 C-149 105 -174 104 -205 127 Q-176 163 -109 127Z M-130 160 C-96 176 -76 190 -76 228 Q-124 229 -130 160Z" stroke-width="2.0"/>`;
+ return s+'</g>';
+}
+function floralArt(c){
+ const ink=c.floralInk||'#FFFFFF',stroke=(c.bg==='#FAF8F4'?2.1:1.9);
+ let main=bloomShape(ink);
+ return `<g opacity=".94" stroke-width="${stroke}" transform="translate(676 266) rotate(-13) scale(1.14)">${main}</g>`+
+ `<g opacity=".58" transform="translate(775 -12) rotate(32) scale(.62)">${bloomShape(ink)}</g>`+
+ `<g opacity=".58" transform="translate(989 473) rotate(-96) scale(.58)">${bloomShape(ink)}</g>`;
+}
 function decorations(i,c){switch(i){
-case 0:return `<path d="M72 108V392" stroke="${c.dark}" stroke-width="6"/><path d="M460 100V397" stroke="${c.dark}" stroke-width="2.4"/>`;
-case 1:return `<path d="M0 0H204L28 500H0Z" fill="${c.dark}"/><path d="M161 0H231L53 500H0Z" fill="${c.accent}"/><path d="M118 278 205 500H52Z" fill="${c.bright}"/><path d="M610 100V403" stroke="${c.dark}" stroke-width="2.4"/>`;
-case 2:return `<path d="M75 312H561" stroke="${c.text}" stroke-width="2"/><rect x="75" y="338" width="90" height="6" rx="3" fill="${c.accent}"/><path d="M615 98V349" stroke="${c.dark}" stroke-width="2.4"/>`;
-case 3:{
-  // Fine, nonintersecting, parallel curves based on the approved line-art.
-  let waves='';
-  for(let n=0;n<10;n++){
-    const dy=n*19;
-    waves+=`<path d="M220 ${-195+dy} C340 ${-125+dy},470 ${-72+dy},605 ${35+dy} C680 ${100+dy},720 ${160+dy},778 ${160+dy} C835 ${150+dy},883 ${95+dy},936 ${52+dy}" fill="none" stroke="${n<2?c.bright:n>7?c.dark:c.accent}" stroke-width="2.0" opacity="${(n<2?.65:.84).toFixed(2)}"/>`;
-  }
-  return waves+`<path d="M67 292H161" stroke="${c.text}" stroke-width="5.2" stroke-linecap="round"/>`;
-}
-case 4:{
-  // Organic ribbon illustration: layered translucent, gently curved shapes.
-  // All graphic elements stay as native SVG vectors, suitable for print artwork.
-  return `<defs>
-    <linearGradient id="orgSky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c.pale}" stop-opacity="0.10"/><stop offset=".53" stop-color="${c.bright}" stop-opacity="0.54"/><stop offset="1" stop-color="${c.accent}" stop-opacity="0.31"/></linearGradient>
-    <linearGradient id="orgRiver" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="${c.bright}" stop-opacity="0.07"/><stop offset=".45" stop-color="${c.accent}" stop-opacity="0.25"/><stop offset=".86" stop-color="${c.bright}" stop-opacity="0.41"/><stop offset="1" stop-color="${c.pale}" stop-opacity="0.28"/></linearGradient>
-    <linearGradient id="orgRibbon" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c.pale}" stop-opacity="0.15"/><stop offset=".48" stop-color="${c.bright}" stop-opacity="0.59"/><stop offset="1" stop-color="${c.accent}" stop-opacity="0.31"/></linearGradient>
-    <linearGradient id="orgTranslucent" x1="0" y1=".15" x2="1" y2="1"><stop offset="0" stop-color="${c.pale}" stop-opacity="0.05"/><stop offset=".52" stop-color="${c.bright}" stop-opacity="0.33"/><stop offset="1" stop-color="${c.accent}" stop-opacity="0.14"/></linearGradient>
-  </defs>
-  <g>
-    <!-- Top-right: nearly white large round veil -->
-    <path d="M680 -105C634 -34 622 40 665 104C717 183 801 159 932 112L932 -105Z" fill="url(#orgTranslucent)"/>
-    <!-- Tall outer ribbon from the top edge, turning toward the lower edge -->
-    <path d="M870 -60C754 29 717 119 729 209C752 296 795 345 918 361L929 -60Z" fill="url(#orgSky)"/>
-    <!-- Faint leaf in upper-right crossing the vertical ribbon -->
-    <path d="M923 98C828 105 784 173 772 248C759 323 717 375 631 417C702 369 731 305 740 243C754 154 825 95 923 98Z" fill="${c.bright}" opacity=".19"/>
-    <!-- Broad organic translucent river sweeping in from the bottom centre -->
-    <path d="M345 514C396 444 474 394 577 380C670 369 711 347 740 287C770 219 811 188 858 182C898 178 919 184 940 198L940 514Z" fill="url(#orgRiver)"/>
-    <!-- Bottom sloped translucent blue arc -->
-    <path d="M455 518C499 457 540 419 622 407C742 388 773 283 797 226C815 180 862 141 932 126L932 518Z" fill="url(#orgRibbon)"/>
-    <!-- Bottom-right softly overlapping lower band -->
-    <path d="M552 513C600 454 666 420 739 419C826 420 862 359 920 308L930 513Z" fill="${c.bright}" opacity=".16"/>
-    <path d="M766 512C829 467 870 430 925 414L931 512Z" fill="${c.accent}" opacity=".055"/>
-  </g>`;
-}
-
-case 5:return `<path d="M0 0H343C411 0 443 61 443 136V363C443 439 411 500 343 500H0Z" fill="${c.dark}"/><path d="M343 0C401 0 443 57 443 136V363C443 438 401 500 343 500H375C451 499 470 439 470 363V137C470 58 440 0 375 0Z" fill="${c.accent}" opacity=".11"/>`;
+ case 0:return `<path d="M72 108V392" stroke="${c.dark}" stroke-width="6"/><path d="M460 100V397" stroke="${c.dark}" stroke-width="2.4"/>`;
+ case 1:return `<path d="M0 399L900 388V500H0Z" fill="${c.accent}"/><path d="M760 392L900 388V500H719Z" fill="${c.dark}" opacity=".56"/>`;
+ case 2:return `<path d="M75 312H561" stroke="${c.text}" stroke-width="2"/><rect x="75" y="338" width="90" height="6" rx="3" fill="${c.accent}"/><path d="M615 98V349" stroke="${c.dark}" stroke-width="2.4"/>`;
+ case 3:return `<rect width="900" height="500" fill="${c.accent}"/>`;
+ case 4:return '';
+ case 5:return `<rect width="900" height="500" fill="${c.bg}"/>${floralArt(c)}`;
 }}
+// Individual rows and pills for the new cards.
+function inlineContacts(x,y,step,max,c,items,opts={}){
+ let out='';const active=items.filter(([k,v])=>simplify(v));
+ active.forEach(([k,v],i)=>out+=contactRow(x,y+i*step,k,v,c,{size:opts.size||22,max}));
+ return out;
+}
+function rightAlignedLines(x,y,c,fields,maxWidth=390,step=43){
+ let out='';fields.filter(([k,v])=>simplify(v)).forEach(([k,v],i)=>{
+  const yy=y+i*step;
+  out+=contactRow(x,yy,k,v,c,{size:21,max:maxWidth});
+ });return out;
+}
+function roundedPanel(x,y,w,h,fill='#fff',stroke='#141414',sw=2.8,rad=35){return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rad}" ry="${rad}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;}
+function centerLabel(x,y,val,limit,font,c){return fitText(x-limit/2,y,val,limit,font,c,500,{letterSpacing:0});}
+function moduleContacts(c){
+ const source=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]].filter(([,v])=>simplify(v));
+ let out='';if(!source.length)return out;
+ const n=source.length,x0=41,x1=858,inner=(x1-x0)/n;
+ source.forEach(([k,v],i)=>{
+  const mid=x0+inner*(i+.5);
+  if(i>0)out+=`<path d="M${(x0+inner*i).toFixed(1)} 362V459" stroke="#1B1B1B" stroke-width="2"/>`;
+  out+=icon(k,mid-14,348,'#151515',28);
+  const maxW=inner-24;let font=21;
+  context.font=`500 ${font}px Poppins,Arial,sans-serif`;
+  while(font>15&&context.measureText(simplify(v)).width>maxW){font--;context.font=`500 ${font}px Poppins,Arial,sans-serif`;}
+  // Split a long e-mail / URL across two centered lines for readability.
+  const str=simplify(v);
+  const mW=context.measureText(str).width;
+  if(mW>maxW&&/[.@]/.test(str)){
+    let pieces=str.includes('@')?str.replace('@','@|').split('|'):str.replace(/\.(?=[^.]*$)/,'.|').split('|');
+    if(pieces.length<2)pieces=[str];
+    if(pieces.length>1){out+=text(mid,416,pieces[0],17,'#151515',500,'text-anchor="middle"');out+=text(mid,437,pieces.slice(1).join(''),17,'#151515',500,'text-anchor="middle"');}
+    else out+=text(mid,425,str,font,'#151515',500,`text-anchor="middle" textLength="${maxW}" lengthAdjust="spacingAndGlyphs"`);
+  }else out+=text(mid,425,str,font,'#151515',500,`text-anchor="middle"${mW>maxW?` textLength="${maxW}" lengthAdjust="spacingAndGlyphs"`:''}`);
+ });return out;
+}
 function contentElements(i,c,preview=true){
-  const name=title().toLocaleUpperCase('fr-BE');
-  let a='';const qr=qrActive();
-  switch(i){
-  case 0: { // Minimaliste — keep the dividing rule and reserve a quiet lower-right QR area.
-    a+=fitText(112,235,name,328,46,c.text,700);
-    if(!qr){a+=contactsVertical(497,151,68,c,{size:22,max:316});}
-    else {
-      const fields=[['phone',state.phone],['email',state.email],['website',state.website]];
-      fields.forEach(([kind,val],idx)=>{a+=contactRow(496,145+idx*65,kind,val,c,{size:21,max:305});});
-      if(simplify(state.location))a+=contactRow(112,363,'location',state.location,c,{size:20,max:300});
-      a+=qrAt(683,300,144,c,preview);
-    }
-    break;
-  }
-  case 1: { // Bandeau — QR anchored under name inside the middle panel.
-    a+=fitText(259,238,name,331,43,c.text,700);
-    a+=contactsVertical(639,146,67,c,{size:21,max:208});
-    if(qr){
-      a+=`<path d="M261 277H355" stroke="${c.accent}" stroke-width="6" stroke-linecap="round"/>`;
-      a+=qrAt(421,301,151,c,preview);
-    }
-    break;
-  }
-  case 2: { // Mandatory QR model — unchanged approved positioning.
-    a+=fitText(72,238,name,510,55,c.text,750);
-    a+=qrAt(676,103,186,c,preview);
-    a+=contactsHorizontal(c,437,true);
-    break;
-  }
-  case 3: { // Lignes modernes — two rows of small contact details, QR on right, no overflow.
-    a+=fitText(56,223,name,540,53,c.text,700);
-    if(qr){
-      a+=contactRow(60,350,'website',state.website,c,{size:21,max:210});
-      a+=contactRow(332,350,'location',state.location,c,{size:21,max:240});
-      a+=contactRow(60,435,'phone',state.phone,c,{size:21,max:202});
-      a+=line(295,400,295,445,c.text,2);
-      a+=contactRow(326,435,'email',state.email,c,{size:21,max:303});
-      a+=qrAt(704,316,145,c,preview);
-    }else{a+=waveContacts(c,427);}
-    break;
-  }
-  case 4: { // Organique — framed QR in open top-right area, don't cover the lower ribbons.
-    a+=fitText(51,152,name,568,59,c.text,750);
-    a+=`<path d="M56 188H166" stroke="${c.accent}" stroke-width="7" stroke-linecap="round"/>`;
-    a+=contactsVertical(55,268,55,c,{size:25,max:505});
-    if(qr)a+=qrAt(695,78,163,c,preview);
-    break;
-  }
-  case 5: { // Signature — QR centered on dark identity panel, contacts remain untouched.
-    a+=fitText(62,qr?214:239,name,346,45,'#fff',730);
-    a+=contactsVertical(519,142,83,c,{size:22,max:315,pastille:true});
-    if(qr)a+=qrAt(153,281,153,c,preview);
-    break;
-  }
-  }
-  return a;
+ const name=title().toLocaleUpperCase('fr-BE');let a='';const qr=qrActive();
+ switch(i){
+ case 0:{ // Original Minimaliste — unchanged.
+   a+=fitText(112,235,name,328,46,c.text,700);
+   if(!qr){a+=contactsVertical(497,151,68,c,{size:22,max:316});}
+   else{
+    const fields=[['phone',state.phone],['email',state.email],['website',state.website]];
+    fields.forEach(([kind,val],idx)=>{a+=contactRow(496,145+idx*65,kind,val,c,{size:21,max:305});});
+    if(simplify(state.location))a+=contactRow(112,363,'location',state.location,c,{size:20,max:300});
+    a+=qrAt(683,300,144,c,preview);
+   }break;
+ }
+ case 1:{ // Strip design: centered name, QR left, details right, bottom bar.
+   const contactItems=[['phone',state.phone],['email',state.email],['location',state.location]];
+   a+=fitCenteredText(450,108,name,690,59,c.text,750,1.2);
+   if(qr){
+    a+=roundedPanel(86,159,211,213,'#fff','none',0,12);
+    a+=`<rect x="89" y="147" width="158" height="38" rx="19" fill="${c.accent}"/>`;
+    a+=text(168,172,'Scanne-moi',20,'#FFFFFF',600,'text-anchor="middle"');
+    // Lightweight corner markers in the chosen palette, preserving imported QR readability.
+    a+=`<path d="M83 205v-15q0-11 12-11h16 M275 179h19q12 0 12 12v18 M84 340v15q0 12 12 12h16 M277 367h18q12 0 12-12v-16" stroke="${c.accent}" fill="none" stroke-width="3" stroke-linecap="round"/>`;
+    a+=qrAt(116,208,165,c,preview);
+    a+=line(351,182,351,351,'#627184',1.8,.6);
+    a+=rightAlignedLines(390,205,c,contactItems,385,50);
+   }else{
+    // QR off: two-column details, no empty QR reserve.
+    const vals=contactItems.filter(([k,v])=>simplify(v));
+    a+=`<path d="M93 155H806" stroke="${c.accent}" stroke-width="3" opacity=".42"/>`;
+    vals.forEach(([k,v],i)=>{
+      const col=i%2,row=Math.floor(i/2);
+      a+=contactRow(105+col*385,246+row*92,k,v,c,{size:24,max:300});
+    });
+   }
+   if(simplify(state.website)){
+    a+=fitCenteredText(450,464,simplify(state.website),650,23,'#FFFFFF',500,2.0);
+   }
+   break;
+ }
+ case 2:{ // Approved QR essentiel — unchanged, QR mandatory.
+   a+=fitText(72,238,name,510,55,c.text,750);
+   a+=qrAt(676,103,186,c,preview);
+   a+=contactsHorizontal(c,437,true);
+   break;
+ }
+ case 3:{ // Pop color, strong typography on solid colored background.
+   const fields=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]];
+   a+=fitText(58,154,simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),475,80,'#111116',800);
+   a+=fitText(58,237,simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE'),475,80,'#111116',800);
+   const active=fields.filter(([,v])=>simplify(v));
+   active.forEach(([kind,val],i)=>{
+    a+=contactRow(65,295+i*49,kind,val,c,{size:24,max:450});
+   });
+   a+=line(586,144,586,434,'#151515',2.6);
+   if(qr){
+    a+=text(744,174,'SCANNE-MOI',22,'#121212',700,'text-anchor="middle"');
+    a+=`<rect x="625" y="194" width="238" height="238" rx="16" fill="#FFFFFF"/>`;
+    a+=qrAt(650,221,185,c,preview);
+   }
+   break;
+ }
+ case 4:{ // Modular rounded cards: name panel, solid QR panel, contacts in a bottom row.
+   const qrPanel=qr;
+   a+=roundedPanel(30,26,qrPanel?550:838,295,'#FFFFFF','#161616',3.2,34);
+   if(qrPanel){
+     a+=roundedPanel(594,26,273,295,c.accent,'#121212',3.2,34);
+     a+=qrAt(635,76,188,c,preview);
+   }
+   a+=fitText(78,174,simplify(state.firstName||'Prénom').toUpperCase(),qrPanel?453:720,66,'#101115',800);
+   a+=fitText(78,243,simplify(state.lastName||'Nom').toUpperCase(),qrPanel?453:720,66,'#101115',800);
+   a+=`<circle cx="${qrPanel?531:808}" cy="68" r="4" fill="#111"/><circle cx="${qrPanel?548:826}" cy="68" r="4" fill="#111"/><circle cx="${qrPanel?565:843}" cy="68" r="4" fill="#111"/>`;
+   a+=roundedPanel(30,336,837,141,'#FFFFFF','#141414',3.2,32);
+   a+=moduleContacts(c);
+   break;
+ }
+ case 5:{ // Elegant floral single sided design.
+   const ink=c.text,floralLight=(c.text==='#FFFFFF');
+   // Text remains on the left; botanical motif is set apart on the right.
+   a+=fitText(96,255,simplify(state.firstName||'Prénom').toUpperCase(),400,41,ink,400,{letterSpacing:5});
+   a+=fitText(96,305,simplify(state.lastName||'Nom').toUpperCase(),400,43,ink,400,{letterSpacing:5});
+   const active=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]].filter(([,v])=>simplify(v));
+   active.forEach(([kind,val],i)=>{
+     // Hairline botanical typography; keep line-length inside the left white space.
+     const y=367+i*34;
+     if(y>480)return;
+     a+=fitText(96,y,simplify(val),410,21,ink,400);
+   });
+   if(qr){
+    a+=`<rect x="681" y="278" width="191" height="191" rx="14" fill="#FFFFFF" stroke="${c.floralInk}" stroke-width="2"/>`;
+    // QR remains on a clean white quiet-zone block for scanning, even on dark floral cards.
+    a+=qrAt(694,291,164,c,preview);
+   }
+   break;
+ }
+ }
+ return a;
 }
 function cardElements(i,c,preview=true){return decorations(i,c)+contentElements(i,c,preview);}
 // The original layout was authored at 900 x 500 units. It is now fitted to
@@ -253,17 +379,17 @@ const DECO_SCALE_X=CARD_W_UNITS/DESIGN_W, DECO_SCALE_Y=CARD_H_UNITS/DESIGN_H;
 const CONTENT_SCALE=CARD_H_UNITS/DESIGN_H;
 const CONTENT_OFFSET_X=(CARD_W_UNITS-DESIGN_W*CONTENT_SCALE)/2;
 function buildSVG(model=state.model,color=state.color,preview=true,clipRounded=true){
- const c=COLORS[color], decoration=decorations(model,c), personal=contentElements(model,c,preview);
+ const c=palettesFor(model)[color], decoration=decorations(model,c), personal=contentElements(model,c,preview);
  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_UNITS} ${CARD_H_UNITS}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte de visite, ${esc(MODELS[model].name)}"><defs><clipPath id="cutCard"><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" rx="${CORNER_R_MM*10}" ry="${CORNER_R_MM*10}"/></clipPath></defs><g ${clipRounded?'clip-path="url(#cutCard)"':''}><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" fill="#fff"/><g transform="scale(${DECO_SCALE_X} ${DECO_SCALE_Y})">${decoration}</g><g transform="translate(${CONTENT_OFFSET_X} 0) scale(${CONTENT_SCALE})">${personal}</g></g></svg>`;
 }
-function drawChoices(){const c=COLORS[state.color];$('modelChoices').innerHTML=MODELS.map(m=>{const was=state.model;state.model=m.id;let svg=buildSVG(m.id,state.color,true);state.model=was;return `<button type="button" class="model ${m.id===state.model?'active':''}" data-model="${m.id}" aria-pressed="${m.id===state.model}"><div class="model-art">${svg}</div><div class="model-footer"><span class="model-name">${esc(m.name)}</span><span class="model-check">✓</span></div></button>`;}).join('');$('modelChoices').querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{state.model=Number(button.dataset.model);render();}));
-$('colorChoices').innerHTML=COLORS.map((c,i)=>`<button type="button" class="palette ${i===state.color?'active':''}" data-color="${i}" aria-pressed="${i===state.color}"><div class="palette-swatches"><span style="background:${c.dark}"></span><span style="background:${c.accent}"></span><span style="background:${c.bright}"></span></div><span class="name">${esc(c.name)}</span></button>`).join('');$('colorChoices').querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{state.color=Number(button.dataset.color);render();}));}
+function drawChoices(){const c=palettesFor(state.model)[state.color];$('modelChoices').innerHTML=MODELS.map(m=>{const was=state.model;state.model=m.id;let svg=buildSVG(m.id,state.color,true);state.model=was;return `<button type="button" class="model ${m.id===state.model?'active':''}" data-model="${m.id}" aria-pressed="${m.id===state.model}"><div class="model-art">${svg}</div><div class="model-footer"><span class="model-name">${esc(m.name)}</span><span class="model-check">✓</span></div></button>`;}).join('');$('modelChoices').querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{state.model=Number(button.dataset.model);render();}));
+$('colorChoices').innerHTML=palettesFor(state.model).map((c,i)=>`<button type="button" class="palette ${i===state.color?'active':''}" data-color="${i}" aria-pressed="${i===state.color}"><div class="palette-swatches"><span style="background:${c.dark}"></span><span style="background:${c.accent}"></span><span style="background:${c.bright}"></span></div><span class="name">${esc(c.name)}</span></button>`).join('');$('colorChoices').querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{state.color=Number(button.dataset.color);render();}));}
 function render(){drawChoices();$('cardPreview').innerHTML=buildSVG();const required=state.model===2;
  $('qrRequired').textContent=required?'Obligatoire':'Facultatif';$('qrRequired').className=required?'required':'optional';$('qrHelp').textContent=required?'QR code requis pour ce modèle':'Afficher le QR code sur la carte';
  $('qrToggle').classList.toggle('on',qrActive());$('qrToggle').setAttribute('aria-checked',String(qrActive()));$('qrToggle').disabled=required;
  $('qrFileName').textContent=state.qrName||'PNG, JPG, WebP ou SVG';$('qrThumbnail').innerHTML=hasImage()?`<img alt="Aperçu du QR importé" src="${esc(state.qrData)}">`:'▦';$('removeQr').hidden=!hasImage();
  const miss=missingQR();$('status').classList.toggle('error',miss);$('status').querySelector('span').textContent=miss?'QR à importer':'Prêt à exporter';
- $('selectedLabel').textContent=MODELS[state.model].name;$('selectedDetails').textContent=`${COLORS[state.color].name} · ${MODELS[state.model].detail}`;
+ $('selectedLabel').textContent=MODELS[state.model].name;$('selectedDetails').textContent=`${palettesFor(state.model)[state.color].name} · ${MODELS[state.model].detail}`;
  $('exportNotice').classList.toggle('visible',miss);$('exportNotice').textContent=miss?'Un QR code personnel doit être importé avant l’exportation. Le modèle 2 l’impose ; sur les autres modèles, désactive simplement l’option pour exporter sans QR.':'';
  ['downloadPng','downloadSvg','printButton','downloadUvPdf'].forEach(id=>$(id).disabled=miss);
 }

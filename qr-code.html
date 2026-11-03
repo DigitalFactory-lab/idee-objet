@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Générateur QR · De l’idée à l’objet · Digital Factory</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/outils.css">
+<!-- qrcode-generator 1.4.4 (MIT, Kazuhiko Arase), intégré localement pour fonctionner hors ligne -->
+<script src="assets/vendor/qrcode.js"></script>
+<script src="assets/vendor/qrcode_UTF8.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark-blue: #2f3a48;
+    --blue: #5b60a8;
+    --purple: #8c4292;
+    --bg: #faf9fc;
+    --surface: #ffffff;
+    --border: #dcdce7;
+    --text: #2f3a48;
+    --muted: #636763;
+    --error: #c62828;
+    --radius: 6px;
+    --shadow: none;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Bandeau d'en-tête : seul dégradé autorisé par la charte */
+  header {
+    background: linear-gradient(90deg, var(--dark-blue) 0%, var(--blue) 60%, var(--purple) 100%);
+    color: #fff;
+    padding: 1.5rem 1rem;
+  }
+
+  .header-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .header-text h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.25; }
+  .header-text p { font-size: 0.9rem; opacity: 0.9; }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tab {
+    min-height: 56px;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--dark-blue);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .tab:hover { border-color: var(--blue); }
+  .tab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .tab:focus-visible, .btn:focus-visible, .download-btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.75rem;
+  }
+
+  .panel-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .field { margin-bottom: 1rem; }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    margin-bottom: 0.3rem;
+  }
+
+  input {
+    width: 100%;
+    min-height: 48px;
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(91, 96, 168, 0.2); }
+  input::placeholder { color: #9ca3af; }
+
+  .btn {
+    width: 100%;
+    min-height: 56px;
+    margin-top: 0.75rem;
+    padding: 0.85rem;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--blue);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  .btn:hover { background: #4d5296; }
+  .btn:active { transform: scale(0.98); }
+
+  .error {
+    display: none;
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    border-left: 4px solid var(--error);
+    background: #fdecea;
+    color: var(--error);
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  .form-section { display: none; }
+  .form-section.active { display: block; }
+
+  .qr-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 360px;
+  }
+
+  .qr-panel .panel-title { align-self: stretch; margin-bottom: 0.25rem; }
+
+  .qr-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .qr-placeholder svg { color: var(--blue); opacity: 0.35; }
+
+  /* Damier léger : montre que le PNG est transparent */
+  #qrcode {
+    display: none;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: #fff;
+    background-image:
+      linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%),
+      linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+  }
+  #qrcode canvas { display: block; }
+
+  .qr-note { display: none; font-size: 0.8rem; color: var(--muted); text-align: center; }
+
+  .download-btn {
+    display: none;
+    width: 100%;
+    max-width: 280px;
+    min-height: 52px;
+    background: var(--dark-blue);
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .download-btn:hover { background: #3d4a5c; }
+
+  .data-preview {
+    display: none;
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 140px;
+    overflow-y: auto;
+  }
+
+  footer {
+    background: var(--dark-blue);
+    color: #fff;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+
+  @media (max-width: 700px) {
+    .container { grid-template-columns: 1fr; }
+    .header-text h1 { font-size: 1.25rem; }
+  }
+
+  /* Harmonisation avec le site de l’atelier */
+  .df-hero{max-width:920px;margin:0 auto;padding:2rem 1rem 0}.df-hero .eyebrow{font-size:12px;letter-spacing:.18em;font-weight:700;color:var(--purple);text-transform:uppercase}.df-hero h1{font-size:clamp(30px,4vw,52px);line-height:1.02;letter-spacing:-.055em;font-weight:800;color:var(--dark-blue);margin:.4rem 0 .5rem}.df-hero h1 span{color:var(--blue)}.df-hero p{color:var(--muted);font-size:15px}  .tab:focus-visible,.btn:focus-visible,.download-btn:focus-visible,input:focus-visible{outline:3px solid #11c6f4;outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="df-bar"><a class="df-brand" href="partie2.html#etape-6"><span class="mark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<small>PARTIE 2 · EXERCICE FINAL</small></span></a><nav class="df-nav" aria-label="Outils"><a href="studio-carte.html">Studio carte →</a><a class="dark" href="partie2.html#etape-6">← Retour à l’atelier</a></nav></header>
+<section class="df-hero"><div class="eyebrow">Générateur de QR code</div><h1>Ton QR code. <span>Prêt pour ta carte.</span></h1><p>Contact (vCard) ou lien web, en PNG à fond transparent. Importe-le ensuite dans le Studio carte.</p></section>
+
+<main>
+  <div class="tabs" role="tablist">
+    <button class="tab active" id="tab-vcard" role="tab" onclick="switchTab('vcard')">Contact (vCard)</button>
+    <button class="tab" id="tab-url" role="tab" onclick="switchTab('url')">Lien web (URL)</button>
+  </div>
+
+  <div class="container">
+    <div class="panel">
+      <h2 class="panel-title" id="formLabel">Infos de contact</h2>
+
+      <div class="form-section active" id="form-vcard">
+        <div class="field">
+          <label for="firstname">Prénom</label>
+          <input type="text" id="firstname" placeholder="Marie">
+        </div>
+        <div class="field">
+          <label for="lastname">Nom</label>
+          <input type="text" id="lastname" placeholder="Dupont">
+        </div>
+        <div class="field">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" placeholder="+32 470 00 00 00">
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="marie@exemple.be">
+        </div>
+        <div class="field">
+          <label for="address">Adresse</label>
+          <input type="text" id="address" placeholder="Rue de la Loi 1, 1000 Bruxelles">
+        </div>
+        <button class="btn" onclick="generate()">Générer le QR code</button>
+      </div>
+
+      <div class="form-section" id="form-url">
+        <div class="field">
+          <label for="url">Adresse du lien</label>
+          <input type="url" id="url" placeholder="https://exemple.be">
+        </div>
+        <div class="field">
+          <label for="urllabel">Nom du fichier (facultatif)</label>
+          <input type="text" id="urllabel" placeholder="Mon site">
+        </div>
+        <button class="btn" onclick="generate()">Générer le QR code</button>
+      </div>
+
+      <div class="error" id="errorMsg" role="alert"></div>
+      <pre class="data-preview" id="dataPreview"></pre>
+    </div>
+
+    <div class="panel qr-panel">
+      <h2 class="panel-title">QR code</h2>
+
+      <div class="qr-placeholder" id="placeholder">
+        <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="3" height="3"/>
+          <rect x="18" y="14" width="3" height="3"/>
+          <rect x="14" y="18" width="3" height="3"/>
+          <rect x="18" y="18" width="3" height="3"/>
+        </svg>
+        <span>Remplis le formulaire puis clique sur « Générer »</span>
+      </div>
+
+      <div id="qrcode"></div>
+      <p class="qr-note" id="qrNote">Fond transparent : à placer sur un fond clair pour rester scannable.</p>
+      <button class="download-btn" id="downloadBtn" onclick="download()">Télécharger en PNG</button>
+      <p class="df-next" id="nextStep" style="align-self:stretch;display:none"><span>QR téléchargé ?</span><a href="studio-carte.html">L’importer dans le Studio carte →</a></p>
+    </div>
+  </div>
+</main>
+
+<div class="df-logos" aria-label="Digital Factory et pouvoirs subsidiants"><img class="df" src="assets/logo-digital-factory.png" alt="Digital Factory by Le Forem" width="813" height="187"><img class="sub" src="assets/logo-pouvoirs-subsidiants.jpg" alt="En Mieux, Union européenne — cofinancé par l’Union européenne, et Wallonie" width="1413" height="424"></div>
+
+<script>
+  let currentTab = 'vcard';
+  const QR_COLOR = '#2f3a48'; // bleu foncé de la charte
+
+  function switchTab(tab) {
+    currentTab = tab;
+    ['vcard', 'url'].forEach(t => {
+      document.getElementById('tab-' + t).classList.toggle('active', t === tab);
+      document.getElementById('form-' + t).classList.toggle('active', t === tab);
+    });
+    document.getElementById('formLabel').textContent =
+      tab === 'vcard' ? 'Infos de contact' : 'Lien à encoder';
+    resetQR();
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+  }
+
+  function resetQR() {
+    document.getElementById('qrcode').innerHTML = '';
+    document.getElementById('qrcode').style.display = 'none';
+    document.getElementById('placeholder').style.display = 'flex';
+    document.getElementById('downloadBtn').style.display = 'none';
+    document.getElementById('qrNote').style.display = 'none';
+    document.getElementById('dataPreview').style.display = 'none';
+    document.getElementById('nextStep').style.display = 'none';
+    showError('');
+  }
+
+  function buildVCard() {
+    const fn = document.getElementById('firstname').value.trim();
+    const ln = document.getElementById('lastname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const address = document.getElementById('address').value.trim();
+    if (!fn && !ln && !phone && !email && !address) return null;
+    const name = [ln, fn].filter(Boolean).join(';');
+    const fullname = [fn, ln].filter(Boolean).join(' ');
+    let vcard = 'BEGIN:VCARD\nVERSION:3.0\n';
+    if (name) vcard += `N:${name};;;\n`;
+    if (fullname) vcard += `FN:${fullname}\n`;
+    if (phone) vcard += `TEL;TYPE=CELL:${phone}\n`;
+    if (email) vcard += `EMAIL:${email}\n`;
+    if (address) vcard += `ADR;TYPE=HOME:;;${address};;;;\n`;
+    vcard += 'END:VCARD';
+    return vcard;
+  }
+
+  function buildURL() {
+    let url = document.getElementById('url').value.trim();
+    if (!url) return null;
+    if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+    return url;
+  }
+
+  function generate() {
+    showError('');
+    let data = '', preview = '';
+    if (currentTab === 'vcard') {
+      data = buildVCard();
+      if (!data) { showError('Remplis au moins un champ du contact.'); return; }
+      preview = data;
+    } else {
+      data = buildURL();
+      if (!data) { showError('Entre une adresse web valide.'); return; }
+      const label = document.getElementById('urllabel').value.trim();
+      preview = label ? `${label}\n${data}` : data;
+    }
+
+    const qrDiv = document.getElementById('qrcode');
+    qrDiv.innerHTML = '';
+
+    try {
+      qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+      const qr = qrcode(0, 'M');
+      qr.addData(data);
+      qr.make();
+
+      const count = qr.getModuleCount();
+      const cell = 12;      // pixels par module : PNG haute résolution
+      const margin = 4;     // zone de silence (en modules)
+      const size = (count + margin * 2) * cell;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, size, size);   // fond transparent : aucun remplissage
+      ctx.fillStyle = QR_COLOR;
+      for (let r = 0; r < count; r++) {
+        for (let c = 0; c < count; c++) {
+          if (qr.isDark(r, c)) {
+            ctx.fillRect((c + margin) * cell, (r + margin) * cell, cell, cell);
+          }
+        }
+      }
+      canvas.style.width = '240px';
+      canvas.style.height = '240px';
+      qrDiv.appendChild(canvas);
+    } catch (e) {
+      showError('Erreur de génération du QR code : ' + e.message + ' (contenu peut-être trop long).');
+      return;
+    }
+
+    qrDiv.style.display = 'block';
+    document.getElementById('placeholder').style.display = 'none';
+    document.getElementById('downloadBtn').style.display = 'inline-block';
+    document.getElementById('qrNote').style.display = 'block';
+    document.getElementById('nextStep').style.display = 'flex';
+    const dp = document.getElementById('dataPreview');
+    dp.textContent = preview;
+    dp.style.display = 'block';
+  }
+
+  function download() {
+    const raw = currentTab === 'vcard'
+      ? (document.getElementById('firstname').value.trim() || 'contact')
+      : (document.getElementById('urllabel').value.trim() || 'lien');
+    const slug = raw.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'qr';
+    const canvas = document.querySelector('#qrcode canvas');
+    if (!canvas) return;
+    const link = document.createElement('a');
+    link.download = slug + '-QR.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') generate(); });
+  });
+</script>
+</body>
+</html>

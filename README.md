@@ -17,3 +17,9 @@ Les trois nouveaux visuels ont été générés à partir des références fourn
 7 écrans sur 2 h : usages métiers (cas réels Trotec), deux machines (jeu « Laquelle ? »), laser pas à pas (calques du fichier, simulateur puissance/vitesse), UV pas à pas (résolution, support, couche de blanc, séchage), matières, exercice final, bilan.
 
 Exercice final : renseigner `APP_URL` en haut de `partie2.js` quand l’appli de création sera publiée. Tant qu’il est vide, l’écran affiche « Lien de l’appli à venir ».
+
+### Outils de l’exercice final (écran 06 de la partie 2)
+
+- `studio-carte.html` : Studio carte de visite plexi 90 × 50 mm (6 modèles, 4 palettes) ; exports découpe laser (SVG/PDF), gabarit UV (PDF) et PDF couleur UV 600 dpi.
+- `qr-code.html` : générateur de QR code (vCard ou URL), PNG transparent à importer dans le Studio.
+- Charte commune : `assets/outils.css`. Bibliothèque QR intégrée localement (`assets/vendor/qrcode*.js`, qrcode-generator 1.4.4, licence MIT) pour fonctionner hors ligne.

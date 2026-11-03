@@ -1,0 +1,1448 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Les 14 machines de la Digital Factory du Forem : ce qu'on y fabrique, ce qu'on y apprend et les métiers qui les utilisent.">
+<meta name="theme-color" content="#2f3a48">
+<meta name="apple-mobile-web-app-title" content="Machines DF">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%232f3a48'/%3E%3Cg transform='translate(4 4) scale(.6667)' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Cpath d='M3 7.5h18M10 7.5v3l2 2 2-2v-3M6 18h12'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAABgFBMVEX////n5/DMzeCqrcpucqdcYKhbYKhbYKddX6dcX6daX6ZaX6VZX6RgXaZiXKVgXKVfXqZeXqdZXqRZXqNYXqJYXaFXXaBXXJ9XXZ5XXJ5WXJ5WXJ1WXJpqV6FpWKJoWKJrVqFmWqRmWaNlWqNnWKJjW6RkWqRcW6FVW5xVW5tVWptVWppUWplUWphUWZhTWpdTWZdTWZZSWZVSWJVSWJRRWJRRWJNRV5JRV5FQV5FQV5BQVpBPVo9PVo52UJx0UZ1zUZ13T5x6TZp3Tpt/Sph8TJmGRpWCSJZwU59vVJ9tVaByUp5bVZVOVYxOVYtNVIpNVIlMU4lNVIhMU4hMU4dMU4ZLU4ZLUoVKUoRKUYNJUYJJUYFJUIFJUIBIUH9IT35HT31HT3xGTntGTnpGTXpFTXhFTXdETXdETHZETHVDS3RCS3NCS3JCSnJCS3FCSnBBSW9ASW0/SGw/SGo/R2o+R2o+R2g9RmY8RWQ7RGI6RGE5Q184Qlw3QVo1QFYyPVAq6+FOAAAK1klEQVR42tWc/1dTxxbFz02uyveGgBCKIGJxySu2UKyC1AqCiLgAW7WIVkBRi9Q+xFeLWLX/es/cOTM3yZ2EOeHmLc/wS7viSj7d3W5P9pwr/OM+n9QPnY+fPkbnw8cPeP6OzsHfB+8PDt4dvMOz/25//6/9v/D87+2bt2/e7L3Z23u99/r17uvd3Ve7r17t/L6z83Jne/vF9vMXW8/x59nTp0+ebm6ub65vPN54/PjRr2sPH6w9WFt9sLp6f/XevZ/v3vlp5c7KytLy0tLVpatXp364MjUxNTF56fKlSxe//258DP6peD7ZQ8wfYub3eA4iYmSOjmJ+i8R49pAZzy6eV3h28Lx8ub39228vnquztYXMT55sbmysb6yvI/Ojhw/XkBmRV+/fv3fv7t07SLyysqyYryrmqanJyYnJy4r54vj4WAXoMp0/ler8Hn+MzvulOv9ZrvPOH8U6PyvSeUPpvP543a3zsmYu1fnyxYuo8/goVHRHVZ0PKutsmPH8948inbeVzlvPtM6b5To/qKTzD6jzlcmJiVjnMSe0v5/36+Tn5ZWllQp+Hh8duwDp+nmv2M9FOr9I+Hmjkp9/KvfzlRI/j41961A6RT+X6Pxc6bxVpHOJn3853M9G51GX0v9PP6/Ffv7Fz8+joxcS0J91PmudL3wNkvJ5bFQxj4yApHxWOo+OjJQr/Xnn87eRzl+XKP3Z57PyMzIPg6R8VjqPjAwXQQvI52+UN4b/cx4k5XPEPHzeQovIZ63z+V6QlM9K5+HzvQQtJJ+1zlZpGfms/Nzbq5UWk89a594CSMrn4Ujnnh6QlM+Rzj1fdoGkfNY6d3eDpHxG6q4vu7ojpcXks9a5C6EF5bPyc3dX90mQlM89PcjcddJCi8hnrfPJTpCUz92Rzp0ELSSftc4nO0BSPkc6k9Ji8lnr3NkCkvJZ+bmzsyMPkvI50jnf0QyS8hlV7uzoaFFKy8ln5WdkbgZJ+az8nM83N4OkfFZ+zje3NIGkfO7IozeamyJoMfms/JxvajoBkvI5H+l8AqEF5bPyc9OJpuMgKZ+1zsePg6R8zkc6Hz8GkvJZ63wsghaTz1rnRgUtJ5+VzgjdCJLyWevc2AC153MYZo9yQn4+Kz83NjZE0LXk86kMHPlkQmY+a53btdJ8P2chlZPl5bMSuqGhoR1qyeflDKR0MiEnn7XO7Qqanc+PAkjtBAVGPjdGOitofj5nIMWTYeRzpHOuPQd8P4exTJmaT/w/K/TPZ61zLgf8fDZCZ38+Sj4XslZq73xu18ytwM7nZVJ5+ajzc47Uznnnc4NCzrUiNHd+JoXCo8/P9E5Zlp+RuRXY84b+qCCN+VlLnfXO53bN/AWw52cNnUljfta/OzLe+ayYc61ftAJ7ftbQ2TTmZwPtm89a59Y2YM/PBjqF+ZmgWX5G5jZgz88Encb8bKB981kxt7VpaN78bJROYX4maO98zmlmBc3sN4zSKfQbBto3nyNvtLUNAbvfIOg0+g0LzfDzUNvQELC/DxJ0Gv2GgfbN58gbQ0NKaeb3wWz1WSnAU+3fk1NTxjufiVkrzeo3Uh1MI2jvfCbmc8DuN4K0oQOWn88NnTsL7H4jfWjvfNY6n0Vobr+Rvj2885mYzwC7f86mD+2bz8Q8COz+mdLD3cBkyl+kgHD/anqR5eezZyKlmX0d5bQ7n+m/KM7noFq/QTntnc+K+ezgICrN7esI2v3noIU2fw4aaGf/TNDe+ax1Rmh2/0zQ7vnZQNv5maDd/bOB9s1n5Wd1gN0/G2jn/EzQ8bxhlHb2zwTN8vPg4Fengd0/E7R7fiboeN4wSjv7Z6O0bz4rPyPzaWD3zwbaOT8TdDw/G2hn/0zQ3vmsdT7dD+z7QYJ2z8/GHnZ+Jmh3/0zQ3vlMQqM9uPeDRmnn/EzQp8z8XCBod/9M0Cw/f9UfKc28TzFKO+dn+uMyOKXnZ2JGpZ39s1HaN58jmU/39wH7PiWGdvQboW1wi5mxZHT2z1Zpz3xWfkbmfmDfDxK0u9/4LrDURcxBwd0/G2jffFbQ/X19fcC+H6SGqcL3wTAGbbH/GFbonwma5ee+voE+YN8PktKV+o2YuozZ0T8baN98Vn7GMwDs+0GjdKV+Iyz7lhCEFftngvbOZ+VnrTR3f4OgK/cbpdRGZ1dfZ6B981nrPDAA7P0NA1253yimruhnNW8QNMvP+DMA7P0Ngq7Wb8TU5X4u7Tdi6GPefsazCOz7bgNdrX82NxOlfk70GwTtnc/EvAjs/Q2Crt4/a62DXPX7QQvtmc/EjNDc/Q36pEP65xz+skzukPtBC83w86KCZu9v0Ccd2j+H4aH3g/RWLD8vaqWZ+xv0SWnsb9BbeeczMS8Ce7/OKu3on1uy7qYxm3P2dQbaN5+J+Raw9+sMtMPPYeXqK3T1dVZphp+R+Raw9+vokxx+Dqv1SKGjf6a3YvkZmW8Bex/JKJ3QuVC9/col+zoL7ZnPxLwA7P06+qRkPh9S8mWTfZ2B9s1nYkZo7n6dgU7k82HQyb6O3orl51sLqDR7v44+KZnPmUrNZGCKpPJ+w0Bz/LywoJTm7tdZpcvzmV5I5rPpZBL9Br3gnc9aZ4Rm7z9bpcvvBw10Yn427Vei3zDQvvmsdV64Dez9ZwOduB+kF5LzhoFO9BsGmuNnZL4N7P1n+qTkvGGgE/Ozab8S/Qa9wPIzMqPS3P1nA52YN+iF5PxsO5nyfsMo7ZvPWmeEZu8/0ycl9zeM0on52dQbiX6DXvDOZ2KeBvb+s4FO7G+U7cnE87OxR6LfMNAcPyPzbWDvP9MnJfc3DHRifo47mbJ+wyrN8PPt6elpYO8/W6WjuS4T1LRhqmckq7RnPmudp68B+/kU+iTt5xpvQgM9P9Nbeeez1vkaQnP36+iTIj8Xar3w1DO/geb4GZmvAXu/jj5J98+1Q6t5wyrN8DMy/wjs/ToDXTRv8O2h52ertGc+a50Rmr1fR59U3G+wmUM9i9Jbeeez1vlHhObu1xmlKZ/D0lPhoYXSY+ZneiuWnyNo9n4dNUy1PJ9S3m9YaIaf8cwAe7+OLrBqeT6lvN+gqy/vfNbQM6g0d7/OrCLX8HxKWb9B396z3vmsdZ6ZAfZ+XWgCgP98Smm/YX4Thyw/zyA18PfrbI3Lfj6lpN8wzAHPz3hmgb//bL91B0d4CCqeWbL++ax0np2ZjZTm7j+n+8gII5+1zqh0DfvPhTQfzjnD9DMyX4da9p/D1KiDkOvn2dnr16Gm/edCSg7JnGHl82ykM0LXuP8cpvJoHzOfiRntUev+c5jNHOlk+flMzNehns93c+8HffwcQdfz+W7u/aCPnyPoej7fzb0f9PEznhtQz+e7ufeDPn5G5htQz+e76+FnZEboOj7fzb0f9PHzDQVdj79/g7u/wfFzBF2Pv3+jnn7WSgvKZ2KOoMXkMzHPgaR8JmaEFpTPxDwHkvKZmFFpQflMzHMgKZ+JGaEF5TMxz4GkfJ6z0ILy2UJLymd9bt4ESflsoSXls0ZGaEn5bKEl5bNGVtCC8tlCS8rnmzeN0oLy2UJLyucYWlA+W2hJ+UxnHiTlMzHPg6R8JmaEFpTPxDwPkvKZmBFaUD4T8zxIymdiRmhB+TxvoCXl83ystJx8ttCS8tlCS8pnCy0pn2NoQflsoSXlc6y0oHy20JLy2UJLymcLLSmfY2hB+WyhJeWzOf8Cdd0/wGECZpoAAAAASUVORK5CYII=">
+<title>Machines de la Digital Factory</title>
+<style>@font-face{font-family:Poppins;src:url('assets/poppins-regular.ttf') format('truetype');font-weight:400 500;font-display:swap}@font-face{font-family:Poppins;src:url('assets/poppins-semibold.ttf') format('truetype');font-weight:600 900;font-display:swap}</style>
+<style>
+/* Mise en page : en-tête bleu foncé collant, bandeaux en dégradé de marque, cartes blanches sur fond clair ; tout passe sur une colonne au téléphone.
+   Charte Digital Factory : bleu foncé, bleu, violet, fond clair, Poppins. Un seul thème clair, voulu par la charte. */
+:root {
+  --navy: #2f3a48;
+  --blue: #5b60a8;
+  --violet: #8c4292;
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --line: #e0e0e0;
+  --text: #333333;
+  --muted: #5a6270;
+  --on-dark: #ffffff;
+  --ok: #2e7d32;
+  --gradient: linear-gradient(120deg, #2f3a48 0%, #5b60a8 62%, #8c4292 100%);
+  --font: "Poppins", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 16px;
+  --shadow: 0 1px 3px rgba(47, 58, 72, 0.06);
+  --shadow-hover: 0 12px 28px rgba(47, 58, 72, 0.14);
+  --header-h: 64px;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--navy);
+}
+[hidden] { display: none !important; }
+img, svg { max-width: 100%; }
+svg { flex: none; }
+a { color: var(--blue); }
+a:hover { color: var(--navy); }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+h1:focus, main:focus { outline: none; }
+h1, h2, h3, h4 { margin: 0; color: var(--navy); line-height: 1.2; text-wrap: balance; }
+p { margin: 0; }
+code { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.9em; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; color: var(--navy); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 700px) {
+  .wrap {
+    padding-left: max(24px, env(safe-area-inset-left, 0px));
+    padding-right: max(24px, env(safe-area-inset-right, 0px));
+  }
+}
+
+.skip {
+  position: fixed; left: 12px; top: calc(8px + env(safe-area-inset-top, 0px)); z-index: 50;
+  transform: translateY(-200%);
+  background: var(--card); color: var(--navy); border: 2px solid var(--blue); border-radius: 10px;
+  padding: 10px 16px; font: inherit; font-weight: 600; cursor: pointer;
+}
+.skip:focus { transform: none; }
+
+/* En-tête */
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--navy);
+  color: var(--on-dark);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: var(--header-h); padding-block: 8px; }
+.brand { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--on-dark); text-decoration: none; min-width: 0; }
+.brand:hover { color: var(--on-dark); }
+.brand-mark { width: 38px; height: 38px; border-radius: 10px; background: var(--on-dark); color: var(--navy); display: grid; place-items: center; flex: none; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+.brand-text strong { font-size: 17px; font-weight: 700; }
+.brand-text span { font-size: 12.5px; }
+.header-nav { display: flex; align-items: center; gap: 6px; }
+.hnav {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px;
+  border-radius: 999px; border: 1.5px solid transparent;
+  color: var(--on-dark); text-decoration: none; font-size: 15px; font-weight: 600;
+}
+.hnav:hover { color: var(--on-dark); background: rgba(255, 255, 255, 0.1); }
+.hnav[aria-current="page"] { border-color: rgba(255, 255, 255, 0.6); }
+.count {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0 6px;
+  border-radius: 999px; background: var(--violet); color: var(--on-dark); font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+@media (max-width: 520px) {
+  .brand-text span, .hnav-home, .hnav-label { display: none; }
+  .hnav { padding: 0 12px; }
+}
+
+/* Bandeaux */
+.hero, .subhero, .fiche-hero { background: var(--gradient); color: var(--on-dark); }
+.hero h1, .subhero h1, .fiche-hero h1, .hero h2 { color: var(--on-dark); }
+.hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; padding-block: 48px 56px; }
+.hero-text { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-size: 13.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.hero h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.12; font-weight: 700; }
+.lead { font-size: clamp(16.5px, 2vw, 19px); line-height: 1.6; max-width: 62ch; }
+.stats { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.stats li {
+  display: inline-flex; align-items: baseline; gap: 7px; padding: 8px 16px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.32); font-size: 15px;
+}
+.stats strong { font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.mosaic { display: grid; grid-template-columns: repeat(3, 84px); gap: 14px; padding-bottom: 26px; }
+.mosaic span {
+  width: 84px; height: 84px; border-radius: 22px; display: grid; place-items: center; color: var(--on-dark);
+  background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.mosaic span:nth-child(3n + 2) { transform: translateY(26px); }
+@media (max-width: 860px) { .mosaic { display: none; } }
+
+.subhero-inner, .fiche-hero-inner { display: flex; flex-direction: column; gap: 22px; padding-block: 22px 40px; }
+.back {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 12px;
+  border-radius: 999px; background: rgba(255, 255, 255, 0.14); color: var(--on-dark); text-decoration: none; font-size: 15px; font-weight: 600;
+}
+.back:hover { color: var(--on-dark); background: rgba(255, 255, 255, 0.22); }
+.subhero-id { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.subhero-titles { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.subhero h1 { font-size: clamp(28px, 4.4vw, 40px); line-height: 1.15; font-weight: 700; }
+.id-tile {
+  flex: none; width: 72px; height: 72px; border-radius: 20px; background: var(--card); color: var(--navy);
+  display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+.id-tile-violet { color: var(--violet); }
+.id-tile-xl { width: 104px; height: 104px; border-radius: 26px; }
+
+/* Fiche machine */
+.fiche-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.pager { display: flex; align-items: center; gap: 8px; }
+.pager-btn {
+  width: 44px; height: 44px; border-radius: 999px; background: rgba(255, 255, 255, 0.14); color: var(--on-dark);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.pager-btn:hover { color: var(--on-dark); background: rgba(255, 255, 255, 0.24); }
+.pager-pos { font-size: 15px; font-weight: 600; padding: 0 6px; font-variant-numeric: tabular-nums; }
+.fiche-id { display: flex; align-items: flex-start; gap: 28px; flex-wrap: wrap; }
+.fiche-titles { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.family-badge { align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: var(--violet); color: var(--on-dark); font-size: 13px; font-weight: 600; }
+.fiche-hero h1 { font-size: clamp(30px, 4.6vw, 42px); line-height: 1.15; font-weight: 700; }
+.h1-sigle { font-size: 0.5em; font-weight: 600; vertical-align: middle; padding: 2px 10px; border-radius: 8px; border: 1.5px solid rgba(255, 255, 255, 0.6); margin-left: 4px; }
+.fiche-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.btn-fav {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.75); background: transparent; color: var(--on-dark);
+  font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;
+}
+.btn-fav:hover { background: rgba(255, 255, 255, 0.12); }
+.btn-fav[aria-pressed="true"] { background: var(--card); color: var(--violet); border-color: var(--card); }
+@media (max-width: 560px) {
+  .id-tile-xl { width: 76px; height: 76px; border-radius: 20px; }
+  .id-tile-xl svg { width: 42px; height: 42px; }
+  .fiche-id { gap: 18px; }
+}
+
+.jumpbar, .chipbar { background: var(--card); border-bottom: 1px solid var(--line); }
+.jumps, .chips { display: flex; gap: 8px; padding-block: 10px; }
+.jumps { overflow-x: auto; scrollbar-width: none; }
+.jumps::-webkit-scrollbar, .chips::-webkit-scrollbar { display: none; }
+.chips { flex-wrap: wrap; }
+.chipbar-label { padding-top: 12px; font-size: 13.5px; font-weight: 600; color: var(--muted); }
+@media (max-width: 700px) {
+  .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+}
+.jump, .chip {
+  flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--navy);
+  font: inherit; font-size: 14.5px; font-weight: 600; text-decoration: none; white-space: nowrap; cursor: pointer;
+}
+.jump:hover, .chip:hover { border-color: var(--blue); color: var(--navy); }
+.chip[aria-current="page"] { background: var(--blue); border-color: var(--blue); color: var(--on-dark); }
+
+/* Contenu */
+#app { min-height: 60vh; display: block; }
+.page { display: flex; flex-direction: column; gap: 52px; padding-block: 40px 64px; }
+.block { display: flex; flex-direction: column; gap: 20px; }
+.section { scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 16px); }
+.block-head { display: flex; flex-direction: column; gap: 6px; }
+.block-head h2 { font-size: clamp(22px, 3vw, 27px); font-weight: 700; }
+.block-head p { color: var(--muted); font-size: 16px; max-width: 65ch; }
+
+.lift { transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
+@media (hover: hover) {
+  .lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--blue); }
+}
+
+.grid-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.tile {
+  display: flex; flex-direction: column; gap: 10px; padding: 14px; min-height: 128px;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--navy);
+}
+.tile:hover { color: var(--navy); }
+.tile-ic { width: 44px; height: 44px; border-radius: 12px; background: var(--bg); color: var(--violet); display: grid; place-items: center; }
+.tile-text { flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tile-name { font-size: 14.5px; font-weight: 600; line-height: 1.3; hyphens: auto; overflow-wrap: break-word; }
+.tile-count { margin-top: auto; font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) {
+  .tile { min-height: 112px; padding: 12px 14px; gap: 8px; }
+  .tile-ic { width: 38px; height: 38px; border-radius: 10px; }
+  .tile-ic svg { width: 22px; height: 22px; }
+  .tile-name { font-size: 14px; }
+}
+
+.family { display: flex; flex-direction: column; gap: 14px; }
+.family-head { display: flex; align-items: center; gap: 14px; }
+.family-head h3 { font-size: 13.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--violet); }
+.family-head .rule { flex: 1; height: 1px; background: var(--line); }
+.machines { display: flex; flex-direction: column; gap: 30px; }
+.grid-machines { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.mcard {
+  display: flex; flex-direction: column; gap: 14px; padding: 20px;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+  text-decoration: none; color: var(--text);
+}
+.mcard:hover { color: var(--text); }
+.mcard-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.mcard-ic { width: 56px; height: 56px; border-radius: 14px; background: var(--navy); color: var(--on-dark); display: grid; place-items: center; flex: none; }
+.mcard-num { font-size: 14px; font-weight: 700; color: var(--violet); font-variant-numeric: tabular-nums; }
+.mcard-main { flex: 1; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.mcard-body { display: flex; flex-direction: column; gap: 6px; }
+.mcard-name { font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--navy); }
+.sigle { font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.mcard-short { font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+.mcard-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 14px; font-weight: 600; color: var(--blue); }
+.go { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
+.fav-flag { display: inline-flex; align-items: center; gap: 6px; color: var(--violet); font-size: 13px; }
+@media (max-width: 560px) {
+  .mcard { flex-direction: row; align-items: flex-start; gap: 14px; padding: 16px; }
+  .mcard-top { flex-direction: column; align-items: center; gap: 6px; }
+  .mcard-ic { width: 48px; height: 48px; border-radius: 12px; }
+  .mcard-ic svg { width: 26px; height: 26px; }
+  .mcard-main { gap: 10px; }
+  .mcard-name { font-size: 16.5px; }
+}
+
+.panel {
+  background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 24px;
+  display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.panel h3 { font-size: 18px; font-weight: 600; color: var(--blue); display: flex; align-items: center; gap: 10px; }
+.panel p { font-size: 16px; line-height: 1.65; }
+.duo { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; }
+@media (max-width: 560px) { .panel { padding: 18px; } }
+
+.skills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.skills li {
+  display: inline-flex; align-items: flex-start; gap: 8px; max-width: 100%; padding: 10px 16px; border-radius: 14px;
+  background: var(--card); border: 1.5px solid var(--line); font-size: 15px; font-weight: 500; line-height: 1.45; color: var(--navy);
+}
+.skills li svg { color: var(--violet); margin-top: 2px; }
+
+.safety-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.safety-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.6; }
+.safety-list li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 10px; border-radius: 999px; background: var(--blue); }
+
+.grid-real { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 16px; }
+.rcard { display: flex; flex-direction: column; gap: 12px; padding: 20px; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); min-width: 0; }
+.rcard-machine { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; }
+.rcard-machine .ic { width: 32px; height: 32px; border-radius: 9px; background: var(--navy); color: var(--on-dark); display: grid; place-items: center; }
+.rcard h3 { font-size: 18px; font-weight: 600; line-height: 1.35; }
+.rcard p { font-size: 15px; line-height: 1.6; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; border: 1.5px solid var(--violet); color: var(--violet); font-size: 12.5px; font-weight: 600; line-height: 1.4; }
+
+.btn, .btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px;
+  border-radius: 12px; font: inherit; font-size: 14.5px; font-weight: 600; text-decoration: none; cursor: pointer; white-space: nowrap;
+}
+.btn { background: var(--blue); border: 1.5px solid var(--blue); color: var(--on-dark); align-self: flex-start; }
+.btn:hover { background: var(--navy); border-color: var(--navy); color: var(--on-dark); }
+.btn-outline { background: var(--card); border: 1.5px solid var(--blue); color: var(--blue); }
+.btn-outline:hover { background: var(--blue); color: var(--on-dark); }
+.rcard .btn-outline { margin-top: auto; }
+
+.grid-mini { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.mini {
+  display: flex; align-items: center; gap: 12px; padding: 14px; min-height: 76px;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--navy);
+}
+.mini:hover { color: var(--navy); }
+.mini-ic { width: 46px; height: 46px; border-radius: 12px; background: var(--navy); color: var(--on-dark); display: grid; place-items: center; flex: none; }
+.mini-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mini-name { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.mini-sub { font-size: 13px; color: var(--muted); }
+
+.prevnext { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.pn {
+  display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; background: var(--card);
+  border: 1.5px solid var(--line); border-radius: var(--radius); text-decoration: none; color: var(--navy);
+}
+.pn:hover { color: var(--navy); }
+.pn-next { text-align: right; align-items: flex-end; }
+.pn-dir { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--blue); }
+.pn-name { font-size: 17px; font-weight: 600; }
+
+/* À emporter */
+.takeaway { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.howto { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.howto div { padding: 12px 14px; border-radius: 12px; background: var(--bg); }
+.howto dt { font-weight: 600; color: var(--navy); font-size: 15px; }
+.howto dd { margin: 2px 0 0; font-size: 15px; line-height: 1.55; }
+.qr {
+  width: 180px; max-width: 100%; aspect-ratio: 1; background: var(--card); border: 1.5px solid var(--line); border-radius: 14px;
+  display: grid; place-items: center; overflow: hidden; padding: 6px; flex: none;
+}
+.qr svg { width: 100%; height: 100%; display: block; }
+.qr-lg { width: 220px; }
+.qr-off { font-size: 13px; line-height: 1.5; color: var(--muted); text-align: center; padding: 10px; }
+.copybox { display: flex; flex-wrap: wrap; gap: 8px; }
+.copybox input {
+  flex: 1 1 220px; min-width: 0; min-height: 44px; padding: 0 12px; border: 1.5px solid var(--line); border-radius: 10px;
+  background: var(--bg); color: var(--text); font: inherit; font-size: 14px;
+}
+.take-panel { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.take-text { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.take-text h2 { font-size: clamp(20px, 2.6vw, 24px); font-weight: 700; }
+.done { display: inline-flex; align-items: center; gap: 8px; color: var(--ok); font-weight: 600; }
+
+.grid-fav { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 16px; }
+.fcard { display: flex; flex-direction: column; gap: 14px; padding: 20px; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); min-width: 0; }
+.fcard-head { display: flex; align-items: center; gap: 14px; }
+.fcard-titles { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.fcard-meta { font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; color: var(--violet); }
+.fcard h3 { font-size: 18px; font-weight: 600; line-height: 1.3; }
+.fcard h3 a { color: var(--navy); text-decoration: none; }
+.fcard h3 a:hover { text-decoration: underline; }
+.fcard > p { font-size: 15px; line-height: 1.6; }
+.fcard-real h4 { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+.fcard-real ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.fcard-real li { display: flex; flex-direction: column; font-size: 14.5px; line-height: 1.45; padding-left: 14px; border-left: 2px solid var(--line); }
+.fcard-real li strong { font-weight: 600; color: var(--navy); }
+.fcard-real li span { font-size: 13px; color: var(--muted); }
+.fcard .btn-outline { align-self: flex-start; margin-top: auto; }
+.icon-btn {
+  flex: none; width: 44px; height: 44px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card);
+  color: var(--violet); display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.icon-btn:hover { border-color: var(--violet); }
+.empty { align-items: flex-start; max-width: 640px; }
+.empty-ic { width: 56px; height: 56px; border-radius: 16px; background: var(--bg); color: var(--violet); display: grid; place-items: center; }
+.empty h2 { font-size: 22px; }
+.clear-box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-radius: var(--radius); border: 1.5px dashed var(--line); }
+.clear-box p { color: var(--muted); font-size: 15px; }
+.clear-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Espace formateur */
+.h-panel { font-size: 20px; font-weight: 700; }
+.url-form { display: flex; flex-direction: column; gap: 8px; }
+.url-form label { font-weight: 600; color: var(--navy); font-size: 15px; }
+.url-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.url-row input {
+  flex: 1 1 260px; min-width: 0; min-height: 44px; padding: 0 12px; border: 1.5px solid var(--line); border-radius: 10px;
+  background: var(--card); color: var(--text); font: inherit; font-size: 15px;
+}
+.url-row input:focus-visible { outline: 3px solid var(--blue); outline-offset: 1px; }
+.form-msg { font-size: 14px; color: var(--muted); min-height: 1.4em; }
+.table-wrap { overflow-x: auto; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+th, td { text-align: left; padding: 10px 16px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 13px; font-weight: 600; color: var(--muted); background: var(--bg); }
+tbody tr:last-child td { border-bottom: 0; }
+td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 700; }
+.note p { color: var(--muted); font-size: 15px; }
+
+/* Pied de page et message */
+.site-footer { background: var(--navy); color: var(--on-dark); }
+.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-block: 22px; }
+.site-footer p { font-size: 14px; line-height: 1.6; max-width: 70ch; }
+.site-footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--on-dark); font-size: 14px; font-weight: 600; }
+.site-footer a:hover { color: var(--on-dark); text-decoration: none; }
+.toast {
+  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 40;
+  max-width: calc(100% - 32px); padding: 12px 18px; border-radius: 12px; background: var(--navy); color: var(--on-dark);
+  font-size: 15px; font-weight: 600; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #app > * { animation: rise 0.28s ease-out both; }
+  #app.no-anim > * { animation: none; }
+  .pop svg { animation: pop 0.32s ease-out; }
+  @keyframes rise { from { transform: translateY(8px); } to { transform: none; } }
+  @keyframes pop { 0% { transform: scale(1); } 45% { transform: scale(1.3); } 100% { transform: scale(1); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lift { transition: none; }
+  .lift:hover { transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  body::before, .site-header, .site-footer, .toast, .skip, .no-print, .btn-fav, .btn-outline, .btn, .pager, .back, .icon-btn, .mosaic { display: none !important; }
+  body { background: #ffffff; }
+  .hero, .subhero, .fiche-hero { background: #ffffff !important; color: #000000; }
+  .hero h1, .subhero h1, .fiche-hero h1, .hero *, .subhero *, .fiche-hero * { color: #000000 !important; }
+  .panel, .rcard, .mcard, .fcard, .tile { break-inside: avoid; box-shadow: none; }
+  #app > * { animation: none !important; }
+}
+</style>
+</head>
+<body>
+<button type="button" class="skip" data-action="skip">Aller au contenu</button>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#accueil">
+      <span class="brand-mark" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 7.5h18"/><path d="M10 7.5v3l2 2 2-2v-3"/><path d="M6 18h12"/><rect x="9" y="14.5" width="6" height="3.5" rx="0.6"/></svg></span>
+      <span class="brand-text"><strong>Digital Factory</strong><span>Les machines · Forem Liège</span></span>
+    </a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a class="hnav" href="index.html#intro" aria-label="Retour à l’atelier De l’idée à l’objet"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span class="hnav-label">Atelier</span></a>
+      <a class="hnav hnav-home" href="#accueil" data-nav="home">Machines</a>
+      <a class="hnav" href="#favoris" data-nav="favoris" aria-label="Mes favoris">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>
+        <span class="hnav-label">Mes favoris</span>
+        <span class="count" id="fav-count" hidden>0</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>Digital Factory du Forem, Liège. Les métiers cités sont des exemples, la liste n'est pas complète.</p>
+    <a href="index.html#intro">Atelier « De l’idée à l’objet »</a>
+    <a href="#formateur">Espace formateur</a>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+  document.documentElement.lang = "fr";
+
+  /* Adresse publique de l'appli : utilisée pour les QR codes et les liens quand la page est ouverte ailleurs que sur son adresse en ligne. */
+  var URL_PUBLIQUE = "https://digitalfactory-lab.github.io/idee-objet/machines.html";
+  var QR_LIB = "assets/vendor/qrcode.js"; /* qrcode-generator 1.4.4 (MIT), intégré au site : fonctionne hors ligne */
+  var FAV_KEY = "df-machines-favoris";
+  var URL_KEY = "df-machines-adresse";
+
+  var ICONS = {
+    "m-fdm": '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 7.5h18"/><path d="M10 7.5v3l2 2 2-2v-3"/><path d="M6 18h12"/><rect x="9" y="14.5" width="6" height="3.5" rx="0.6"/>',
+    "m-sla": '<path d="M12 3v4"/><path d="M6.5 7h11"/><path d="M9.5 7v4h5V7"/><path d="M4 14.5h16V18a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18z"/><path d="M8 17.5h8"/>',
+    "m-vinyle": '<rect x="2" y="5" width="20" height="7" rx="2"/><circle cx="6" cy="8.5" r="1.4"/><path d="M13 8.5h5"/><path d="M5 12v7h14v-7"/><path d="M8.5 15.5h7"/>',
+    "m-uv": '<rect x="5.5" y="4" width="13" height="4.5" rx="1.2"/><path d="M9 11v2M12 11v2.5M15 11v2"/><rect x="8" y="15" width="8" height="3.5" rx="0.8"/><path d="M3 18.5h18M5 18.5V21M19 18.5V21"/>',
+    "m-dtf": '<path d="M8.5 3.5L3 6.5l2 4.2 2.2-1.1v10.9h9.6V9.6l2.2 1.1 2-4.2-5.5-3c-.6 1.5-2 2.4-3.5 2.4S9.1 5 8.5 3.5z"/>',
+    "m-laser": '<rect x="2.5" y="9" width="19" height="10.5" rx="2"/><path d="M4.5 9l2.2-4.5h10.6L19.5 9"/><path d="M12 11.5v3.5"/><path d="M8.5 17h7"/>',
+    "m-cnc": '<path d="M3 20.5h18"/><path d="M5 20.5V6.5h14v14"/><rect x="9.5" y="6.5" width="5" height="5" rx="1"/><path d="M12 11.5v3"/><path d="M8 17h8"/>',
+    "m-cncman": '<rect x="7" y="8" width="10" height="9" rx="2"/><path d="M7 12.5H3.5M17 12.5h3.5"/><path d="M3.5 10v5M20.5 10v5"/><path d="M12 17v3.5"/><path d="M9 8l.8-3.5h4.4L15 8"/>',
+    "m-graveuse": '<rect x="7.5" y="3.5" width="9" height="5.5" rx="1.5"/><path d="M12 9v6"/><rect x="3.5" y="15.5" width="17" height="5" rx="1.2"/><path d="M8 18h8"/>',
+    "m-studio": '<rect x="2.5" y="6.5" width="13" height="11" rx="2.2"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/>',
+    "m-scanner": '<rect x="2.5" y="4" width="6" height="10" rx="1.5"/><path d="M5.5 14v6"/><path d="M8.5 6.5l5 1.8M8.5 11.5l5-1.8"/><path d="M14.5 7.5l3.5-1.8 3.5 1.8V12L18 13.8 14.5 12z"/><path d="M14.5 7.5L18 9.3l3.5-1.8M18 9.3v4.5"/>',
+    "m-vr": '<path d="M2.5 9.5A2.5 2.5 0 0 1 5 7h14a2.5 2.5 0 0 1 2.5 2.5v5A2.5 2.5 0 0 1 19 17h-3.5l-1.8-2.5h-3.4L8.5 17H5a2.5 2.5 0 0 1-2.5-2.5z"/><path d="M6.5 11.5h2.5M15 11.5h2.5"/>',
+    "m-arduino": '<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2.5V6M12 2.5V6M15 2.5V6M9 18v3.5M12 18v3.5M15 18v3.5M2.5 9H6M2.5 12H6M2.5 15H6M18 9h3.5M18 12h3.5M18 15h3.5"/>',
+    "m-thermo": '<path d="M8 2.8c-.9 1 .9 2 0 3.2M12 2.8c-.9 1 .9 2 0 3.2M16 2.8c-.9 1 .9 2 0 3.2"/><path d="M3 17h3.5l2-6.5h7l2 6.5H21"/><path d="M3 20.5h18"/>',
+    "s-admin": '<rect x="4.5" y="3" width="15" height="18" rx="2"/><circle cx="12" cy="10" r="2.6"/><path d="M8 17c.8-1.7 2.3-2.6 4-2.6s3.2.9 4 2.6"/>',
+    "s-artisanat": '<path d="M18.4 2.6a2 2 0 0 1 2.9 2.9l-9.3 9.3-2.9-2.9z"/><path d="M9 12c-2.4 0-4.2 1.7-4.2 4.1 0 1.4-.8 2.5-2 3.1 1.1.9 2.6 1.4 4.2 1.4 3 0 5.4-2.4 5.4-5.4"/>',
+    "s-commerce": '<path d="M5 8h14l-1.1 12.5H6.1z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>',
+    "s-comm": '<path d="M3 10v4a1 1 0 0 0 1 1h2.5l5 4V5l-5 4H4a1 1 0 0 0-1 1z"/><path d="M15.5 9a4 4 0 0 1 0 6"/><path d="M18.5 6.5a7.5 7.5 0 0 1 0 11"/>',
+    "s-construction": '<rect x="3" y="5" width="18" height="14" rx="1.2"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 5v4.7M6 9.7v4.6M12 9.7v4.6M18 9.7v4.6M9 14.3V19M15 14.3V19"/>',
+    "s-elec": '<path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12z"/>',
+    "s-horeca": '<path d="M5 3v5a2 2 0 0 0 4 0V3M7 3v18"/><path d="M17.5 21V3c-2 1.4-3 3.8-3 6.8V13h3"/>',
+    "s-industrie": '<path d="M3 21V10.5l5 3v-3l5 3v-3l5 3V4.5h3V21z"/><path d="M7 17.5h2M12 17.5h2M17 17.5h1"/>',
+    "s-insertion": '<path d="M12 2.5v19"/><path d="M5 5.5h11l3 2.5-3 2.5H5z"/><path d="M19 13H8l-3 2.5L8 18h11z"/>',
+    "s-logistique": '<path d="M2.5 6h10.5v10H2.5z"/><path d="M13 9.5h4l3.5 3.5v3H13z"/><circle cx="6.5" cy="18" r="2"/><circle cx="16.5" cy="18" r="2"/>',
+    "s-meca": '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',
+    "s-sante": '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/><path d="M3.2 12h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/>',
+    "s-soudure": '<path d="M12 2.5c.8 3 4.5 4.6 4.5 9a4.5 4.5 0 0 1-9 0c0-1.9.9-3.2 2-4.2.2 1.4 1 2.4 2.2 2.6-.6-2.8-.3-5.2.3-7.4z"/><path d="M6 21h12"/>',
+    "arrow-right": '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    "arrow-left": '<path d="M19 12H5M11 6l-6 6 6 6"/>',
+    heart: '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/>',
+    image: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 9"/>',
+    check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    share: '<path d="M12 3v12"/><path d="M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',
+    copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
+    phone: '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
+    home: '<path d="M3 11l9-7 9 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>'
+  };
+
+  var FAMILLES = [
+    { id: "impression", nom: "Impression 3D" },
+    { id: "marquage", nom: "Marquage & habillage" },
+    { id: "decoupe", nom: "Découpe & usinage" },
+    { id: "capture", nom: "Capture & immersion" },
+    { id: "proto", nom: "Prototypage & mise en forme" }
+  ];
+
+  var SECTEURS = [
+    { id: "admin", nom: "Administratif & accueil" },
+    { id: "artisanat", nom: "Artisanat & création" },
+    { id: "commerce", nom: "Commerce & vente" },
+    { id: "comm", nom: "Communication & marketing" },
+    { id: "construction", nom: "Construction & bois" },
+    { id: "elec", nom: "Électronique & automation" },
+    { id: "horeca", nom: "HORECA & restauration" },
+    { id: "industrie", nom: "Industrie & production" },
+    { id: "insertion", nom: "Insertion & orientation" },
+    { id: "logistique", nom: "Logistique" },
+    { id: "meca", nom: "Mécanique & maintenance" },
+    { id: "sante", nom: "Santé & soins" },
+    { id: "soudure", nom: "Soudure & métal" }
+  ];
+
+  var MACHINES = [
+    {
+      id: "fdm", sigle: "FDM", famille: "impression", recherche: "impression 3D",
+      nom: "Imprimante 3D à filament",
+      court: "Elle dépose un fil de plastique fondu, couche par couche, pour fabriquer un objet.",
+      quoi: "Une imprimante qui fabrique un objet en déposant un fil de plastique fondu, couche après couche. Un petit objet utile peut être prêt en moins d'une heure, ce qui en fait une bonne machine pour fabriquer ton premier prototype.",
+      usage: "Passer d'une idée à un objet réel, réparer, tester un prototype ou personnaliser un objet, sans machine industrielle ni gros budget.",
+      competences: ["Patience et gestion de l'attente", "Anticipation : orienter la pièce, prévoir les supports", "Gestion de l'échec : une impression ratée, on recommence", "Pensée en 3D", "Amélioration pas à pas"],
+      securite: [
+        "Ne touche ni la buse ni le plateau pendant et juste après l'impression : la buse dépasse 200 °C et le plateau peut atteindre 110 °C.",
+        "Aère la pièce quand tu imprimes de l'ABS ou de l'ASA : ces plastiques dégagent des particules fines.",
+        "Retire les supports avec un cutter de sécurité.",
+        "Quand l'imprimante a un capot, garde-le fermé pendant l'impression."
+      ],
+      realisations: [
+        { titre: "Pièce de rechange sur mesure", texte: "Refaire un bouton, un engrenage ou un clip cassé qu'on ne trouve plus.", secteurs: ["meca"] },
+        { titre: "Gabarit & montage d'assemblage", texte: "Support de perçage ou de positionnement pour une chaîne de production.", secteurs: ["industrie"] },
+        { titre: "Prototype de pièce mécanique", texte: "Valider une forme avant l'usinage définitif, en bureau d'études.", secteurs: ["industrie", "meca"] },
+        { titre: "Aide technique adaptée", texte: "Objet qui facilite un geste du quotidien, comme un ouvre-bocal ou un manche adapté.", secteurs: ["sante"] },
+        { titre: "Maquette de présentation", texte: "Maquette d'un bâtiment, d'un produit ou d'un aménagement.", secteurs: ["construction"] }
+      ]
+    },
+    {
+      id: "sla", sigle: "SLA", famille: "impression", recherche: "impression 3D résine",
+      nom: "Imprimante 3D à résine",
+      court: "Elle durcit une résine liquide avec de la lumière UV, pour des pièces très détaillées.",
+      quoi: "Une imprimante qui durcit une résine liquide avec de la lumière UV. Elle est très précise, ce qui la rend utile en bijouterie, en dentaire ou pour de petites pièces mécaniques. Tu y découvres aussi le travail avec un produit chimique, en suivant un protocole strict.",
+      usage: "Fabriquer des pièces très détaillées, impossibles à obtenir avec l'imprimante à filament, et découvrir une chaîne de travail professionnelle en trois étapes : impression, lavage, puis durcissement final (polymérisation).",
+      competences: ["Rigueur et respect du protocole", "Respect des consignes de sécurité", "Sens de la qualité", "Patience", "Autonomie : suivre une procédure seul", "Responsabilité : ton poste et les déchets"],
+      securite: [
+        "Porte des gants en nitrile dès que tu touches la résine liquide : elle irrite la peau et peut provoquer des allergies.",
+        "Mets des lunettes de protection pour retirer la plateforme.",
+        "L'alcool de lavage (IPA) prend feu facilement : aucune flamme à proximité.",
+        "Aère la pièce pendant le travail.",
+        "Une fois durcie dans la station de polymérisation, la pièce se manipule sans danger."
+      ],
+      realisations: [
+        { titre: "Modèle dentaire & gouttière", texte: "Empreinte et modèle de précision pour une prothèse.", secteurs: ["sante"] },
+        { titre: "Modèle de fonderie en cire", texte: "Modèle pour un moulage à la cire perdue, en bijouterie.", secteurs: ["artisanat"] },
+        { titre: "Figurine & miniature détaillée", texte: "Personnages et maquettes très fins et très détaillés.", secteurs: ["artisanat"] },
+        { titre: "Pièce technique de précision", texte: "Petit engrenage ou connecteur aux dimensions très précises.", secteurs: ["industrie"] },
+        { titre: "Modèle anatomique pédagogique", texte: "Organe ou os pour apprendre les gestes de soin.", secteurs: ["sante"] }
+      ]
+    },
+    {
+      id: "vinyle", sigle: "", famille: "marquage", recherche: "découpe vinyle adhésif",
+      nom: "Imprimante & découpeuse vinyle",
+      court: "Elle imprime en grand format et découpe l'adhésif : stickers, panneaux, covering.",
+      quoi: "Une machine qui imprime en grand format, puis découpe l'adhésif autour du visuel. Tu y apprends à faire passer un message visuel clair et professionnel.",
+      usage: "Produire une vraie signalétique et du marquage utilisables en entreprise, du logo jusqu'au panneau de sécurité.",
+      competences: ["Communication visuelle", "Minutie et patience : retirer l'adhésif en trop (l'échenillage)", "Organisation : la place, les rouleaux", "Travail d'équipe : poser un grand adhésif à plusieurs", "Identité visuelle"],
+      securite: [
+        "Aère la pièce : les encres éco-solvant dégagent des vapeurs.",
+        "Laisse libre la zone où sort le vinyle, la machine prend de la place.",
+        "Attention à tes doigts avec le cutter d'échenillage."
+      ],
+      realisations: [
+        { titre: "Marquage & covering de véhicule", texte: "Lettrage et habillage d'un utilitaire ou d'une voiture.", secteurs: ["comm"] },
+        { titre: "Enseigne & vitrophanie de commerce", texte: "Autocollants de vitrine : horaires, logo, promotions.", secteurs: ["commerce"] },
+        { titre: "Signalétique de sécurité en atelier", texte: "Pictogrammes, marquage de zones et consignes.", secteurs: ["industrie"] },
+        { titre: "Stickers & goodies personnalisés", texte: "Autocollants publicitaires et packs pour un événement.", secteurs: ["comm"] },
+        { titre: "Marquage au sol en logistique", texte: "Bandes et repères adhésifs au sol d'un entrepôt.", secteurs: ["logistique"] }
+      ]
+    },
+    {
+      id: "uv", sigle: "", famille: "marquage", recherche: "impression UV objet",
+      nom: "Imprimante UV à plat",
+      court: "Elle imprime en couleur directement sur un objet rigide : plaque, coque, carrelage.",
+      quoi: "Une imprimante qui dépose l'encre en couleur directement sur presque tout objet rigide : coque, gourde, plaque, carrelage. La lumière UV fait sécher l'encre tout de suite. Chacun peut repartir avec un objet à son nom.",
+      usage: "Personnaliser de vrais objets, comme en entreprise, et comprendre comment on construit l'image d'une marque et comment on calcule le coût d'une production.",
+      competences: ["Créativité et design", "Sens du détail : préparer un fichier propre", "Communication visuelle et marketing", "Travail à plusieurs", "Sens commercial", "Valorisation de soi"],
+      securite: [
+        "Ne regarde pas directement les lampes UV pendant l'impression.",
+        "Mets des gants pour l'entretien des encres : elles irritent la peau tant qu'elles ne sont pas sèches.",
+        "Aère la pièce.",
+        "La machine ne chauffe pas fort. À part ces points, elle est très sûre."
+      ],
+      realisations: [
+        { titre: "Objet promotionnel personnalisé", texte: "Impression sur un stylo, une clé USB, une gourde ou un briquet.", secteurs: ["comm", "commerce"] },
+        { titre: "Plaque & badge nominatif", texte: "Plaque de porte, badge d'accueil, signalétique rigide.", secteurs: ["admin"] },
+        { titre: "Décor sur carrelage & panneau", texte: "Motif imprimé sur un carreau ou sur un panneau décoratif.", secteurs: ["construction"] },
+        { titre: "Coque & étui personnalisés", texte: "Impression sur une coque de téléphone ou sur un boîtier.", secteurs: ["commerce", "artisanat"] },
+        { titre: "Prototype de packaging imprimé", texte: "Maquette d'emballage avec le vrai visuel.", secteurs: ["comm"] }
+      ]
+    },
+    {
+      id: "dtf", sigle: "DTF", famille: "marquage", recherche: "impression textile DTF",
+      nom: "Imprimante textile",
+      court: "Elle imprime un visuel que tu transfères à chaud sur un vêtement.",
+      quoi: "Une imprimante textile tout-en-un. Elle imprime le visuel sur un film, le recouvre d'une colle en poudre puis le passe au four. Tu le transfères ensuite à chaud, avec la presse, sur presque n'importe quel textile.",
+      usage: "Créer des vêtements de travail, des textiles pour une équipe ou des produits à vendre, et réfléchir à ce qui rend un produit vendable.",
+      competences: ["Créativité et expression de soi", "Sens commercial : un produit qui se vend", "Communication visuelle", "Confiance en soi : la fierté du fait-main", "Soin et qualité : bien aligner, bien presser"],
+      securite: [
+        "La presse à chaud brûle : ne touche pas le plateau du haut.",
+        "Aère un peu la pièce à cause des encres.",
+        "Respecte la température prévue pour les textiles synthétiques, ils peuvent fondre."
+      ],
+      realisations: [
+        { titre: "Vêtement de travail marqué", texte: "Logo sur un polo ou une veste d'équipe.", secteurs: ["commerce"] },
+        { titre: "T-shirt pour un événement", texte: "Textile pour un club, une association ou un événement.", secteurs: ["comm"] },
+        { titre: "Tenue de sécurité marquée", texte: "Gilet ou tablier avec des consignes bien visibles.", secteurs: ["industrie"] },
+        { titre: "Textile promotionnel", texte: "Tote bag ou casquette aux couleurs d'une marque.", secteurs: ["comm", "commerce"] },
+        { titre: "Tablier & uniforme personnalisés", texte: "Tenue de restauration ou de soins avec le nom imprimé.", secteurs: ["horeca", "sante"] }
+      ]
+    },
+    {
+      id: "laser", sigle: "", famille: "decoupe", recherche: "découpe laser",
+      nom: "Découpeuse laser",
+      court: "Un laser grand format qui découpe et grave le bois, l'acrylique, le cuir et le carton.",
+      quoi: "Une machine industrielle qui découpe et grave grâce à un faisceau laser CO2 très puissant. Les coupes sont nettes et précises sur le bois, l'acrylique, le cuir ou le carton. Tu y apprends à travailler avec méthode, comme dans un atelier professionnel.",
+      usage: "Fabriquer des enseignes, des gabarits, des façades ou des prototypes propres, et les refaire à l'identique. Tu apprends aussi à bien placer tes pièces sur la plaque pour gaspiller le moins de matière possible.",
+      competences: ["Rigueur et respect des consignes", "Organisation : placer les pièces pour économiser la matière", "Précision", "Travail en équipe sur une machine partagée", "Respect du matériel", "Efficacité"],
+      securite: [
+        "Allume l'aspiration avant de lancer la découpe : les fumées sont nocives.",
+        "Ne découpe jamais de PVC, de polycarbonate ni d'ABS : ils dégagent des gaz toxiques.",
+        "Reste près de la machine pendant toute la découpe, le bois et le textile peuvent prendre feu.",
+        "Repère l'extincteur avant de commencer.",
+        "Travaille toujours avec ton formateur à côté."
+      ],
+      realisations: [
+        { titre: "Enseigne & signalétique découpées", texte: "Lettres et panneaux en bois ou en acrylique.", secteurs: ["comm", "construction"] },
+        { titre: "Gabarit & patron de découpe", texte: "Patron pour découper du cuir, du tissu ou de la tôle mince.", secteurs: ["artisanat", "industrie"] },
+        { titre: "Habillage & façade sur mesure", texte: "Panneau ajouré ou façade de meuble.", secteurs: ["construction"] },
+        { titre: "Boîtier électronique découpé", texte: "Coffret sur mesure pour protéger un montage électronique.", secteurs: ["elec"] },
+        { titre: "Prototype d'emballage en carton", texte: "Maquette de boîte pliable, découpée à plat.", secteurs: ["comm", "logistique"] }
+      ]
+    },
+    {
+      id: "cnc", sigle: "CNC", famille: "decoupe", recherche: "usinage CNC pièce",
+      nom: "Fraiseuse numérique",
+      court: "Elle enlève de la matière pour obtenir une pièce aux bonnes dimensions.",
+      quoi: "Une machine pilotée par ordinateur qui enlève de la matière (bois, plastique, aluminium) pour obtenir une pièce aux dimensions exactes. C'est une première découverte concrète du monde de l'usinage.",
+      usage: "Fabriquer des pièces précises qui fonctionnent, des moules ou des plaques techniques, et comprendre les étapes du travail : dessiner la pièce (CAO), préparer le trajet de l'outil (FAO), puis usiner.",
+      competences: ["Planification des étapes", "Pensée séquentielle : faire les choses dans l'ordre", "Vision dans l'espace", "Rigueur dans les réglages de coupe", "Gestion de l'erreur : un outil casse, on cherche pourquoi", "Patience"],
+      securite: [
+        "Ferme l'enceinte pendant l'usinage.",
+        "Mets des lunettes de protection pour placer et retirer la pièce.",
+        "Mets un casque antibruit pendant l'usinage.",
+        "Aspire les poussières fines, surtout avec le MDF et les composites."
+      ],
+      realisations: [
+        { titre: "Pièce métal usinée", texte: "Support, bride ou pièce en aluminium aux dimensions exactes.", secteurs: ["industrie", "soudure"] },
+        { titre: "Moule & empreinte", texte: "Moule pour l'injection de plastique ou pour une coulée.", secteurs: ["industrie"] },
+        { titre: "Plaque technique gravée", texte: "Plaque d'identification ou façade d'un panneau de commande.", secteurs: ["meca"] },
+        { titre: "Prototype fonctionnel en aluminium", texte: "Pièce à tester avant de lancer une production en série.", secteurs: ["industrie", "meca"] },
+        { titre: "Circuit imprimé fraisé", texte: "Prototype de carte électronique (PCB).", secteurs: ["elec"] }
+      ]
+    },
+    {
+      id: "cncman", sigle: "", famille: "decoupe", recherche: "fraisage bois portable",
+      nom: "Fraiseuse portative guidée",
+      court: "Une fraiseuse que tu guides à la main, avec un écran qui t'aide à suivre le tracé.",
+      quoi: "Une fraiseuse numérique portative. Tu la guides à la main et son écran t'aide à suivre le tracé avec la précision d'une machine, directement sur le matériau. Pas besoin d'être ingénieur pour s'en servir.",
+      usage: "Découper, graver et ajuster sur place, même sur de grandes surfaces ou des surfaces irrégulières. La menuiserie et l'agencement deviennent accessibles.",
+      competences: ["Coordination main-œil", "Confiance en soi face à une technologie accessible", "Précision du geste", "Adaptabilité : toutes les surfaces"],
+      securite: [
+        "Mets des lunettes et une protection auditive, la fraise tourne très vite.",
+        "Fixe solidement le matériau et le ruban de repérage (Shaper Tape).",
+        "Aspire les copeaux.",
+        "Garde les mains loin de la fraise."
+      ],
+      realisations: [
+        { titre: "Découpe de plan de travail", texte: "Ouverture d'évier et ajustage sur mesure dans une cuisine.", secteurs: ["construction"] },
+        { titre: "Mobilier sur mesure", texte: "Assemblages précis pour un meuble unique.", secteurs: ["construction", "artisanat"] },
+        { titre: "Enseigne gravée dans le bois", texte: "Panneau ou numéro de maison sculpté.", secteurs: ["artisanat"] },
+        { titre: "Encastrement de quincaillerie", texte: "Logement de charnière, de serrure ou de ferrure.", secteurs: ["construction"] },
+        { titre: "Découpe de panneaux sur chantier", texte: "Ajustage de panneaux directement sur le chantier.", secteurs: ["construction"] }
+      ]
+    },
+    {
+      id: "graveuse", sigle: "", famille: "decoupe", recherche: "gravure laser",
+      nom: "Graveuse laser",
+      court: "Elle grave le bois, le cuir, le verre et le métal en quelques secondes.",
+      quoi: "Une graveuse laser compacte avec deux sources (diode et infrarouge). Elle grave le bois, le cuir, le verre et le métal, et le résultat apparaît en quelques secondes.",
+      usage: "Marquer, tracer et personnaliser des objets ou des outils, et comprendre comment régler la puissance et la vitesse du laser selon le matériau.",
+      competences: ["Précision et rigueur dans les réglages", "Patience : faire des essais sur des chutes", "Créativité", "Résolution de problèmes : un réglage raté, on ajuste", "Autonomie", "Sens du détail"],
+      securite: [
+        "Garde le capot fermé pendant que la machine fonctionne.",
+        "Allume l'extraction des fumées.",
+        "Ne grave jamais de PVC, il dégage un gaz toxique.",
+        "Demande au formateur avant de graver un matériau qui brûle facilement."
+      ],
+      realisations: [
+        { titre: "Marquage & traçabilité d'outils", texte: "Graver un numéro ou un logo sur l'outillage.", secteurs: ["industrie", "meca"] },
+        { titre: "Cadeau & objet personnalisé", texte: "Graver du bois, du verre ou de l'ardoise pour un client.", secteurs: ["commerce", "artisanat"] },
+        { titre: "Plaque pro & badge gravé", texte: "Plaque professionnelle pour un indépendant.", secteurs: ["admin", "commerce"] },
+        { titre: "Gravure sur cuir", texte: "Étiquette, portefeuille, marquage de maroquinerie.", secteurs: ["artisanat"] },
+        { titre: "Marquage sur métal", texte: "Plaque en acier, bijou, médaille personnalisée.", secteurs: ["soudure", "artisanat"] }
+      ]
+    },
+    {
+      id: "studio", sigle: "", famille: "capture", recherche: "studio vidéo pédagogique",
+      nom: "Studio vidéo",
+      court: "Fond vert, prompteur et coach IA pour t'entraîner à parler face caméra.",
+      quoi: "Un studio que tu utilises en autonomie, avec fond vert, prompteur et coach IA. Il sert à travailler la prise de parole, la présentation de soi et l'entretien d'embauche. Le coach IA te donne un retour objectif, sans jugement.",
+      usage: "Te voir à l'écran, te corriger et progresser, ou réaliser un CV vidéo ou un tutoriel du début à la fin.",
+      competences: ["Confiance en soi", "Communication orale", "Gestion du stress : un retour sans jugement", "Esprit critique : analyser sa prestation", "Créativité : écrire un scénario", "Collaboration"],
+      securite: [
+        "Aucun équipement de protection n'est nécessaire.",
+        "Tes vidéos restent sur place, sauf si tu acceptes de les partager.",
+        "Pour diffuser une vidéo, une autorisation de droit à l'image doit être signée."
+      ],
+      realisations: [
+        { titre: "CV vidéo & pitch personnel", texte: "Se présenter face caméra à un employeur.", secteurs: ["insertion"] },
+        { titre: "Tutoriel technique filmé", texte: "Expliquer un geste métier dans une courte vidéo.", secteurs: ["insertion"] },
+        { titre: "Vidéo de présentation d'entreprise", texte: "Présenter un produit ou un service pour la communication.", secteurs: ["comm"] },
+        { titre: "Simulation d'entretien d'embauche", texte: "S'entraîner et se revoir avec le coach IA.", secteurs: ["insertion"] },
+        { titre: "Démonstration de produit", texte: "Argumentaire filmé pour convaincre un client.", secteurs: ["commerce"] }
+      ]
+    },
+    {
+      id: "scanner", sigle: "", famille: "capture", recherche: "scan 3D objet",
+      nom: "Scanner 3D",
+      court: "Il transforme un objet réel en modèle 3D sur l'ordinateur.",
+      quoi: "Un scanner à main qui projette une lumière infrarouge sur un objet pour en faire une copie en 3D sur l'ordinateur. Il fait le lien entre le monde réel et le numérique : on copie un objet pour le réparer, le contrôler ou le refabriquer.",
+      usage: "Copier une pièce dont on n'a pas le plan, vérifier qu'une pièce est conforme, prendre une empreinte pour un appareillage, ou scanner un objet puis l'imprimer en 3D.",
+      competences: ["Observation : regarder l'objet sous tous les angles", "Méthode : prévoir les angles de scan", "Pensée abstraite : passer de l'objet à sa copie numérique", "Résolution de problèmes : combler les zones manquantes", "Curiosité"],
+      securite: [
+        "La lumière du scanner est infrarouge, donc invisible : ne regarde pas directement dedans et ne la dirige pas vers les yeux de quelqu'un.",
+        "Pose l'objet bien stable et bien calé."
+      ],
+      realisations: [
+        { titre: "Rétro-ingénierie d'une pièce", texte: "Scanner une pièce cassée pour la refabriquer.", secteurs: ["meca"] },
+        { titre: "Numérisation d'un objet du patrimoine", texte: "Copier une pièce ancienne à restaurer.", secteurs: ["artisanat"] },
+        { titre: "Contrôle qualité des dimensions", texte: "Comparer une pièce à son plan (métrologie).", secteurs: ["industrie"] },
+        { titre: "Empreinte pour une orthèse", texte: "Numériser un membre pour fabriquer un appareillage.", secteurs: ["sante"] },
+        { titre: "Produit en 3D pour un catalogue", texte: "Modèle 3D pour la vente en ligne.", secteurs: ["commerce"] }
+      ]
+    },
+    {
+      id: "vr", sigle: "", famille: "capture", recherche: "réalité virtuelle formation",
+      nom: "Casque de réalité virtuelle",
+      court: "Pour t'entraîner à un geste ou à une situation, sans prendre de risque.",
+      quoi: "Un casque de réalité virtuelle autonome qui te plonge dans une situation réaliste. Tu t'entraînes à un geste ou à une situation stressante sans risque et sans consommer de matériel.",
+      usage: "Simuler une soudure, la conduite d'un engin, un chantier ou un entretien d'embauche, et découvrir des métiers difficiles à approcher autrement.",
+      competences: ["Empathie : se mettre à la place de quelqu'un", "Gestion du stress : vivre une situation difficile en sécurité", "Curiosité et ouverture", "Concentration", "Communication : en parler ensemble après"],
+      securite: [
+        "Garde un espace libre d'au moins 2 m sur 2 m autour de toi.",
+        "Commence par des expériences où tu restes immobile, pour éviter le mal des transports (cinétose).",
+        "Nettoie le casque avec une lingette entre chaque personne.",
+        "Fais tes premiers essais avec le formateur, on peut se sentir désorienté.",
+        "En cas d'épilepsie sensible à la lumière, demande d'abord l'avis d'un médecin."
+      ],
+      realisations: [
+        { titre: "Simulation de soudure", texte: "S'entraîner au geste sans consommable ni danger.", secteurs: ["soudure"] },
+        { titre: "Visite virtuelle de chantier", texte: "Repérer les risques avant d'aller sur le chantier.", secteurs: ["construction"] },
+        { titre: "Conduite de chariot élévateur", texte: "S'exercer à la manœuvre en toute sécurité.", secteurs: ["logistique"] },
+        { titre: "Entraînement à la prise de parole", texte: "Parler devant un public virtuel pour gagner en confiance.", secteurs: ["insertion"] },
+        { titre: "Gestes de soin & anatomie en 3D", texte: "Explorer le corps humain et des situations de soin.", secteurs: ["sante"] }
+      ]
+    },
+    {
+      id: "arduino", sigle: "", famille: "proto", recherche: "Arduino Micro:bit projet",
+      nom: "Arduino · Micro:bit",
+      court: "Tu programmes un petit montage électronique qui réagit.",
+      quoi: "De petites cartes électroniques pour débuter en électronique et en programmation, sans soudure. Tu codes un premier montage qui réagit, et la technique devient tout de suite plus concrète. Le Micro:bit est encore plus simple pour commencer.",
+      usage: "Comprendre comment fonctionnent les capteurs, les automatismes et les objets connectés, programmer un comportement simple et le voir fonctionner.",
+      competences: ["Pensée logique et algorithmique", "Résolution de problèmes : trouver le bug", "Persévérance : un bug, une correction, puis ça marche", "Travail en équipe", "Esprit critique", "Créativité technique"],
+      securite: [
+        "Très basse tension (3,3 V pour le Micro:bit, 5 V pour l'Arduino) : pas de risque électrique sérieux.",
+        "Évite les courts-circuits, ils peuvent abîmer les composants.",
+        "Pas besoin de soudure : tout se branche sur une plaque d'essai (breadboard)."
+      ],
+      realisations: [
+        { titre: "Système domotique simple", texte: "Détecteur, éclairage ou volet automatique.", secteurs: ["elec"] },
+        { titre: "Petit automate", texte: "Feu tricolore, barrière, séquence logique.", secteurs: ["elec"] },
+        { titre: "Objet connecté de mesure", texte: "Capteur relié à une alerte ou à un afficheur.", secteurs: ["elec", "meca"] },
+        { titre: "Capteur environnemental", texte: "Mesure de la température, de l'humidité ou de la qualité de l'air.", secteurs: ["elec"] },
+        { titre: "Compteur & système d'alerte", texte: "Compter des passages, signaler quand un seuil est dépassé.", secteurs: ["logistique", "elec"] }
+      ]
+    },
+    {
+      id: "thermo", sigle: "", famille: "proto", recherche: "thermoformage plastique",
+      nom: "Thermoformeuse",
+      court: "Une feuille de plastique chauffée prend la forme d'un moule.",
+      quoi: "Une machine qui chauffe une feuille de plastique puis l'aspire sur un moule : le plastique en prend la forme. Tu enchaînes plusieurs machines pour y arriver : imprimer le moule en 3D, thermoformer, puis découper.",
+      usage: "Fabriquer des blisters, des coques, des moules et des emballages sur mesure, et apprendre à penser un objet en fonction de sa fabrication, avec des formes qui se démoulent bien.",
+      competences: ["Pensée systémique : concevoir le moule pour le résultat voulu", "Anticipation : prévoir le démoulage", "Lien entre les machines : impression 3D, thermoformage, découpe", "Amélioration pas à pas"],
+      securite: [
+        "Le plastique sort très chaud : attends qu'il refroidisse avant de le toucher.",
+        "Mets des gants résistants à la chaleur pour démouler.",
+        "Aère la pièce, certains plastiques dégagent des vapeurs en chauffant."
+      ],
+      realisations: [
+        { titre: "Blister & emballage de produit", texte: "Coque transparente qui épouse la forme de l'objet.", secteurs: ["commerce", "industrie"] },
+        { titre: "Coque de protection sur mesure", texte: "Protection pour un appareil ou une pièce.", secteurs: ["industrie"] },
+        { titre: "Moule à chocolat, savon ou résine", texte: "Empreinte à remplir. Pour le chocolat, il faut une feuille de plastique alimentaire.", secteurs: ["horeca", "artisanat"] },
+        { titre: "Attelle ou orthèse thermoformée", texte: "Support léger, moulé sur mesure.", secteurs: ["sante"] },
+        { titre: "Calage pour le transport", texte: "Pièce de calage pour protéger un objet pendant une expédition.", secteurs: ["logistique"] }
+      ]
+    }
+  ];
+
+  /* Index et compteurs */
+  var MACHINES_BY_ID = {}, SECTEURS_BY_ID = {}, FAMILLES_BY_ID = {};
+  var TOTAL_REAL = 0;
+  MACHINES.forEach(function (m, i) {
+    m.index = i;
+    m.num = pad(i + 1);
+    MACHINES_BY_ID[m.id] = m;
+    TOTAL_REAL += m.realisations.length;
+  });
+  FAMILLES.forEach(function (f) { FAMILLES_BY_ID[f.id] = f; });
+  SECTEURS.forEach(function (s) {
+    SECTEURS_BY_ID[s.id] = s;
+    s.count = 0;
+  });
+  MACHINES.forEach(function (m) {
+    m.realisations.forEach(function (r) {
+      r.secteurs.forEach(function (sid) { SECTEURS_BY_ID[sid].count += 1; });
+    });
+  });
+
+  /* Outils */
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  var NB = " ";
+  function t(s) {
+    return esc(String(s).replace(/ ([?:!;»])/g, NB + "$1").replace(/« /g, "«" + NB).replace(/(\d) (°C|V|m)\b/g, "$1" + NB + "$2"));
+  }
+  function plural(n, un, plusieurs) { return n + " " + (n > 1 ? plusieurs : un); }
+  function svg(name, size) {
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICONS[name] + "</svg>";
+  }
+  function heart(size, filled) {
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="' + (filled ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICONS.heart + "</svg>";
+  }
+  function mIcon(id, size) { return svg("m-" + id, size); }
+  function photoUrl(m, r) {
+    var q = (r.titre + " " + m.recherche).replace(/&/g, " ").replace(/\s+/g, " ").trim();
+    return "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(q);
+  }
+  var reduceMotion = false;
+  try { reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  var canShare = typeof navigator.share === "function";
+
+  /* Favoris, gardés sur l'appareil */
+  function loadFavs() {
+    try {
+      var v = JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
+      return Array.isArray(v) ? v.filter(function (id, i) { return MACHINES_BY_ID[id] && v.indexOf(id) === i; }) : [];
+    } catch (e) { return []; }
+  }
+  function saveFavs() { try { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); } catch (e) {} }
+  function isFav(id) { return favs.indexOf(id) !== -1; }
+
+  /* Adresse pour les QR codes et les liens */
+  function savedUrl() { try { return localStorage.getItem(URL_KEY) || ""; } catch (e) { return ""; } }
+  function baseUrl() {
+    var saved = savedUrl();
+    if (saved) return saved;
+    try {
+      var u = new URL(location.href);
+      if (/^https?:$/.test(u.protocol) && !/(claude|anthropic|usercontent|localhost|127\.0\.0\.1)/i.test(u.hostname)) {
+        return u.origin + u.pathname;
+      }
+    } catch (e) {}
+    return URL_PUBLIQUE;
+  }
+  function selectionUrl(ids) {
+    return ids.length === 1 ? baseUrl() + "#machine-" + ids[0] : baseUrl() + "#selection-" + ids.join("-");
+  }
+
+  /* Routes : #accueil, #machine-laser, #secteur-construction, #favoris, #selection-laser-cnc, #formateur */
+  function parseRoute() {
+    var h = "";
+    try { h = decodeURIComponent((location.hash || "").replace(/^#/, "")); } catch (e) { h = ""; }
+    var m;
+    if (!h || h === "accueil") return { view: "home" };
+    if (h === "favoris") return { view: "favoris" };
+    if (h === "formateur") return { view: "formateur" };
+    if ((m = h.match(/^machine-([a-z0-9]+)$/)) && MACHINES_BY_ID[m[1]]) return { view: "machine", id: m[1] };
+    if ((m = h.match(/^secteur-([a-z0-9]+)$/)) && SECTEURS_BY_ID[m[1]]) return { view: "secteur", id: m[1] };
+    if ((m = h.match(/^selection-([a-z0-9-]+)$/))) {
+      var ids = [];
+      m[1].split("-").forEach(function (id) { if (MACHINES_BY_ID[id] && ids.indexOf(id) === -1) ids.push(id); });
+      if (ids.length === 1) return { view: "machine", id: ids[0] };
+      if (ids.length > 1) return { view: "selection", ids: ids };
+    }
+    return { view: "home" };
+  }
+
+  /* Anciens liens ?m=fdm,sla */
+  function legacyParam() {
+    try {
+      var p = new URLSearchParams(location.search).get("m");
+      if (!p || location.hash) return;
+      var ids = [];
+      p.split(",").forEach(function (s) {
+        var id = s.trim().toLowerCase();
+        if (MACHINES_BY_ID[id] && ids.indexOf(id) === -1) ids.push(id);
+      });
+      if (ids.length === 1) history.replaceState(null, "", "#machine-" + ids[0]);
+      else if (ids.length > 1) history.replaceState(null, "", "#selection-" + ids.join("-"));
+    } catch (e) {}
+  }
+
+  /* Morceaux réutilisés */
+  function copyBox(id, url, label, withShare) {
+    return '<div class="copybox" data-copy-box>' +
+      '<label class="sr-only" for="' + id + '">' + t(label) + "</label>" +
+      '<input id="' + id + '" type="text" readonly value="' + esc(url) + '">' +
+      '<button type="button" class="btn-outline" data-action="copy" data-text="' + esc(url) + '">' + svg("copy", 18) + " Copier</button>" +
+      (withShare && canShare ? '<button type="button" class="btn-outline" data-action="share" data-text="' + esc(url) + '">' + svg("share", 18) + " Envoyer</button>" : "") +
+      "</div>";
+  }
+  function machineCard(m) {
+    var fav = isFav(m.id);
+    return '<a class="mcard lift" href="#machine-' + m.id + '">' +
+      '<span class="mcard-top"><span class="mcard-ic">' + mIcon(m.id, 30) + '</span><span class="mcard-num">' + m.num + "</span></span>" +
+      '<span class="mcard-main">' +
+      '<span class="mcard-body"><span class="mcard-name">' + t(m.nom) + (m.sigle ? ' <span class="sigle">' + m.sigle + "</span>" : "") + '</span><span class="mcard-short">' + t(m.court) + "</span></span>" +
+      '<span class="mcard-foot">' + (fav ? '<span class="fav-flag">' + heart(16, true) + " Favori</span>" : "") + '<span class="go">Voir la fiche ' + svg("arrow-right", 18) + "</span></span>" +
+      "</span></a>";
+  }
+  function realCard(m, r, sectorId, showMachine) {
+    var badges;
+    if (sectorId) {
+      badges = r.secteurs.filter(function (s) { return s !== sectorId; }).map(function (s) {
+        return '<span class="badge">Aussi' + NB + ": " + t(SECTEURS_BY_ID[s].nom) + "</span>";
+      });
+    } else {
+      badges = r.secteurs.map(function (s) { return '<span class="badge">' + t(SECTEURS_BY_ID[s].nom) + "</span>"; });
+    }
+    return '<article class="rcard">' +
+      (showMachine ? '<a class="rcard-machine" href="#machine-' + m.id + '"><span class="ic">' + mIcon(m.id, 18) + "</span>" + t(m.nom) + "</a>" : "") +
+      "<h3>" + t(r.titre) + "</h3>" +
+      "<p>" + t(r.texte) + "</p>" +
+      (badges.length ? '<div class="badges">' + badges.join("") + "</div>" : "") +
+      '<a class="btn-outline" href="' + esc(photoUrl(m, r)) + '" target="_blank" rel="noopener">' + svg("image", 18) + " Voir en photo</a>" +
+      "</article>";
+  }
+  function favInner(on) {
+    return on ? heart(20, true) + "<span>Dans mes favoris</span>" : heart(20, false) + "<span>Ajouter à mes favoris</span>";
+  }
+  function favCard(m) {
+    var fav = isFav(m.id);
+    return '<article class="fcard">' +
+      '<div class="fcard-head"><span class="mcard-ic">' + mIcon(m.id, 28) + "</span>" +
+      '<div class="fcard-titles"><span class="fcard-meta">' + m.num + " · " + t(FAMILLES_BY_ID[m.famille].nom) + '</span><h3><a href="#machine-' + m.id + '">' + t(m.nom) + "</a></h3></div>" +
+      '<button type="button" class="icon-btn" data-action="fav" data-id="' + m.id + '" aria-pressed="' + fav + '" aria-label="' + (fav ? "Retirer de mes favoris : " : "Ajouter à mes favoris : ") + esc(m.nom) + '">' + heart(22, fav) + "</button></div>" +
+      "<p>" + t(m.usage) + "</p>" +
+      '<div class="fcard-real"><h4>Ce qu' + "'" + 'on fabrique avec</h4><ul>' +
+      m.realisations.map(function (r) {
+        return "<li><strong>" + t(r.titre) + "</strong><span>" + t(r.secteurs.map(function (s) { return SECTEURS_BY_ID[s].nom; }).join(" · ")) + "</span></li>";
+      }).join("") +
+      "</ul></div>" +
+      '<a class="btn-outline" href="#machine-' + m.id + '">Voir la fiche ' + svg("arrow-right", 18) + "</a>" +
+      "</article>";
+  }
+  function subhero(eyebrow, title, lead, tile, backHref, backLabel) {
+    return '<section class="subhero"><div class="wrap subhero-inner">' +
+      '<a class="back" href="' + backHref + '">' + svg("arrow-left", 20) + " " + backLabel + "</a>" +
+      '<div class="subhero-id"><span class="id-tile id-tile-violet">' + tile + "</span>" +
+      '<div class="subhero-titles"><p class="eyebrow">' + eyebrow + '</p><h1 tabindex="-1">' + title + "</h1></div></div>" +
+      '<p class="lead">' + lead + "</p>" +
+      "</div></section>";
+  }
+
+  /* Vues */
+  function viewHome() {
+    var tiles = SECTEURS.map(function (s) {
+      return '<a class="tile lift" href="#secteur-' + s.id + '"><span class="tile-ic">' + svg("s-" + s.id, 26) + "</span>" +
+        '<span class="tile-text"><span class="tile-name">' + t(s.nom) + '</span><span class="tile-count">' + plural(s.count, "réalisation", "réalisations") + "</span></span></a>";
+    }).join("");
+    var groups = FAMILLES.map(function (f) {
+      var ms = MACHINES.filter(function (m) { return m.famille === f.id; });
+      return '<div class="family"><div class="family-head"><h3>' + t(f.nom) + '</h3><span class="rule"></span></div>' +
+        '<div class="grid-machines">' + ms.map(machineCard).join("") + "</div></div>";
+    }).join("");
+    var url = baseUrl();
+    return '<section class="hero"><div class="wrap hero-inner">' +
+      '<div class="hero-text">' +
+      '<p class="eyebrow">Découverte des métiers</p>' +
+      '<h1 tabindex="-1">Les machines de la Digital Factory</h1>' +
+      '<p class="lead">Choisis une machine ou pars de ton secteur pour voir ce qu' + "'" + 'on y fabrique et dans quels métiers on s' + "'" + 'en sert.</p>' +
+      '<ul class="stats"><li><strong>' + MACHINES.length + "</strong> machines</li><li><strong>" + TOTAL_REAL + "</strong> réalisations</li><li><strong>" + SECTEURS.length + "</strong> secteurs</li></ul>" +
+      "</div>" +
+      '<div class="mosaic" aria-hidden="true">' + ["fdm", "laser", "vr", "dtf", "cnc", "arduino"].map(function (id) { return "<span>" + mIcon(id, 40) + "</span>"; }).join("") + "</div>" +
+      "</div></section>" +
+      '<div class="wrap page">' +
+      '<section class="block" aria-labelledby="t-secteurs">' +
+      '<div class="block-head"><h2 id="t-secteurs">Pars de ton secteur</h2><p>Touche un secteur pour voir les machines et les réalisations qui s' + "'" + "y rattachent.</p></div>" +
+      '<div class="grid-tiles">' + tiles + "</div></section>" +
+      '<section class="block" aria-labelledby="t-machines">' +
+      '<div class="block-head"><h2 id="t-machines">Ou choisis une machine</h2><p>Chaque fiche explique la machine, ce que tu y travailles et ce qu' + "'" + "on fabrique avec.</p></div>" +
+      '<div class="machines">' + groups + "</div></section>" +
+      '<section class="block no-print" aria-labelledby="t-emporter">' +
+      '<div class="block-head"><h2 id="t-emporter">Emporte l' + "'" + 'appli</h2><p>Elle marche aussi sur ton téléphone, à la Digital Factory comme chez toi.</p></div>' +
+      '<div class="takeaway">' +
+      '<div class="panel"><h3>' + svg("phone", 22) + " Ouvre-la sur ton téléphone</h3>" +
+      "<p>Scanne ce code avec l" + "'" + "appareil photo de ton téléphone.</p>" +
+      '<div class="qr" data-qr="' + esc(url) + '"></div>' +
+      copyBox("lien-appli", url, "Lien de l'appli", true) + "</div>" +
+      '<div class="panel"><h3>' + svg("home", 22) + " Garde-la sur ton écran d" + "'" + "accueil</h3>" +
+      "<p>Tu la retrouveras d" + "'" + "un geste, comme une application.</p>" +
+      '<dl class="howto">' +
+      "<div><dt>iPhone, avec Safari</dt><dd>" + t("Touche le bouton Partager, puis « Sur l'écran d'accueil ».") + "</dd></div>" +
+      "<div><dt>Android, avec Chrome</dt><dd>" + t("Touche le menu ⋮, puis « Ajouter à l'écran d'accueil ».") + "</dd></div>" +
+      "</dl></div>" +
+      '<div class="panel"><h3>' + heart(22, false) + " Garde tes machines préférées</h3>" +
+      "<p>" + t("Touche le cœur sur les fiches qui t'intéressent. Dans « Mes favoris », un code te permet d'emporter ta sélection sur ton téléphone.") + "</p>" +
+      '<a class="btn" href="#favoris">' + heart(18, false) + " Voir mes favoris</a></div>" +
+      "</div></section>" +
+      "</div>";
+  }
+
+  function viewSecteur(id) {
+    var s = SECTEURS_BY_ID[id];
+    var groupes = MACHINES.map(function (m) {
+      return { m: m, rs: m.realisations.filter(function (r) { return r.secteurs.indexOf(id) !== -1; }) };
+    }).filter(function (g) { return g.rs.length; }).sort(function (a, b) { return b.rs.length - a.rs.length || a.m.index - b.m.index; });
+    var nbR = groupes.reduce(function (n, g) { return n + g.rs.length; }, 0);
+    var chips = SECTEURS.map(function (x) {
+      return '<a class="chip" href="#secteur-' + x.id + '"' + (x.id === id ? ' aria-current="page"' : "") + ">" + t(x.nom) + "</a>";
+    }).join("");
+    var minis = groupes.map(function (g) {
+      return '<a class="mini lift" href="#machine-' + g.m.id + '"><span class="mini-ic">' + mIcon(g.m.id, 26) + "</span>" +
+        '<span class="mini-text"><span class="mini-name">' + t(g.m.nom) + '</span><span class="mini-sub">' + plural(g.rs.length, "réalisation", "réalisations") + "</span></span></a>";
+    }).join("");
+    var cards = groupes.map(function (g) {
+      return g.rs.map(function (r) { return realCard(g.m, r, id, true); }).join("");
+    }).join("");
+    return subhero("Ton secteur", t(s.nom),
+        plural(groupes.length, "machine", "machines") + " de la Digital Factory et " + plural(nbR, "réalisation concrète", "réalisations concrètes") + " en lien avec ce secteur.",
+        svg("s-" + id, 36), "#accueil", "Accueil") +
+      '<nav class="chipbar no-print" aria-label="Changer de secteur"><div class="wrap"><p class="chipbar-label">Changer de secteur</p><div class="chips">' + chips + "</div></div></nav>" +
+      '<div class="wrap page">' +
+      '<section class="block" aria-labelledby="t-mc"><div class="block-head"><h2 id="t-mc">Les machines concernées</h2></div><div class="grid-mini">' + minis + "</div></section>" +
+      '<section class="block" aria-labelledby="t-rs"><div class="block-head"><h2 id="t-rs">Ce qu' + "'" + "on fabrique dans ce secteur</h2><p>" + t("« Voir en photo » ouvre une recherche d'images sur Google.") + "</p></div>" +
+      '<div class="grid-real">' + cards + "</div></section>" +
+      "</div>";
+  }
+
+  function viewMachine(id) {
+    var m = MACHINES_BY_ID[id];
+    var n = MACHINES.length;
+    var prev = MACHINES[(m.index - 1 + n) % n];
+    var next = MACHINES[(m.index + 1) % n];
+    var fav = isFav(id);
+    return '<section class="fiche-hero"><div class="wrap fiche-hero-inner">' +
+      '<div class="fiche-top">' +
+      '<a class="back" href="#accueil">' + svg("arrow-left", 20) + " Toutes les machines</a>" +
+      '<div class="pager">' +
+      '<a class="pager-btn" href="#machine-' + prev.id + '" aria-label="Machine précédente : ' + esc(prev.nom) + '">' + svg("arrow-left", 20) + "</a>" +
+      '<span class="pager-pos">' + m.num + " / " + pad(n) + "</span>" +
+      '<a class="pager-btn" href="#machine-' + next.id + '" aria-label="Machine suivante : ' + esc(next.nom) + '">' + svg("arrow-right", 20) + "</a>" +
+      "</div></div>" +
+      '<div class="fiche-id">' +
+      '<span class="id-tile id-tile-xl">' + mIcon(id, 56) + "</span>" +
+      '<div class="fiche-titles">' +
+      '<span class="family-badge">' + t(FAMILLES_BY_ID[m.famille].nom) + "</span>" +
+      '<h1 tabindex="-1">' + t(m.nom) + (m.sigle ? ' <span class="h1-sigle">' + m.sigle + "</span>" : "") + "</h1>" +
+      '<p class="lead">' + t(m.court) + "</p>" +
+      '<div class="fiche-actions"><button type="button" class="btn-fav" data-action="fav" data-id="' + m.id + '" aria-pressed="' + fav + '">' + favInner(fav) + "</button></div>" +
+      "</div></div>" +
+      "</div></section>" +
+      '<nav class="jumpbar no-print" aria-label="Rubriques de la fiche"><div class="wrap"><div class="jumps">' +
+      '<button type="button" class="jump" data-action="jump" data-target="s-bref">En bref</button>' +
+      '<button type="button" class="jump" data-action="jump" data-target="s-competences">Ce que tu travailles</button>' +
+      '<button type="button" class="jump" data-action="jump" data-target="s-realisations">Réalisations · ' + m.realisations.length + "</button>" +
+      '<button type="button" class="jump" data-action="jump" data-target="s-securite">Sécurité</button>' +
+      "</div></div></nav>" +
+      '<div class="wrap page">' +
+      '<section class="block section" id="s-bref" aria-labelledby="t-bref"><div class="block-head"><h2 id="t-bref">En bref</h2></div>' +
+      '<div class="duo">' +
+      '<div class="panel"><h3>' + t("C'est quoi ?") + "</h3><p>" + t(m.quoi) + "</p></div>" +
+      '<div class="panel"><h3>' + t("Ça sert à quoi ?") + "</h3><p>" + t(m.usage) + "</p></div>" +
+      "</div></section>" +
+      '<section class="block section" id="s-competences" aria-labelledby="t-comp"><div class="block-head"><h2 id="t-comp">Ce que tu travailles</h2><p>Les compétences que tu exerces en utilisant cette machine.</p></div>' +
+      '<ul class="skills">' + m.competences.map(function (c) { return "<li>" + svg("check", 18) + "<span>" + t(c) + "</span></li>"; }).join("") + "</ul></section>" +
+      '<section class="block section" id="s-realisations" aria-labelledby="t-real"><div class="block-head"><h2 id="t-real">Ce qu' + "'" + "on fabrique avec, dans les métiers</h2><p>" +
+      t(m.realisations.length + " exemples concrets. « Voir en photo » ouvre une recherche d'images sur Google.") + "</p></div>" +
+      '<div class="grid-real">' + m.realisations.map(function (r) { return realCard(m, r, null, false); }).join("") + "</div></section>" +
+      '<section class="block section" id="s-securite" aria-labelledby="t-secu"><div class="block-head"><h2 id="t-secu">Sécurité</h2><p>Les règles à suivre avec cette machine à la Digital Factory.</p></div>' +
+      '<div class="panel"><ul class="safety-list">' + m.securite.map(function (s) { return "<li>" + t(s) + "</li>"; }).join("") + "</ul></div></section>" +
+      '<nav class="prevnext no-print" aria-label="Autres machines">' +
+      '<a class="pn lift" href="#machine-' + prev.id + '"><span class="pn-dir">' + svg("arrow-left", 18) + " Machine précédente</span><span class=\"pn-name\">" + t(prev.nom) + "</span></a>" +
+      '<a class="pn pn-next lift" href="#machine-' + next.id + '"><span class="pn-dir">Machine suivante ' + svg("arrow-right", 18) + "</span><span class=\"pn-name\">" + t(next.nom) + "</span></a>" +
+      "</nav>" +
+      "</div>";
+  }
+
+  var clearAsk = false;
+  function viewFavoris() {
+    var list = favs.map(function (id) { return MACHINES_BY_ID[id]; }).filter(Boolean);
+    var head = subhero("Ma sélection", "Mes favoris",
+      list.length ? plural(list.length, "machine gardée", "machines gardées") + " sur cet appareil." : "Les machines que tu gardes s" + "'" + "affichent ici.",
+      heart(34, true), "#accueil", "Toutes les machines");
+    if (!list.length) {
+      return head + '<div class="wrap page"><div class="panel empty">' +
+        '<span class="empty-ic">' + heart(30, false) + "</span>" +
+        "<h2>Pas encore de favori</h2>" +
+        "<p>" + t("Ouvre une fiche machine et touche « Ajouter à mes favoris » pour la garder ici.") + "</p>" +
+        '<a class="btn" href="#accueil">Découvrir les machines ' + svg("arrow-right", 18) + "</a>" +
+        "</div></div>";
+    }
+    var url = selectionUrl(list.map(function (m) { return m.id; }));
+    return head + '<div class="wrap page">' +
+      '<section class="block no-print" aria-labelledby="t-emp"><div class="panel take-panel">' +
+      '<div class="take-text"><h2 id="t-emp">Emporte ta sélection</h2>' +
+      "<p>" + t("Scanne ce code avec ton téléphone : ta sélection s'ouvrira dessus. Tu pourras alors l'ajouter à tes favoris pour la garder.") + "</p>" +
+      copyBox("lien-selection", url, "Lien de ta sélection", true) + "</div>" +
+      '<div class="qr qr-lg" data-qr="' + esc(url) + '"></div>' +
+      "</div></section>" +
+      '<section class="block" aria-labelledby="t-liste"><div class="block-head"><h2 id="t-liste">' + plural(list.length, "machine", "machines") + "</h2></div>" +
+      '<div class="grid-fav">' + list.map(favCard).join("") + "</div></section>" +
+      '<section class="block no-print"><div class="clear-box"><p>Sur une tablette partagée, vide ta sélection avant de partir.</p>' +
+      (clearAsk
+        ? '<div class="clear-actions"><button type="button" class="btn" data-action="clear-confirm">Oui, tout retirer</button><button type="button" class="btn-outline" data-action="clear-cancel">Annuler</button></div>'
+        : '<button type="button" class="btn-outline" data-action="clear-ask">' + svg("trash", 18) + " Vider ma sélection</button>") +
+      "</div></section>" +
+      "</div>";
+  }
+
+  function viewSelection(ids) {
+    var list = ids.map(function (id) { return MACHINES_BY_ID[id]; });
+    var allIn = list.every(function (m) { return isFav(m.id); });
+    return subhero("Sélection partagée", "Sélection de machines",
+        plural(list.length, "machine choisie", "machines choisies") + " à la Digital Factory.",
+        heart(34, false), "#accueil", "Toutes les machines") +
+      '<div class="wrap page">' +
+      '<section class="block no-print" aria-labelledby="t-garder"><div class="panel take-panel"><div class="take-text">' +
+      '<h2 id="t-garder">Garde cette sélection</h2>' +
+      "<p>" + t("Ajoute ces machines à tes favoris : elles resteront sur cet appareil.") + "</p>" +
+      (allIn
+        ? '<p class="done">' + svg("check", 20) + ' Déjà dans tes favoris.</p><a class="btn-outline" href="#favoris">Voir mes favoris</a>'
+        : '<button type="button" class="btn" data-action="add-all" data-ids="' + ids.join("-") + '">' + heart(18, false) + " Ajouter à mes favoris</button>") +
+      "</div></div></section>" +
+      '<section class="block" aria-labelledby="t-sel"><div class="block-head"><h2 id="t-sel">' + plural(list.length, "machine", "machines") + "</h2></div>" +
+      '<div class="grid-fav">' + list.map(favCard).join("") + "</div></section>" +
+      "</div>";
+  }
+
+  function viewFormateur() {
+    var url = baseUrl();
+    var saved = savedUrl();
+    var rows = MACHINES.map(function (m) {
+      return '<tr><td class="num">' + m.num + "</td><td>" + t(m.nom) + "</td><td><code>#machine-" + m.id + "</code></td><td><code>?m=" + m.id + "</code></td></tr>";
+    }).join("");
+    var srows = SECTEURS.map(function (s) {
+      return "<tr><td>" + t(s.nom) + "</td><td><code>#secteur-" + s.id + "</code></td></tr>";
+    }).join("");
+    return subhero("Pour les formateurs", "Espace formateur",
+        "Pour faire ouvrir l" + "'" + "appli sur les téléphones et donner un accès direct à une fiche.",
+        svg("phone", 34), "#accueil", "Accueil") +
+      '<div class="wrap page">' +
+      '<section class="block" aria-labelledby="t-qr"><div class="panel take-panel"><div class="take-text">' +
+      '<h2 id="t-qr">Faire ouvrir l' + "'" + "appli sur les téléphones</h2>" +
+      "<p>Projette ce code : les stagiaires le scannent avec l" + "'" + "appareil photo de leur téléphone.</p>" +
+      copyBox("lien-formateur", url, "Lien de l'appli", false) + "</div>" +
+      '<div class="qr qr-lg" data-qr="' + esc(url) + '"></div>' +
+      "</div></section>" +
+      '<section class="block" aria-labelledby="t-adresse"><div class="panel">' +
+      '<h2 id="t-adresse" class="h-panel">Adresse utilisée pour les codes et les liens</h2>' +
+      "<p>" + t("Par défaut, l'appli utilise sa propre adresse en ligne, ou " + URL_PUBLIQUE + " quand elle est ouverte depuis un autre endroit. Change-la seulement si l'appli est publiée ailleurs. Ce réglage reste sur cet appareil.") + "</p>" +
+      '<form class="url-form" data-form="adresse" novalidate>' +
+      '<label for="adresse">Adresse de l' + "'" + "appli</label>" +
+      '<div class="url-row"><input id="adresse" name="adresse" type="url" inputmode="url" autocomplete="off" placeholder="' + esc(URL_PUBLIQUE) + '" value="' + esc(saved) + '">' +
+      '<button class="btn" type="submit">Enregistrer</button>' +
+      (saved ? '<button class="btn-outline" type="button" data-action="reset-url">Adresse par défaut</button>' : "") +
+      "</div>" +
+      '<p class="form-msg" id="adresse-msg" role="status"></p>' +
+      "</form></div></section>" +
+      '<section class="block" aria-labelledby="t-codes"><div class="block-head"><h2 id="t-codes">Ouvrir directement une fiche</h2>' +
+      "<p>Ajoute le code à la fin de l" + "'" + "adresse de l" + "'" + "appli. Pour une sélection, enchaîne les codes, par exemple <code>#selection-laser-cnc-vr</code>. Les anciens liens <code>?m=fdm,sla</code> fonctionnent toujours.</p></div>" +
+      '<div class="table-wrap"><table><thead><tr><th scope="col">N°</th><th scope="col">Machine</th><th scope="col">Lien direct</th><th scope="col">Ancien format</th></tr></thead><tbody>' + rows + "</tbody></table></div></section>" +
+      '<section class="block" aria-labelledby="t-scodes"><div class="block-head"><h2 id="t-scodes">Ouvrir directement un secteur</h2></div>' +
+      '<div class="table-wrap"><table><thead><tr><th scope="col">Secteur</th><th scope="col">Lien direct</th></tr></thead><tbody>' + srows + "</tbody></table></div></section>" +
+      '<section class="block"><div class="panel note"><p>' + t("Les métiers cités sont indicatifs : adapte-les au Centre de compétence visé. Les consignes de sécurité reprennent les fiches machines de la Digital Factory.") + "</p></div></section>" +
+      "</div>";
+  }
+
+  /* QR codes (bibliothèque chargée seulement quand un code est affiché) */
+  var qrState = "idle", qrWaiters = [];
+  function ensureQr(cb) {
+    if (typeof window.qrcode === "function") { qrState = "ready"; cb(); return; }
+    if (qrState === "failed") { cb(); return; }
+    qrWaiters.push(cb);
+    if (qrState === "loading") return;
+    qrState = "loading";
+    var s = document.createElement("script");
+    s.src = QR_LIB;
+    s.async = true;
+    s.onload = function () { qrState = typeof window.qrcode === "function" ? "ready" : "failed"; flushQr(); };
+    s.onerror = function () { qrState = "failed"; flushQr(); };
+    (document.head || document.documentElement).appendChild(s);
+  }
+  function flushQr() { var w = qrWaiters; qrWaiters = []; w.forEach(function (f) { f(); }); }
+  function qrSvg(text) {
+    try {
+      var qr = window.qrcode(0, "M");
+      qr.addData(text);
+      qr.make();
+      var n = qr.getModuleCount(), q = 4, size = n + q * 2, d = "";
+      for (var r = 0; r < n; r++) {
+        for (var c = 0; c < n; c++) {
+          if (qr.isDark(r, c)) d += "M" + (c + q) + " " + (r + q) + "h1v1h-1z";
+        }
+      }
+      return '<svg viewBox="0 0 ' + size + " " + size + '" role="img" aria-label="QR code vers ' + esc(text) + '" shape-rendering="crispEdges"><rect width="' + size + '" height="' + size + '" fill="#ffffff"/><path d="' + d + '" fill="#2f3a48"/></svg>';
+    } catch (e) { return ""; }
+  }
+  function fillQrs() {
+    var boxes = Array.prototype.slice.call(app.querySelectorAll("[data-qr]"));
+    if (!boxes.length) return;
+    ensureQr(function () {
+      boxes.forEach(function (b) {
+        var out = qrState === "ready" ? qrSvg(b.getAttribute("data-qr")) : "";
+        b.innerHTML = out || '<span class="qr-off">Le QR code ne peut pas s' + "'" + "afficher. Utilise le lien.</span>";
+      });
+    });
+  }
+
+  /* Message bref */
+  var toastTimer = null;
+  function toast(msg) {
+    var el = document.getElementById("toast");
+    el.textContent = msg;
+    el.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.hidden = true; }, 2400);
+  }
+
+  function copyText(text, btn) {
+    function fallback() {
+      var box = btn && btn.closest("[data-copy-box]");
+      var input = box && box.querySelector("input");
+      if (input) {
+        input.focus();
+        input.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+        toast(ok ? "Lien copié" : "Le lien est sélectionné : copie-le");
+      } else {
+        toast("Copie impossible ici");
+      }
+    }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { toast("Lien copié"); }, fallback);
+        return;
+      }
+    } catch (e) {}
+    fallback();
+  }
+  function shareLink(url, btn) {
+    if (!canShare) { copyText(url, btn); return; }
+    try {
+      navigator.share({ title: "Machines de la Digital Factory", url: url }).catch(function (err) {
+        if (err && err.name === "AbortError") return;
+        copyText(url, btn);
+      });
+    } catch (e) { copyText(url, btn); }
+  }
+
+  /* Rendu */
+  var app = document.getElementById("app");
+  var favs = loadFavs();
+  var lastKey = null;
+  var TITRES = { home: "Machines de la Digital Factory", favoris: "Mes favoris · Machines DF", formateur: "Espace formateur · Machines DF", selection: "Sélection · Machines DF" };
+
+  function updateCount() {
+    var c = document.getElementById("fav-count");
+    c.textContent = String(favs.length);
+    c.hidden = favs.length === 0;
+    var link = document.querySelector('[data-nav="favoris"]');
+    if (link) link.setAttribute("aria-label", favs.length ? "Mes favoris, " + plural(favs.length, "machine", "machines") : "Mes favoris");
+  }
+  function setNavCurrent(view) {
+    var map = { home: "home", favoris: "favoris" };
+    Array.prototype.forEach.call(document.querySelectorAll("[data-nav]"), function (a) {
+      if (a.getAttribute("data-nav") === map[view]) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  }
+  function render(opts) {
+    opts = opts || {};
+    var r = parseRoute();
+    var key = r.view + ":" + (r.id || (r.ids || []).join("-"));
+    if (key !== lastKey) clearAsk = false;
+    var html;
+    if (r.view === "machine") html = viewMachine(r.id);
+    else if (r.view === "secteur") html = viewSecteur(r.id);
+    else if (r.view === "favoris") html = viewFavoris();
+    else if (r.view === "selection") html = viewSelection(r.ids);
+    else if (r.view === "formateur") html = viewFormateur();
+    else html = viewHome();
+    var y = window.scrollY || 0;
+    app.classList.toggle("no-anim", !!opts.keepScroll);
+    app.innerHTML = html;
+    setNavCurrent(r.view);
+    fillQrs();
+    if (r.view === "machine") document.title = MACHINES_BY_ID[r.id].nom + " · Machines DF";
+    else if (r.view === "secteur") document.title = SECTEURS_BY_ID[r.id].nom + " · Machines DF";
+    else document.title = TITRES[r.view] || TITRES.home;
+    if (opts.keepScroll) {
+      window.scrollTo(0, y);
+    } else {
+      window.scrollTo(0, 0);
+      if (lastKey !== null) {
+        var h1 = app.querySelector("h1");
+        if (h1) { try { h1.focus({ preventScroll: true }); } catch (e) { h1.focus(); } }
+      }
+    }
+    if (r.view === "secteur") {
+      var chips = app.querySelector(".chips");
+      var cur = app.querySelector('.chip[aria-current="page"]');
+      if (chips && cur && chips.scrollWidth > chips.clientWidth) {
+        chips.scrollLeft = Math.max(0, cur.offsetLeft - chips.offsetLeft - (chips.clientWidth - cur.offsetWidth) / 2);
+      }
+    }
+    lastKey = key;
+  }
+
+  function toggleFav(id) {
+    if (!MACHINES_BY_ID[id]) return;
+    var was = isFav(id);
+    favs = was ? favs.filter(function (x) { return x !== id; }) : favs.concat(id);
+    saveFavs();
+    updateCount();
+    toast(was ? "Retiré de tes favoris" : "Ajouté à tes favoris");
+    var view = parseRoute().view;
+    if (view === "favoris" || view === "selection") { render({ keepScroll: true }); return; }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-action="fav"][data-id="' + id + '"]'), function (b) {
+      var on = !was;
+      b.setAttribute("aria-pressed", String(on));
+      if (b.classList.contains("btn-fav")) b.innerHTML = favInner(on);
+      b.classList.remove("pop");
+      void b.offsetWidth;
+      b.classList.add("pop");
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest ? e.target.closest("[data-action]") : null;
+    if (!el) return;
+    var a = el.getAttribute("data-action");
+    if (a === "fav") toggleFav(el.getAttribute("data-id"));
+    else if (a === "copy") copyText(el.getAttribute("data-text"), el);
+    else if (a === "share") shareLink(el.getAttribute("data-text"), el);
+    else if (a === "jump") {
+      var target = document.getElementById(el.getAttribute("data-target"));
+      if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    } else if (a === "add-all") {
+      el.getAttribute("data-ids").split("-").forEach(function (id) { if (MACHINES_BY_ID[id] && !isFav(id)) favs.push(id); });
+      saveFavs();
+      updateCount();
+      toast("Ajouté à tes favoris");
+      render({ keepScroll: true });
+    } else if (a === "clear-ask") { clearAsk = true; render({ keepScroll: true }); }
+    else if (a === "clear-cancel") { clearAsk = false; render({ keepScroll: true }); }
+    else if (a === "clear-confirm") {
+      favs = [];
+      clearAsk = false;
+      saveFavs();
+      updateCount();
+      toast("Sélection vidée");
+      render({ keepScroll: true });
+    } else if (a === "reset-url") {
+      try { localStorage.removeItem(URL_KEY); } catch (err) {}
+      toast("Adresse par défaut rétablie");
+      render({ keepScroll: true });
+    } else if (a === "skip") {
+      app.focus();
+    }
+  });
+
+  document.addEventListener("submit", function (e) {
+    var form = e.target;
+    if (!form || form.getAttribute("data-form") !== "adresse") return;
+    e.preventDefault();
+    var input = form.querySelector("#adresse");
+    var msg = form.querySelector("#adresse-msg");
+    var val = (input.value || "").trim();
+    if (!val) {
+      try { localStorage.removeItem(URL_KEY); } catch (err) {}
+      toast("Adresse par défaut rétablie");
+      render({ keepScroll: true });
+      return;
+    }
+    var u;
+    try { u = new URL(val); } catch (err) { u = null; }
+    if (!u || !/^https?:$/.test(u.protocol)) {
+      msg.textContent = "Écris une adresse complète qui commence par https://";
+      input.focus();
+      return;
+    }
+    var clean = u.origin + u.pathname;
+    var ok = true;
+    try { localStorage.setItem(URL_KEY, clean); } catch (err) { ok = false; }
+    if (!ok) { msg.textContent = "Ce réglage ne peut pas être gardé sur cet appareil."; return; }
+    toast("Adresse enregistrée");
+    render({ keepScroll: true });
+  });
+
+  window.addEventListener("hashchange", function () { render(); });
+
+  legacyParam();
+  updateCount();
+  render();
+})();
+</script>
+</body>
+</html>

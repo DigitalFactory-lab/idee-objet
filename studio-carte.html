@@ -22,6 +22,7 @@
 .secondary-exports{border-top:1px solid #e5e9f0;padding-top:15px;margin-top:12px}
 .secondary-exports summary{cursor:pointer;font-weight:700;font-size:11px;color:#58667b;margin-bottom:10px}
 .secondary-exports .action-row{margin-top:10px}
+.kind-switch{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kind-switch button{min-height:56px;border:1.5px solid #dcdce7;border-radius:6px;background:#fff;color:#2f3a48;font-weight:700;font-size:14px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;padding:10px 14px;text-align:left}.kind-switch button small{font-weight:500;font-size:11px;color:#636763}.kind-switch button[aria-pressed=true]{border-color:#5b60a8;background:#5b60a8;color:#fff}.kind-switch button[aria-pressed=true] small{color:#ffffffcc}.badge-only{display:none}body.badge-mode .badge-only{display:block}body.badge-mode .card-only{display:none}
 
 /* Harmonisation avec le site de l’atelier */
 .app-shell{max-width:1500px;padding:0 3.2vw 50px}.hero h1{font-weight:800;letter-spacing:-.055em;line-height:1.02}.eyebrow{color:#8c4292;letter-spacing:.18em}.panel,.preview-panel{box-shadow:none}.section-number{border-radius:4px}.main-action,.wide-production.main-action{background:#5b60a8;border-color:#5b60a8}.main-action:hover:enabled{background:#2f3a48}.toggle.on{background:#5b60a8}.model.active .model-check{background:#5b60a8;border-color:#5b60a8}.field input:focus{border-color:#5b60a8;box-shadow:0 0 0 3px #5b60a826}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #11c6f4;outline-offset:3px}@media(max-width:840px){.app-shell{padding:0 16px 40px}}
@@ -30,18 +31,20 @@
 <body>
 <div class="app-shell">
   <header class="df-bar"><a class="df-brand" href="partie2.html#etape-6"><span class="mark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<small>PARTIE 2 · EXERCICE FINAL</small></span></a><nav class="df-nav" aria-label="Outils"><a href="machines.html">Les machines DF</a><a href="qr-code.html">Générateur QR →</a><a class="dark" href="partie2.html#etape-6">← Retour à l’atelier</a></nav></header>
-  <section class="hero"><div><div class="eyebrow">Créateur de cartes de visite</div><h1>Ta carte. <span style="color:#5b60a8">Prête à fabriquer.</span></h1><p>Personnalise le visuel, puis exporte le gabarit découpe laser &amp; UV et le PDF couleur UV, avec un fond perdu de 2 mm tout autour.</p></div><div class="hero-meta"><span><b></b> 6 compositions</span><span><b></b> 4 palettes</span><span><b></b> 85 × 45 mm</span></div></section>
+  <section class="hero"><div><div class="eyebrow">Créateur de cartes de visite et de badges</div><h1>Carte ou badge. <span style="color:#5b60a8">Prêts à fabriquer.</span></h1><p>Personnalise le visuel, puis exporte le gabarit découpe laser &amp; UV et le PDF couleur UV, avec un fond perdu de 2 mm tout autour.</p></div><div class="hero-meta"><span><b></b> 6 compositions</span><span><b></b> 4 palettes</span><span><b></b> 85 × 45 mm</span></div></section>
   <main class="layout">
     <div class="editor">
-      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">01</span> Choisis ton modèle</div><span class="section-help">6 propositions</span></div><div class="models" id="modelChoices"></div></section>
-      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">02</span> Choisis ta couleur</div><span class="section-help">4 variantes</span></div><div class="palette-grid" id="colorChoices"></div></section>
-      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">03</span> Remplis tes informations</div><span class="section-help">Sans fonction</span></div>
+      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">01</span> Choisis ton support</div><span class="section-help">85 × 45 mm</span></div><div class="kind-switch" role="group" aria-label="Support"><button type="button" data-kind="carte" aria-pressed="true">Carte de visite<small>Nom et coordonnées</small></button><button type="button" data-kind="badge" aria-pressed="false">Badge<small>Prénom, nom, profession et QR code</small></button></div></section>
+      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">02</span> Choisis ton modèle</div><span class="section-help">6 propositions</span></div><div class="models" id="modelChoices"></div></section>
+      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">03</span> Choisis ta couleur</div><span class="section-help">4 variantes</span></div><div class="palette-grid" id="colorChoices"></div></section>
+      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">04</span> Remplis tes informations</div><span class="section-help card-only">Sans fonction</span><span class="section-help badge-only">Avec profession</span></div>
         <div class="fields"><div class="field"><label for="firstName">Prénom</label><input id="firstName" maxlength="60" value="Camille" autocomplete="given-name"></div><div class="field"><label for="lastName">Nom</label><input id="lastName" maxlength="60" value="Dupont" autocomplete="family-name"></div>
-        <div class="field"><label for="phone">Téléphone</label><input id="phone" maxlength="60" value="0470 00 00 00" inputmode="tel" autocomplete="tel"></div><div class="field"><label for="email">E-mail</label><input id="email" maxlength="80" value="camille@exemple.be" inputmode="email" autocomplete="email"></div>
-        <div class="field"><label for="website">Site web (facultatif)</label><input id="website" maxlength="90" value="www.exemple.be" autocomplete="url"></div><div class="field"><label for="location">Ville / localisation</label><input id="location" maxlength="70" value="Liège, Belgique"></div></div>
-        <p class="microcopy">Les champs vides disparaissent automatiquement ; la mise en page s’adapte, même sans site web. La typographie et la mise en page sont prédéfinies.</p>
+        <div class="field wide badge-only"><label for="profession">Profession</label><input id="profession" maxlength="70" value="Technicienne en fabrication numérique"></div>
+        <div class="field card-only"><label for="phone">Téléphone</label><input id="phone" maxlength="60" value="0470 00 00 00" inputmode="tel" autocomplete="tel"></div><div class="field card-only"><label for="email">E-mail</label><input id="email" maxlength="80" value="camille@exemple.be" inputmode="email" autocomplete="email"></div>
+        <div class="field card-only"><label for="website">Site web (facultatif)</label><input id="website" maxlength="90" value="www.exemple.be" autocomplete="url"></div><div class="field card-only"><label for="location">Ville / localisation</label><input id="location" maxlength="70" value="Liège, Belgique"></div></div>
+        <p class="microcopy badge-only">Badge : prénom, nom et profession. La mise en page garde une place pour le QR code.</p><p class="microcopy card-only">Les champs vides disparaissent automatiquement ; la mise en page s’adapte, même sans site web. La typographie et la mise en page sont prédéfinies.</p>
       </section>
-      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">04</span> Ajoute ton QR code</div><span class="section-help">Image importée</span></div>
+      <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">05</span> Ajoute ton QR code</div><span class="section-help">Image importée</span></div>
         <div class="qr-card"><div class="qr-header"><span class="qr-label">QR code personnel</span><span id="qrRequired" class="optional">Facultatif</span></div>
           <div class="switch-line"><span id="qrHelp">Afficher le QR code sur la carte</span><button type="button" id="qrToggle" class="toggle" role="switch" aria-label="Afficher le QR code" aria-checked="false"></button></div>
           <div class="file-area" id="dropTarget"><div class="qr-square" id="qrThumbnail" aria-hidden="true">▦</div><div class="file-actions"><button type="button" class="import-btn" id="importButton">+ Importer un QR</button><div class="file-name" id="qrFileName">PNG, JPG, WebP ou SVG</div></div><button type="button" id="removeQr" class="remove-btn" hidden>Retirer</button></div>
@@ -111,15 +114,15 @@ const MODEL_COLORS={
 };
 function palettesFor(model=state.model){return MODEL_COLORS[model]||COLORS;}
 const CARD_W_MM=85, CARD_H_MM=45, CORNER_R_MM=1.8;
-const DEFAULT={firstName:'Camille',lastName:'Dupont',phone:'0470 00 00 00',email:'camille@exemple.be',website:'www.exemple.be',location:'Liège, Belgique'};
-let state={model:1,color:0,showQR:false,qrData:'',qrName:'',...DEFAULT};
+const DEFAULT={firstName:'Camille',lastName:'Dupont',profession:'Technicienne en fabrication numérique',phone:'0470 00 00 00',email:'camille@exemple.be',website:'www.exemple.be',location:'Liège, Belgique'};
+let state={kind:'carte',model:1,color:0,showQR:false,qrData:'',qrName:'',...DEFAULT};
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
 const simplify=s=>String(s??'').trim().replace(/\s+/g,' ');
 function title(){return simplify([state.firstName,state.lastName].filter(Boolean).join(' '))||'PRÉNOM NOM';}
 function hasImage(){return !!state.qrData;}
 const QR_UNAVAILABLE=[5]; // Botanique : pas de QR
-function qrAllowed(m=state.model){return !QR_UNAVAILABLE.includes(m);}
+function qrAllowed(m=state.model){return state.kind==='badge'||!QR_UNAVAILABLE.includes(m);}
 function qrActive(){return qrAllowed()&&(state.model===2||state.showQR);}
 function missingQR(){return qrActive()&&!hasImage();}
 function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(window._toastT);window._toastT=setTimeout(()=>$('toast').classList.remove('show'),3400);}
@@ -371,6 +374,83 @@ function contentElements(i,c,preview=true){
  }
  return a;
 }
+// ---------- Badge : prénom, nom, profession et QR code, sur les 6 mêmes fonds ----------
+function wrapText(x,y,value,maxWidth,size,color,weight=600,lineH=size*1.3,opts={}){
+ const fam=opts.family||'Poppins,Arial,sans-serif';let v=simplify(value);if(!v)return '';
+ if(opts.upper)v=v.toLocaleUpperCase('fr-BE');
+ let sz=size;const ls=opts.letterSpacing||0;const fits=t=>{context.font=`${weight} ${sz}px ${fam}`;return context.measureText(t).width+ls*t.length<=maxWidth;};
+ const split=()=>{const lines=[''];v.split(' ').forEach(w=>{const cur=lines[lines.length-1];const t=(cur+' '+w).trim();if(!cur||fits(t))lines[lines.length-1]=t;else lines.push(w);});return lines;};
+ let lines=split();while(lines.length>2&&sz>16){sz--;lines=split();}
+ if(lines.length>2)lines=[lines[0],lines.slice(1).join(' ')];
+ const lh=lineH*sz/size;
+ return lines.map((l,i)=>{const over=!fits(l);return text(x,y+i*lh,l,sz,color,weight,`${opts.anchor?`text-anchor="${opts.anchor}"`:''} ${over?`textLength="${maxWidth}" lengthAdjust="spacingAndGlyphs"`:''} ${opts.letterSpacing?`letter-spacing="${opts.letterSpacing}"`:''}`,fam);}).join('');
+}
+function badgeElements(i,c,preview=true){
+ const first=simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),last=simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE');
+ const job=state.profession,qr=qrActive(),MONT='Montserrat,Poppins,Arial,sans-serif',FRAU='Fraunces,Georgia,serif';let a='';
+ switch(i){
+ case 0:{ // Minimaliste : identité entre les deux filets, QR à droite.
+   const w=qr?320:620;
+   a+=fitText(112,200,first,w,46,c.text,700);
+   a+=fitText(112,256,last,w,46,c.text,700);
+   a+=`<path d="M114 288H170" stroke="${c.accent}" stroke-width="5" stroke-linecap="round"/>`;
+   a+=wrapText(112,334,job,w,26,c.accent,600,34);
+   if(qr)a+=qrAt(560,128,244,c,preview);
+   break;}
+ case 1:{ // Bandeau graphique : nom en tête, QR encadré à gauche, profession à droite.
+   a+=fitCenteredText(450,108,`${first} ${last}`,690,59,c.text,750,1.2);
+   if(qr){
+    a+=`<rect x="89" y="147" width="158" height="38" rx="19" fill="${c.accent}"/>`;
+    a+=text(168,172,'Scanne-moi',20,'#FFFFFF',600,'text-anchor="middle"');
+    a+=`<path d="M83 205v-15q0-11 12-11h16 M275 179h19q12 0 12 12v18 M84 340v15q0 12 12 12h16 M277 367h18q12 0 12-12v-16" stroke="${c.accent}" fill="none" stroke-width="3" stroke-linecap="round"/>`;
+    a+=qrAt(112.5,190.5,165,c,preview);
+    a+=line(351,182,351,351,'#627184',1.8,.6);
+    a+=wrapText(392,258,job,430,36,c.dark,600,46);
+   }else{
+    a+=`<path d="M93 155H806" stroke="${c.accent}" stroke-width="3" opacity=".42"/>`;
+    a+=wrapText(450,275,job,700,40,c.dark,600,52,{anchor:'middle'});
+   }
+   break;}
+ case 2:{ // QR essentiel : identité à gauche, QR pointillé à droite, profession sous le filet.
+   a+=fitText(72,178,first,510,50,c.text,700);
+   a+=fitText(72,250,last,510,58,c.text,800);
+   a+=wrapText(72,398,job,520,28,c.dark,600,38);
+   a+=qrAt(660,98,206,c,preview);
+   break;}
+ case 3:{ // Typographie XXL : prénom et nom Montserrat Black, profession en gras.
+   a+=fitText(58,154,first,qr?475:760,80,'#111116',900,{family:MONT});
+   a+=fitText(58,237,last,qr?475:760,80,'#111116',900,{family:MONT});
+   a+=`<path d="M60 274H200" stroke="#111116" stroke-width="9" stroke-linecap="round"/>`;
+   a+=wrapText(58,338,job,qr?480:760,36,'#111116',700,46);
+   if(qr){
+    a+=line(586,144,586,434,'#151515',2.6);
+    a+=text(744,174,'SCANNE-MOI',22,'#121212',700,'text-anchor="middle"');
+    a+=qrAt(615,190,252,c,preview);
+   }
+   break;}
+ case 4:{ // Modules arrondis : nom dans le grand module, QR dans le module coloré, profession en bas.
+   a+=roundedPanel(30,26,qr?550:838,295,'#FFFFFF','#161616',7,34);
+   if(qr){a+=roundedPanel(594,26,273,295,c.accent,'#121212',7,34);a+=qrAt(604.5,47.5,252,c,preview);}
+   a+=fitText(78,174,first,qr?453:720,66,'#101115',900,{family:MONT});
+   a+=fitText(78,243,last,qr?453:720,66,'#101115',900,{family:MONT});
+   a+=`<circle cx="${qr?531:808}" cy="68" r="7" fill="#111"/><circle cx="${qr?548:826}" cy="68" r="7" fill="#111"/><circle cx="${qr?565:843}" cy="68" r="7" fill="#111"/>`;
+   a+=roundedPanel(30,336,837,141,'#FFFFFF','#141414',7,32);
+   a+=fitCenteredText(448,423,simplify(job).toLocaleUpperCase('fr-BE'),770,38,'#151515',700);
+   break;}
+ case 5:{ // Botanique : prénom et nom en Fraunces, profession fine, QR sur une pastille claire lisible.
+   const ink=c.text;
+   a+=fitText(96,232,first,qr?420:520,50,ink,900,{letterSpacing:1,family:FRAU});
+   a+=fitText(96,287,last,qr?420:520,50,ink,900,{letterSpacing:1,family:FRAU});
+   a+=`<path d="M98 318H168" stroke="${ink}" stroke-width="2"/>`;
+   a+=wrapText(96,362,job,qr?400:520,23,ink,400,34,{upper:true,letterSpacing:3});
+   if(qr){
+    a+=`<rect x="664" y="262" width="210" height="210" rx="16" fill="${c.pale}"/>`;
+    a+=qrAt(669,267,200,c,preview);
+   }
+   break;}
+ }
+ return a;
+}
 function cardElements(i,c,preview=true){return decorations(i,c)+contentElements(i,c,preview);}
 // The original layout was authored at 900 x 500 units. It is now fitted to
 // an actual 85 x 45 mm card without stretching names or square QR codes.
@@ -384,21 +464,22 @@ const DECO_SCALE_X=CARD_W_UNITS/DESIGN_W, DECO_SCALE_Y=CARD_H_UNITS/DESIGN_H;
 const CONTENT_SCALE=CARD_H_UNITS/DESIGN_H;
 const CONTENT_OFFSET_X=(CARD_W_UNITS-DESIGN_W*CONTENT_SCALE)/2;
 function buildSVG(model=state.model,color=state.color,preview=true,clipRounded=true){
- const c=palettesFor(model)[color], decoration=decorations(model,c), personal=contentElements(model,c,preview);
- return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_UNITS} ${CARD_H_UNITS}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte de visite, ${esc(MODELS[model].name)}"><defs>${!preview&&EMBED_CSS?`<style>${EMBED_CSS}</style>`:''}<clipPath id="cutCard"><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" rx="${CORNER_R_MM*10}" ry="${CORNER_R_MM*10}"/></clipPath></defs><g ${clipRounded?'clip-path="url(#cutCard)"':''}><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" fill="#fff"/><g transform="scale(${DECO_SCALE_X} ${DECO_SCALE_Y})">${decoration}</g><g transform="translate(${CONTENT_OFFSET_X} 0) scale(${CONTENT_SCALE})">${personal}</g></g></svg>`;
+ const c=palettesFor(model)[color], decoration=decorations(model,c), personal=state.kind==='badge'?badgeElements(model,c,preview):contentElements(model,c,preview);
+ return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_UNITS} ${CARD_H_UNITS}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${state.kind==='badge'?'Badge':'Carte de visite'}, ${esc(MODELS[model].name)}"><defs>${!preview&&EMBED_CSS?`<style>${EMBED_CSS}</style>`:''}<clipPath id="cutCard"><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" rx="${CORNER_R_MM*10}" ry="${CORNER_R_MM*10}"/></clipPath></defs><g ${clipRounded?'clip-path="url(#cutCard)"':''}><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" fill="#fff"/><g transform="scale(${DECO_SCALE_X} ${DECO_SCALE_Y})">${decoration}</g><g transform="translate(${CONTENT_OFFSET_X} 0) scale(${CONTENT_SCALE})">${personal}</g></g></svg>`;
 }
 function drawChoices(){const c=palettesFor(state.model)[state.color];$('modelChoices').innerHTML=MODELS.map(m=>{const was=state.model;state.model=m.id;let svg=buildSVG(m.id,state.color,true);state.model=was;return `<button type="button" class="model ${m.id===state.model?'active':''}" data-model="${m.id}" aria-pressed="${m.id===state.model}"><div class="model-art">${svg}</div><div class="model-footer"><span class="model-name">${esc(m.name)}</span><span class="model-check">✓</span></div></button>`;}).join('');$('modelChoices').querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{state.model=Number(button.dataset.model);render();}));
 $('colorChoices').innerHTML=palettesFor(state.model).map((c,i)=>`<button type="button" class="palette ${i===state.color?'active':''}" data-color="${i}" aria-pressed="${i===state.color}"><div class="palette-swatches"><span style="background:${c.dark}"></span><span style="background:${c.accent}"></span><span style="background:${c.bright}"></span></div><span class="name">${esc(c.name)}</span></button>`).join('');$('colorChoices').querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{state.color=Number(button.dataset.color);render();}));}
-function render(){drawChoices();$('cardPreview').innerHTML=buildSVG();const required=state.model===2;
- $('qrRequired').textContent=required?'Obligatoire':'Facultatif';$('qrRequired').className=required?'required':'optional';const noQr=!qrAllowed();$('qrHelp').textContent=noQr?'Pas de QR code sur ce modèle':required?'QR code requis pour ce modèle':'Afficher le QR code sur la carte';if(noQr){$('qrRequired').textContent='Indisponible';$('qrRequired').className='optional';}
+function render(){document.body.classList.toggle('badge-mode',state.kind==='badge');document.querySelectorAll('[data-kind]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.kind===state.kind)));drawChoices();$('cardPreview').innerHTML=buildSVG();const required=state.model===2;
+ $('qrRequired').textContent=required?'Obligatoire':'Facultatif';$('qrRequired').className=required?'required':'optional';const noQr=!qrAllowed();$('qrHelp').textContent=noQr?'Pas de QR code sur ce modèle':required?'QR code requis pour ce modèle':state.kind==='badge'?'Afficher le QR code sur le badge':'Afficher le QR code sur la carte';if(noQr){$('qrRequired').textContent='Indisponible';$('qrRequired').className='optional';}
  $('qrToggle').classList.toggle('on',qrActive());$('qrToggle').setAttribute('aria-checked',String(qrActive()));$('qrToggle').disabled=required||noQr;$('importButton').disabled=noQr;
  $('qrFileName').textContent=state.qrName||'PNG, JPG, WebP ou SVG';$('qrThumbnail').innerHTML=hasImage()?`<img alt="Aperçu du QR importé" src="${esc(state.qrData)}">`:'▦';$('removeQr').hidden=!hasImage();
  const miss=missingQR();$('status').classList.toggle('error',miss);$('status').querySelector('span').textContent=miss?'QR à importer':'Prêt à exporter';
- $('selectedLabel').textContent=MODELS[state.model].name;$('selectedDetails').textContent=`${palettesFor(state.model)[state.color].name} · ${MODELS[state.model].detail}`;
+ $('selectedLabel').textContent=MODELS[state.model].name;$('selectedDetails').textContent=`${state.kind==='badge'?'Badge':'Carte de visite'} · ${palettesFor(state.model)[state.color].name} · ${state.kind==='badge'?'prénom, nom, profession et QR code':MODELS[state.model].detail}`;
  $('exportNotice').classList.toggle('visible',miss);$('exportNotice').textContent=miss?'Un QR code personnel doit être importé avant l’exportation. Le modèle 2 l’impose ; sur les autres modèles, désactive simplement l’option pour exporter sans QR.':'';
  ['downloadPng','downloadSvg','printButton','downloadUvPdf'].forEach(id=>$(id).disabled=miss);
 }
 for(const key of Object.keys(DEFAULT))$(key).addEventListener('input',e=>{state[key]=e.target.value;render();});
+document.querySelectorAll('[data-kind]').forEach(b=>b.addEventListener('click',()=>{if(state.kind===b.dataset.kind)return;state.kind=b.dataset.kind;if(state.kind==='badge')state.showQR=true;render();}));
 $('qrToggle').addEventListener('click',()=>{if(state.model===2||!qrAllowed())return;state.showQR=!state.showQR;render();});
 $('importButton').addEventListener('click',()=>$('qrInput').click());$('removeQr').addEventListener('click',()=>{state.qrData='';state.qrName='';state.showQR=false;$('qrInput').value='';render();});
 function bufferToDataUrl(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(new Error('Impossible de lire le fichier.'));r.readAsDataURL(file);});}
@@ -418,7 +499,7 @@ async function importQR(file){if(!file)return;if(file.size>8*1024*1024){toast('F
 $('qrInput').addEventListener('change',async e=>{await importQR(e.target.files[0]);});
 const drop=$('dropTarget');drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#5b60a8';});drop.addEventListener('dragleave',()=>drop.style.borderColor='');drop.addEventListener('drop',async e=>{e.preventDefault();drop.style.borderColor='';await importQR(e.dataTransfer?.files?.[0]);});
 function download(blob,file){window.dfDownload(blob,file);}
-function basename(){const raw=[state.firstName,state.lastName].filter(Boolean).join('-').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'carte';return `DF-${raw}-${String(state.model).padStart(2,'0')}-${state.color+1}`;}
+function basename(){const raw=[state.firstName,state.lastName].filter(Boolean).join('-').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'carte';return `DF-${state.kind==='badge'?'badge-':''}${raw}-${String(state.model).padStart(2,'0')}-${state.color+1}`;}
 async function fileSvg(){await fontsEmbedded;if(missingQR()){toast('Importe un QR avant l’exportation.');return;}download(new Blob([buildSVG(state.model,state.color,false)],{type:'image/svg+xml;charset=utf-8'}),basename()+'.svg');}
 function dataImage(svg){return new Promise((resolve,reject)=>{const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'}));const im=new Image();im.onload=()=>{URL.revokeObjectURL(url);resolve(im)};im.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Impossible de convertir la carte en image.'))};im.src=url;});}
 async function filePng(){await fontsEmbedded;if(missingQR()){toast('Importe un QR avant l’exportation.');return;}const btn=$('downloadPng');btn.disabled=true;btn.textContent='Préparation du PNG…';try{await document.fonts.ready;const scale=600/25.4;const pxw=Math.round(CARD_W_MM*scale),pxh=Math.round(CARD_H_MM*scale);const canvas=document.createElement('canvas');canvas.width=pxw;canvas.height=pxh;const cx=canvas.getContext('2d');cx.clearRect(0,0,pxw,pxh);

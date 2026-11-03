@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2f3a48">
+  <title>Laser &amp; UV · De l’idée à l’objet · Digital Factory</title>
+  <meta name="description" content="Partie 2 de l’atelier Digital Factory : comprendre la découpe laser et l’impression UV, de l’idée à l’objet.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css?v=bc286afba8bf"><script type="module" src="partie2.js?v=f94a31e29642"></script>
+</head>
+<body class="intro-active">
+  <section class="intro-screen" aria-labelledby="intro-title">
+    <p class="intro-brand">DE L’IDÉE À L’OBJET · PARTIE 2</p>
+    <div class="intro-content">
+      <h1 class="intro-title" id="intro-title" tabindex="-1">Couper avec la lumière.<br>Imprimer <span>la couleur.</span></h1>
+      <svg class="intro-layers" viewBox="0 0 1200 230" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path pathLength="1" d="M2 120H520L560 40L600 200L640 40L680 200L720 120H1198"/>
+          <path pathLength="1" d="M2 160H1198" stroke-dasharray=".012 .008"/>
+        </g>
+        <circle cx="600" cy="120" r="5" fill="var(--flash)" stroke="none"/>
+      </svg>
+    </div>
+    <div class="intro-choices">
+      <button class="intro-enter" id="enter-workshop">Entrer dans la partie 2 · Laser &amp; UV <span aria-hidden="true">→</span></button>
+      <a class="intro-enter intro-alt" href="index.html#intro">← Partie 1 · Impression 3D</a>
+    </div>
+  </section>
+  <a class="skip" href="#stage">Aller à l’atelier</a>
+  <header class="topbar">
+    <button class="brand" id="home" aria-label="Retour à l’introduction"><span class="brandmark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<span class="brand-sub">PARTIE 2 · LASER &amp; UV</span></span></button>
+    <div class="toptools"><button class="quiet" id="guide">Guide animateur</button><button class="clock" id="clock" title="Démarrer ou mettre en pause le chrono de l’atelier">▷ <span id="clock-text">Démarrer</span></button></div>
+  </header>
+  <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
+  <main id="stage" tabindex="-1"></main>
+  <footer class="bottom"><div class="chapter"><span id="page-number">01 / 09</span><span id="chapter-name">Le déclic</span></div><div id="dots" class="dots" aria-label="Étapes de l’atelier"></div><div class="nav-actions"><button id="prev" class="nav-arrow" aria-label="Écran précédent">←</button><button id="next" class="next">Suivant <span aria-hidden="true">→</span></button></div></footer>
+  <div class="institutional-logos" aria-label="Digital Factory et pouvoirs subsidiants"><img class="digital-factory-logo" src="assets/logo-digital-factory.png" alt="Digital Factory by Le Forem" width="813" height="187"><img class="subsidy-logos" src="assets/logo-pouvoirs-subsidiants.jpg" alt="En Mieux, Union européenne — cofinancé par l’Union européenne, et Wallonie" width="1413" height="424"></div>
+  <dialog id="modal"><div class="modal-top"><span class="eyebrow" id="modal-kicker">L’ATELIER</span><button id="close-modal" class="nav-arrow" aria-label="Fermer la fenêtre">×</button></div><div id="modal-body"></div></dialog>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <noscript><p>Active JavaScript pour naviguer dans l’atelier.</p></noscript>
+</body></html>

@@ -9,3 +9,11 @@ Le reste du parcours reprend la base existante et pourra être adapté lors des 
 Site statique : publier la branche main à la racine avec GitHub Pages. Les choix sont conservés uniquement dans la session du navigateur.
 
 Les trois nouveaux visuels ont été générés à partir des références fournies : photographie produit cohérente, fond clair, détails d’impression visibles et couleurs DF.
+
+## Partie 2 · Découpe laser & impression UV
+
+`partie2.html` + `partie2.js` (même charte, même mécanique de navigation, chrono et guide animateur ; état séparé en session). L’écran d’accueil de `index.html` propose le choix Partie 1 / Partie 2.
+
+9 écrans sur 2 h : déclic, usages métiers, deux machines (jeu « Laquelle ? »), laser pas à pas (calques du fichier, simulateur puissance/vitesse), UV pas à pas (résolution, support, couche de blanc, séchage), matières, vrai ou faux, exercice final, bilan.
+
+Exercice final : renseigner `APP_URL` en haut de `partie2.js` quand l’appli de création sera publiée. Tant qu’il est vide, l’écran affiche « Lien de l’appli à venir ».

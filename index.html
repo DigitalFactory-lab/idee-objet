@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2f3a48">
+  <title>De l’idée à l’objet · Digital Factory</title>
+  <meta name="description" content="Observe, comprends et imprime un objet pratique : un atelier Digital Factory pour passer de l’idée à l’objet.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css?v=72a389875393"><script type="module" src="app.js?v=c075706afee3"></script>
+</head>
+<body class="intro-active">
+  <section class="intro-screen" aria-labelledby="intro-title">
+    <p class="intro-brand">DE L’IDÉE À L’OBJET</p>
+    <div class="intro-content">
+      <h1 class="intro-title" id="intro-title" tabindex="-1">Tout commence<br>par une <span>idée.</span></h1>
+      <svg class="intro-layers" viewBox="0 0 1200 230" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path pathLength="1" d="M2 105H380C620 105 655 18 795 18S935 125 1198 125"/>
+          <path pathLength="1" d="M2 127H380C620 127 655 50 795 50S935 147 1198 147"/>
+          <path pathLength="1" d="M2 149H380C620 149 655 82 795 82S935 169 1198 169"/>
+          <path pathLength="1" d="M2 171H380C620 171 655 114 795 114S935 191 1198 191"/>
+          <path pathLength="1" d="M2 193H380C620 193 655 146 795 146S935 213 1198 213"/>
+          <path pathLength="1" d="M2 215H380C620 215 655 178 795 178S935 229 1198 229"/>
+        </g>
+      </svg>
+    </div>
+    <button class="intro-enter" id="enter-workshop">Entrer dans l’atelier <span aria-hidden="true">→</span></button>
+  </section>
+  <a class="skip" href="#stage">Aller à l’atelier</a>
+  <header class="topbar">
+    <button class="brand" id="home" aria-label="Retour à l’introduction"><span class="brandmark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<span class="brand-sub">DIGITAL FACTORY · LE FOREM</span></span></button>
+    <div class="toptools"><button class="quiet" id="guide">Guide animateur</button><button class="clock" id="clock" title="Démarrer ou mettre en pause le chrono de l’atelier">▷ <span id="clock-text">Démarrer</span></button></div>
+  </header>
+  <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
+  <main id="stage" tabindex="-1"></main>
+  <footer class="bottom"><div class="chapter"><span id="page-number">01 / 09</span><span id="chapter-name">Le déclic</span></div><div id="dots" class="dots" aria-label="Étapes de l’atelier"></div><div class="nav-actions"><button id="prev" class="nav-arrow" aria-label="Écran précédent">←</button><button id="next" class="next">Les usages métiers <span aria-hidden="true">→</span></button></div></footer>
+  <div class="institutional-logos" aria-label="Digital Factory et pouvoirs subsidiants"><img class="digital-factory-logo" src="assets/logo-digital-factory.png" alt="Digital Factory by Le Forem" width="813" height="187"><img class="subsidy-logos" src="assets/logo-pouvoirs-subsidiants.jpg" alt="En Mieux, Union européenne — cofinancé par l’Union européenne, et Wallonie" width="1413" height="424"></div>
+  <dialog id="modal"><div class="modal-top"><span class="eyebrow" id="modal-kicker">L’ATELIER</span><button id="close-modal" class="nav-arrow" aria-label="Fermer la fenêtre">×</button></div><div id="modal-body"></div></dialog>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <noscript><p>Active JavaScript pour explorer les objets et naviguer dans l’atelier.</p></noscript>
+</body></html>

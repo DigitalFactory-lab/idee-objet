@@ -248,3 +248,6 @@ h1,h2,h3,.intro-title{font-weight:700;letter-spacing:-.045em}
 .p2-create{align-content:start}
 @media(max-width:850px){.p2-duo,.p2-verdicts{grid-template-columns:1fr}.p2-materials{grid-template-columns:repeat(2,1fr)}.p2-truths{grid-template-columns:1fr}.p2-steps{grid-template-columns:repeat(2,1fr)}.p2-quiz-row{grid-template-columns:1fr}}
 .workshop-note{color:#fff}.p2-create li:last-child>span{background:var(--orange);font-style:normal}
+.p2-case-photo img{display:block;width:100%;aspect-ratio:12/7;object-fit:cover;background:#e9e8f0}.p2-case-id{padding:16px 2px 0}.p2-case-id h3{font-size:30px;line-height:1.05;letter-spacing:-.04em;margin:6px 0}
+.p2-photo-missing{min-height:200px;display:flex;flex-direction:column;justify-content:space-between;background:#eeedf6}.p2-photo-missing::before{content:'Photo indisponible hors connexion — voir le cas complet.';padding:24px;font-size:14px;color:#5c6370}
+.p2-photo-missing figcaption{color:#5c6370}.fact.p2-answer p.micro{font-size:13px;line-height:1.5}

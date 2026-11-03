@@ -14,6 +14,6 @@ Les trois nouveaux visuels ont été générés à partir des références fourn
 
 `partie2.html` + `partie2.js` (même charte, même mécanique de navigation, chrono et guide animateur ; état séparé en session). L’écran d’accueil de `index.html` propose le choix Partie 1 / Partie 2.
 
-8 écrans sur 2 h : usages métiers (cas réels Trotec), deux machines (jeu « Laquelle ? »), laser pas à pas (calques du fichier, simulateur puissance/vitesse), UV pas à pas (résolution, support, couche de blanc, séchage), matières, vrai ou faux, exercice final, bilan.
+7 écrans sur 2 h : usages métiers (cas réels Trotec), deux machines (jeu « Laquelle ? »), laser pas à pas (calques du fichier, simulateur puissance/vitesse), UV pas à pas (résolution, support, couche de blanc, séchage), matières, exercice final, bilan.
 
 Exercice final : renseigner `APP_URL` en haut de `partie2.js` quand l’appli de création sera publiée. Tant qu’il est vide, l’écran affiche « Lien de l’appli à venir ».

@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="assets/outils.css">
 <style>
-:root{font-family:Poppins,Arial,sans-serif;color:#2f3a48;background:#faf9fc;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}.app-shell{max-width:1500px;margin:0 auto;padding:0 36px 60px}.topbar{height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #dcdce7}.brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit}.brand-mark{display:grid;place-items:center;width:43px;height:43px;border-radius:6px;background:#2f3a48;position:relative;overflow:hidden}.brand-mark i{position:absolute;width:18px;height:25px;background:#7a7bca;border-radius:4px;transform:skewY(-18deg) rotate(-12deg);left:11px;top:9px}.brand-mark i:nth-child(2){left:16px;top:12px;background:#b48bc9;opacity:.89}.brand-mark i:nth-child(3){left:21px;top:15px;background:#66bbfa;opacity:.84}.brand-official{display:block;width:auto;max-width:220px;height:46px;object-fit:contain;object-position:left center}.brand strong{font-size:13px;letter-spacing:.07em;font-weight:800;display:block}.brand span{font-size:11px;color:#7f899a;letter-spacing:.17em;text-transform:uppercase;display:block}.top-right{display:flex;align-items:center;gap:12px}.top-right .pill{border:1px solid #dde3eb;border-radius:99px;color:#667386;padding:7px 13px;font-size:12px;font-weight:600;background:white}.hero{padding:36px 0 31px;display:flex;align-items:end;justify-content:space-between;gap:25px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.23em;color:#8c4292;font-weight:800}.hero h1{font-size:clamp(27px,3.15vw,48px);line-height:1.13;margin:11px 0 9px;letter-spacing:-.045em;font-weight:700}.hero p{color:#7a8697;margin:0;font-size:14px;line-height:1.65}.hero-meta{display:flex;gap:16px;color:#66758a;font-size:12px;font-weight:600;flex-wrap:wrap}.hero-meta span{display:flex;align-items:center;gap:7px}.hero-meta b{width:7px;height:7px;border-radius:50%;background:#11c6f4;display:inline-block}.layout{display:grid;grid-template-columns:minmax(380px, 505px) minmax(480px,1fr);gap:25px;align-items:start}.editor{display:flex;flex-direction:column;gap:18px}.panel{background:white;border:1px solid #dcdce7;border-radius:8px;box-shadow:0 7px 25px #1b2c4810;padding:23px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.section-heading{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:700;letter-spacing:-.02em}.section-number{font-size:11px;font-weight:800;letter-spacing:.06em;color:#5b60a8;background:#eeedf6;border-radius:7px;padding:5px 7px}.section-help{font-size:11px;color:#95a0ae}.models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.model{padding:7px;background:#fff;border:1.5px solid #dcdce7;border-radius:6px;text-align:left;transition:border-color .15s,transform .15s,box-shadow .15s;min-width:0}.model:hover{transform:translateY(-1px);box-shadow:0 5px 15px #24314913}.model.active{border-color:#5b60a8;box-shadow:0 0 0 3px #5b60a817}.model-art{background:#f8f9fc;border-radius:8px;display:block;overflow:hidden;aspect-ratio:1.8;line-height:0;box-shadow:0 2px 4px #1c28400e}.model-art svg{width:100%;height:100%}.model-footer{display:flex;align-items:center;gap:5px;justify-content:space-between;margin:9px 4px 2px}.model-name{font-size:11.7px;font-weight:650;color:#344152;line-height:1.35}.model-check{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;font-size:10px;border:1px solid #d9e0eb;color:transparent;flex-shrink:0}.model.active .model-check{color:white;background:#5b60a8;border-color:#5b60a8}.palette-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.palette{border:1.5px solid #dcdce7;border-radius:11px;background:white;padding:8px 8px 10px;min-width:0;transition:all .15s}.palette.active{border-color:#5b60a8;box-shadow:0 0 0 3px #5b60a817}.palette-swatches{display:flex;height:35px;border-radius:6px;overflow:hidden;margin-bottom:8px}.palette-swatches span{flex:1}.palette span.name{display:block;font-size:10px;font-weight:600;color:#5e6979;line-height:1.15}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{min-width:0}.field.wide{grid-column:1/-1}.field label{display:block;margin-bottom:6px;color:#5d687a;font-weight:600;font-size:11.5px}.field input{width:100%;height:43px;padding:0 12px;border-radius:9px;border:1px solid #dcdce7;background:#fbfcff;color:#2f3a48;font-size:13px;outline:none;transition:border-color .15s,box-shadow .15s}.field input:focus{border-color:#5b60a8;box-shadow:0 0 0 3px #8c42921a}.field input::placeholder{color:#adb6c3}.microcopy{font-size:11px;color:#8490a0;line-height:1.5;margin:10px 0 0}.qr-card{border:1px solid #e3e9f1;border-radius:6px;padding:14px;background:#fbfcfe}.qr-header{display:flex;justify-content:space-between;align-items:center;gap:10px}.qr-label{font-weight:700;font-size:12.5px}.required{font-size:10px;color:#8755b3;background:#f1e9f7;border-radius:99px;padding:5px 8px}.optional{font-size:10px;color:#647991;background:#ecf1f7;border-radius:99px;padding:5px 8px}.switch-line{display:flex;justify-content:space-between;align-items:center;margin-top:13px;gap:12px}.switch-line span{font-size:12px;color:#657487}.toggle{width:43px;height:26px;border:0;background:#cfd6e1;border-radius:99px;position:relative;transition:background .18s;flex-shrink:0}.toggle:after{content:"";position:absolute;top:4px;left:4px;width:18px;height:18px;border-radius:50%;background:white;box-shadow:0 1px 3px #3342;transition:left .18s}.toggle.on{background:#5b60a8}.toggle.on:after{left:21px}.file-area{margin-top:12px;display:flex;align-items:center;gap:12px;border:1px dashed #c7d1e0;border-radius:11px;padding:13px;background:white}.qr-square{width:54px;height:54px;border-radius:9px;background:#eef2f8;border:1px solid #e2e8f0;flex:0 0 auto;display:grid;place-items:center;overflow:hidden;color:#8b96a8;font-size:23px}.qr-square img{width:100%;height:100%;object-fit:contain}.file-actions{min-width:0;flex:1}.import-btn{background:#eeedf6;color:#5b60a8;border:1px solid #e0d7f3;font-weight:700;padding:7px 11px;border-radius:8px;font-size:11px}.file-name{font-size:10px;color:#7a889a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:5px 0 0}.remove-btn{border:0;background:none;color:#aa5280;padding:4px;font-size:11px;text-decoration:underline}.file-help{font-size:10.5px;color:#8590a0;margin:9px 1px 0;line-height:1.5}.preview-panel{position:sticky;top:16px;border-radius:8px;background:linear-gradient(145deg,#fff 0%,#fafbfe 95%);border:1px solid #dcdce7;box-shadow:0 15px 58px #2134520e;overflow:hidden}.preview-top{padding:23px 26px;border-bottom:1px solid #e9edf3;display:flex;justify-content:space-between;align-items:center;gap:12px}.preview-title{font-weight:700;font-size:15px}.preview-sub{font-size:11px;color:#8793a3;margin-top:2px}.status{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:650;color:#0b6f8a;background:#e3f7fd;border-radius:100px;padding:7px 10px}.status.error{color:#ae6441;background:#fff1e8}.status i{width:7px;height:7px;background:currentColor;border-radius:50%}.stage{padding:clamp(20px,5vw,66px) clamp(24px,5vw,58px) 30px;background:radial-gradient(ellipse at center,#eef2f9 0%,#e8edf5 47%,#f9fbfd 99%);min-height:365px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}.stage:before{content:'';position:absolute;inset:0;background-image:linear-gradient(#8493ac09 1px,transparent 1px),linear-gradient(90deg,#8493ac09 1px,transparent 1px);background-size:22px 22px;pointer-events:none}.card-visual{width:100%;aspect-ratio:1.8;box-shadow:0 27px 38px #23304c30,0 4px 8px #24304710;border-radius:14px;z-index:1;overflow:hidden;background:#fff;max-width:720px}.card-visual svg{width:100%;height:100%;display:block}.size-readout{position:relative;z-index:1;margin-top:28px;color:#738197;font-size:11px;display:flex;align-items:center;gap:12px}.size-readout .ruler{height:1px;width:55px;background:#afbac9}.preview-footer{padding:23px 26px}.selected-name{font-size:13px;font-weight:700;margin:0 0 4px}.selected-details{font-size:11px;color:#8190a2;margin:0 0 20px}.action-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.action-row button{border-radius:11px;min-height:45px;padding:10px 12px;font-size:12px;font-weight:700}.main-action{border:0;background:#2f3a48;color:white}.main-action:hover:enabled{background:#5b60a8}.secondary-action{border:1px solid #dcdce7;color:#435168;background:#fff}.secondary-action:hover:enabled{background:#f4f5fc}.action-row button.wide{grid-column:1/-1;background:#eeedf6;border:1px solid #e2daf0;color:#5b60a8}.print-tip{font-size:10.5px;line-height:1.65;color:#8995a4;margin:15px 0 0}.notice{margin:0 0 15px;border-radius:10px;padding:11px 13px;color:#835a35;background:#fff6e9;border:1px solid #f4e4c9;font-size:11.5px;line-height:1.55;display:none}.notice.visible{display:block}.footer-note{text-align:center;color:#9ca6b3;font-size:11px;margin:34px 0 0}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#2f3a48;color:#fff;border-radius:12px;padding:12px 20px;font-size:12px;box-shadow:0 15px 30px #1f2c4438;z-index:100;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}.screen-reader{position:absolute!important;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden}#printSheet{display:none}@media(max-width:1120px){.app-shell{padding:0 24px 60px}.layout{grid-template-columns:minmax(320px,.86fr) minmax(400px,1.14fr);gap:16px}.panel{padding:18px}.models{gap:9px}.palette-grid{gap:8px}.stage{padding:35px 23px;min-height:310px}}@media(max-width:840px){.layout{grid-template-columns:1fr}.preview-panel{position:static;grid-row:1}.hero{padding:25px 0}.hero-meta{display:none}.stage{min-height:300px}.app-shell{padding:0 15px 40px}.panel{padding:17px}.models{grid-template-columns:repeat(3,1fr)}}@media(max-width:550px){.topbar{height:69px}.top-right .pill{display:none}.models{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:29px}.fields{gap:10px}.palette-grid{gap:7px}.palette span.name{font-size:9px}.preview-top{padding:18px}.preview-footer{padding:17px}.stage{min-height:225px;padding:24px 14px}.card-visual{border-radius:8px}.size-readout{margin-top:20px}.model-name{font-size:10.5px}}@page{size:90mm 50mm;margin:0}@media print{html,body{margin:0!important;padding:0!important;width:90mm!important;height:50mm!important;background:transparent!important;overflow:hidden!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.app-shell,.toast{display:none!important}#printSheet{display:block!important;position:absolute!important;left:0;top:0;width:90mm;height:50mm;margin:0;overflow:hidden}#printSheet svg{display:block!important;width:90mm;height:50mm}}
+:root{font-family:Poppins,Arial,sans-serif;color:#2f3a48;background:#faf9fc;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.48;cursor:not-allowed}.app-shell{max-width:1500px;margin:0 auto;padding:0 36px 60px}.topbar{height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid #dcdce7}.brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit}.brand-mark{display:grid;place-items:center;width:43px;height:43px;border-radius:6px;background:#2f3a48;position:relative;overflow:hidden}.brand-mark i{position:absolute;width:18px;height:25px;background:#7a7bca;border-radius:4px;transform:skewY(-18deg) rotate(-12deg);left:11px;top:9px}.brand-mark i:nth-child(2){left:16px;top:12px;background:#b48bc9;opacity:.89}.brand-mark i:nth-child(3){left:21px;top:15px;background:#66bbfa;opacity:.84}.brand-official{display:block;width:auto;max-width:220px;height:46px;object-fit:contain;object-position:left center}.brand strong{font-size:13px;letter-spacing:.07em;font-weight:800;display:block}.brand span{font-size:11px;color:#7f899a;letter-spacing:.17em;text-transform:uppercase;display:block}.top-right{display:flex;align-items:center;gap:12px}.top-right .pill{border:1px solid #dde3eb;border-radius:99px;color:#667386;padding:7px 13px;font-size:12px;font-weight:600;background:white}.hero{padding:36px 0 31px;display:flex;align-items:end;justify-content:space-between;gap:25px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.23em;color:#8c4292;font-weight:800}.hero h1{font-size:clamp(27px,3.15vw,48px);line-height:1.13;margin:11px 0 9px;letter-spacing:-.045em;font-weight:700}.hero p{color:#7a8697;margin:0;font-size:14px;line-height:1.65}.hero-meta{display:flex;gap:16px;color:#66758a;font-size:12px;font-weight:600;flex-wrap:wrap}.hero-meta span{display:flex;align-items:center;gap:7px}.hero-meta b{width:7px;height:7px;border-radius:50%;background:#11c6f4;display:inline-block}.layout{display:grid;grid-template-columns:minmax(380px, 505px) minmax(480px,1fr);gap:25px;align-items:start}.editor{display:flex;flex-direction:column;gap:18px}.panel{background:white;border:1px solid #dcdce7;border-radius:8px;box-shadow:0 7px 25px #1b2c4810;padding:23px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.section-heading{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:700;letter-spacing:-.02em}.section-number{font-size:11px;font-weight:800;letter-spacing:.06em;color:#5b60a8;background:#eeedf6;border-radius:7px;padding:5px 7px}.section-help{font-size:11px;color:#95a0ae}.models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.model{padding:7px;background:#fff;border:1.5px solid #dcdce7;border-radius:6px;text-align:left;transition:border-color .15s,transform .15s,box-shadow .15s;min-width:0}.model:hover{transform:translateY(-1px);box-shadow:0 5px 15px #24314913}.model.active{border-color:#5b60a8;box-shadow:0 0 0 3px #5b60a817}.model-art{background:#f8f9fc;border-radius:8px;display:block;overflow:hidden;aspect-ratio:1.8889;line-height:0;box-shadow:0 2px 4px #1c28400e}.model-art svg{width:100%;height:100%}.model-footer{display:flex;align-items:center;gap:5px;justify-content:space-between;margin:9px 4px 2px}.model-name{font-size:11.7px;font-weight:650;color:#344152;line-height:1.35}.model-check{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;font-size:10px;border:1px solid #d9e0eb;color:transparent;flex-shrink:0}.model.active .model-check{color:white;background:#5b60a8;border-color:#5b60a8}.palette-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.palette{border:1.5px solid #dcdce7;border-radius:11px;background:white;padding:8px 8px 10px;min-width:0;transition:all .15s}.palette.active{border-color:#5b60a8;box-shadow:0 0 0 3px #5b60a817}.palette-swatches{display:flex;height:35px;border-radius:6px;overflow:hidden;margin-bottom:8px}.palette-swatches span{flex:1}.palette span.name{display:block;font-size:10px;font-weight:600;color:#5e6979;line-height:1.15}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{min-width:0}.field.wide{grid-column:1/-1}.field label{display:block;margin-bottom:6px;color:#5d687a;font-weight:600;font-size:11.5px}.field input{width:100%;height:43px;padding:0 12px;border-radius:9px;border:1px solid #dcdce7;background:#fbfcff;color:#2f3a48;font-size:13px;outline:none;transition:border-color .15s,box-shadow .15s}.field input:focus{border-color:#5b60a8;box-shadow:0 0 0 3px #8c42921a}.field input::placeholder{color:#adb6c3}.microcopy{font-size:11px;color:#8490a0;line-height:1.5;margin:10px 0 0}.qr-card{border:1px solid #e3e9f1;border-radius:6px;padding:14px;background:#fbfcfe}.qr-header{display:flex;justify-content:space-between;align-items:center;gap:10px}.qr-label{font-weight:700;font-size:12.5px}.required{font-size:10px;color:#8755b3;background:#f1e9f7;border-radius:99px;padding:5px 8px}.optional{font-size:10px;color:#647991;background:#ecf1f7;border-radius:99px;padding:5px 8px}.switch-line{display:flex;justify-content:space-between;align-items:center;margin-top:13px;gap:12px}.switch-line span{font-size:12px;color:#657487}.toggle{width:43px;height:26px;border:0;background:#cfd6e1;border-radius:99px;position:relative;transition:background .18s;flex-shrink:0}.toggle:after{content:"";position:absolute;top:4px;left:4px;width:18px;height:18px;border-radius:50%;background:white;box-shadow:0 1px 3px #3342;transition:left .18s}.toggle.on{background:#5b60a8}.toggle.on:after{left:21px}.file-area{margin-top:12px;display:flex;align-items:center;gap:12px;border:1px dashed #c7d1e0;border-radius:11px;padding:13px;background:white}.qr-square{width:54px;height:54px;border-radius:9px;background:#eef2f8;border:1px solid #e2e8f0;flex:0 0 auto;display:grid;place-items:center;overflow:hidden;color:#8b96a8;font-size:23px}.qr-square img{width:100%;height:100%;object-fit:contain}.file-actions{min-width:0;flex:1}.import-btn{background:#eeedf6;color:#5b60a8;border:1px solid #e0d7f3;font-weight:700;padding:7px 11px;border-radius:8px;font-size:11px}.file-name{font-size:10px;color:#7a889a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:5px 0 0}.remove-btn{border:0;background:none;color:#aa5280;padding:4px;font-size:11px;text-decoration:underline}.file-help{font-size:10.5px;color:#8590a0;margin:9px 1px 0;line-height:1.5}.preview-panel{position:sticky;top:16px;border-radius:8px;background:linear-gradient(145deg,#fff 0%,#fafbfe 95%);border:1px solid #dcdce7;box-shadow:0 15px 58px #2134520e;overflow:hidden}.preview-top{padding:23px 26px;border-bottom:1px solid #e9edf3;display:flex;justify-content:space-between;align-items:center;gap:12px}.preview-title{font-weight:700;font-size:15px}.preview-sub{font-size:11px;color:#8793a3;margin-top:2px}.status{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:650;color:#0b6f8a;background:#e3f7fd;border-radius:100px;padding:7px 10px}.status.error{color:#ae6441;background:#fff1e8}.status i{width:7px;height:7px;background:currentColor;border-radius:50%}.stage{padding:clamp(20px,5vw,66px) clamp(24px,5vw,58px) 30px;background:radial-gradient(ellipse at center,#eef2f9 0%,#e8edf5 47%,#f9fbfd 99%);min-height:365px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}.stage:before{content:'';position:absolute;inset:0;background-image:linear-gradient(#8493ac09 1px,transparent 1px),linear-gradient(90deg,#8493ac09 1px,transparent 1px);background-size:22px 22px;pointer-events:none}.card-visual{width:100%;aspect-ratio:1.8889;box-shadow:0 27px 38px #23304c30,0 4px 8px #24304710;border-radius:14px;z-index:1;overflow:hidden;background:#fff;max-width:720px}.card-visual svg{width:100%;height:100%;display:block}.size-readout{position:relative;z-index:1;margin-top:28px;color:#738197;font-size:11px;display:flex;align-items:center;gap:12px}.size-readout .ruler{height:1px;width:55px;background:#afbac9}.preview-footer{padding:23px 26px}.selected-name{font-size:13px;font-weight:700;margin:0 0 4px}.selected-details{font-size:11px;color:#8190a2;margin:0 0 20px}.action-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.action-row button{border-radius:11px;min-height:45px;padding:10px 12px;font-size:12px;font-weight:700}.main-action{border:0;background:#2f3a48;color:white}.main-action:hover:enabled{background:#5b60a8}.secondary-action{border:1px solid #dcdce7;color:#435168;background:#fff}.secondary-action:hover:enabled{background:#f4f5fc}.action-row button.wide{grid-column:1/-1;background:#eeedf6;border:1px solid #e2daf0;color:#5b60a8}.print-tip{font-size:10.5px;line-height:1.65;color:#8995a4;margin:15px 0 0}.notice{margin:0 0 15px;border-radius:10px;padding:11px 13px;color:#835a35;background:#fff6e9;border:1px solid #f4e4c9;font-size:11.5px;line-height:1.55;display:none}.notice.visible{display:block}.footer-note{text-align:center;color:#9ca6b3;font-size:11px;margin:34px 0 0}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#2f3a48;color:#fff;border-radius:12px;padding:12px 20px;font-size:12px;box-shadow:0 15px 30px #1f2c4438;z-index:100;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}.screen-reader{position:absolute!important;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden}#printSheet{display:none}@media(max-width:1120px){.app-shell{padding:0 24px 60px}.layout{grid-template-columns:minmax(320px,.86fr) minmax(400px,1.14fr);gap:16px}.panel{padding:18px}.models{gap:9px}.palette-grid{gap:8px}.stage{padding:35px 23px;min-height:310px}}@media(max-width:840px){.layout{grid-template-columns:1fr}.preview-panel{position:static;grid-row:1}.hero{padding:25px 0}.hero-meta{display:none}.stage{min-height:300px}.app-shell{padding:0 15px 40px}.panel{padding:17px}.models{grid-template-columns:repeat(3,1fr)}}@media(max-width:550px){.topbar{height:69px}.top-right .pill{display:none}.models{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:29px}.fields{gap:10px}.palette-grid{gap:7px}.palette span.name{font-size:9px}.preview-top{padding:18px}.preview-footer{padding:17px}.stage{min-height:225px;padding:24px 14px}.card-visual{border-radius:8px}.size-readout{margin-top:20px}.model-name{font-size:10.5px}}@page{size:85mm 45mm;margin:0}@media print{html,body{margin:0!important;padding:0!important;width:85mm!important;height:45mm!important;background:transparent!important;overflow:hidden!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.app-shell,.toast{display:none!important}#printSheet{display:block!important;position:absolute!important;left:0;top:0;width:85mm;height:45mm;margin:0;overflow:hidden}#printSheet svg{display:block!important;width:85mm;height:45mm}}
 
 .production-export{border:1px solid #dcdce7;border-radius:12px;padding:13px;margin:0 0 11px;background:#fff}
 .production-export.prominent{background:linear-gradient(115deg,#eeedf6,#ffffff);border-color:#dcd6f0}
@@ -29,7 +29,7 @@
 <body>
 <div class="app-shell">
   <header class="df-bar"><a class="df-brand" href="partie2.html#etape-6"><span class="mark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<small>PARTIE 2 · EXERCICE FINAL</small></span></a><nav class="df-nav" aria-label="Outils"><a href="machines.html">Les machines DF</a><a href="qr-code.html">Générateur QR →</a><a class="dark" href="partie2.html#etape-6">← Retour à l’atelier</a></nav></header>
-  <section class="hero"><div><div class="eyebrow">Créateur de cartes de visite</div><h1>Ta carte. <span style="color:#5b60a8">Prête à fabriquer.</span></h1><p>Personnalise le visuel, puis exporte séparément le tracé laser, le gabarit de positionnement et le PDF couleur pour l’UV.</p></div><div class="hero-meta"><span><b></b> 6 compositions</span><span><b></b> 4 palettes</span><span><b></b> 90 × 50 mm</span></div></section>
+  <section class="hero"><div><div class="eyebrow">Créateur de cartes de visite</div><h1>Ta carte. <span style="color:#5b60a8">Prête à fabriquer.</span></h1><p>Personnalise le visuel, puis exporte le tracé laser en SVG, le gabarit UV et le PDF couleur UV avec un fond perdu de 2 mm tout autour.</p></div><div class="hero-meta"><span><b></b> 6 compositions</span><span><b></b> 4 palettes</span><span><b></b> 85 × 45 mm</span></div></section>
   <main class="layout">
     <div class="editor">
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">01</span> Choisis ton modèle</div><span class="section-help">6 propositions</span></div><div class="models" id="modelChoices"></div></section>
@@ -45,19 +45,19 @@
           <div class="switch-line"><span id="qrHelp">Afficher le QR code sur la carte</span><button type="button" id="qrToggle" class="toggle" role="switch" aria-label="Afficher le QR code" aria-checked="false"></button></div>
           <div class="file-area" id="dropTarget"><div class="qr-square" id="qrThumbnail" aria-hidden="true">▦</div><div class="file-actions"><button type="button" class="import-btn" id="importButton">+ Importer un QR</button><div class="file-name" id="qrFileName">PNG, JPG, WebP ou SVG</div></div><button type="button" id="removeQr" class="remove-btn" hidden>Retirer</button></div>
           <input class="screen-reader" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,image/png,image/jpeg,image/webp,image/svg+xml" id="qrInput">
-          <p class="file-help">Le QR code n'est pas généré ici. Importe l'image de ton QR déjà créé (avec sa bordure blanche de sécurité). Le fichier reste sur cet appareil.</p><p class="df-next"><span>Pas encore de QR code ?</span><a href="qr-code.html">Le créer avec le générateur →</a></p>
+          <p class="file-help">Le QR code n'est pas généré ici. Importe ton QR déjà créé : l’encadré pointillé reste visible après l’importation et dans le PDF UV. Le placement du QR est adapté à chaque composition. Le fichier reste sur cet appareil.</p><p class="df-next"><span>Pas encore de QR code ?</span><a href="qr-code.html">Le créer avec le générateur →</a></p>
         </div>
       </section>
     </div>
     <aside class="preview-panel" aria-label="Aperçu et impression">
       <div class="preview-top"><div><div class="preview-title">Aperçu en temps réel</div><div class="preview-sub">Recto de la carte sur plexiglas blanc</div></div><div class="status" id="status"><i></i><span>Prêt à exporter</span></div></div>
-      <div class="stage"><div class="card-visual" id="cardPreview"></div><div class="size-readout"><span class="ruler"></span><span>90 × 50 mm · paysage</span><span class="ruler"></span></div></div>
+      <div class="stage"><div class="card-visual" id="cardPreview"></div><div class="size-readout"><span class="ruler"></span><span>85 × 45 mm · paysage</span><span class="ruler"></span></div></div>
       <div class="preview-footer"><div class="selected-name" id="selectedLabel">Modèle 4 · Organique</div><p class="selected-details" id="selectedDetails">Bleu nuit · nom et coordonnées</p><div class="notice" id="exportNotice" role="status"></div>
-        <div class="production-export"><div class="production-heading"><span class="production-step">01</span><div><strong>Découpe laser</strong><small>Contour vectoriel seul · 90 × 50 mm · angles R 1,8 mm</small></div></div><div class="action-row"><button type="button" class="secondary-action" id="downloadCutSvg">Découpe · SVG</button><button type="button" class="secondary-action" id="downloadCutPdf">Découpe · PDF</button></div></div>
-        <div class="production-export"><div class="production-heading"><span class="production-step">02</span><div><strong>Gabarit de positionnement UV</strong><small>Contour visible, sans couleurs ni texte · échelle 1:1</small></div></div><button type="button" class="wide-production" id="downloadGuidePdf">Gabarit UV · PDF</button></div>
-        <div class="production-export prominent"><div class="production-heading"><span class="production-step">03</span><div><strong>Impression UV · PDF couleur</strong><small>Carte finalisée, 90 × 50 mm · 600 dpi · sans trait de coupe</small></div></div><button type="button" class="wide-production main-action" id="downloadUvPdf">Télécharger le PDF couleur UV</button></div>
+        <div class="production-export"><div class="production-heading"><span class="production-step">01</span><div><strong>Découpe laser</strong><small>Contour vectoriel seul · 85 × 45 mm · angles R 1,8 mm</small></div></div><div class="action-row"><button type="button" class="secondary-action" id="downloadCutSvg">Découpe · SVG</button></div></div>
+        <div class="production-export"><div class="production-heading"><span class="production-step">02</span><div><strong>Gabarit de positionnement UV</strong><small>Page 89 × 49 mm · contour 85 × 45 mm centré · fond perdu 2 mm</small></div></div><button type="button" class="wide-production" id="downloadGuidePdf">Gabarit UV · PDF</button></div>
+        <div class="production-export prominent"><div class="production-heading"><span class="production-step">03</span><div><strong>Impression UV · PDF couleur</strong><small>Page 89 × 49 mm · carte utile 85 × 45 mm · fond perdu 2 mm · 600 dpi</small></div></div><button type="button" class="wide-production main-action" id="downloadUvPdf">Télécharger le PDF couleur UV</button></div>
         <details class="secondary-exports"><summary>Exports complémentaires</summary><div class="action-row"><button type="button" class="secondary-action" id="downloadPng">PNG · 600 dpi</button><button type="button" class="secondary-action" id="downloadSvg">Visuel · SVG</button><button type="button" class="wide" id="printButton">Imprimer depuis le navigateur</button></div></details>
-        <p class="print-tip"><b>Important :</b> les trois fichiers de production partagent la même taille et le même contour. Utilise le SVG de découpe dans Trotec Ruby et vérifie que le tracé est associé au mode <em>Découpe</em>. Le gabarit est un repère de placement : <b>ne pas le lancer comme image à imprimer</b>. Le PDF UV est en RVB, sans calque d'encre blanche ni trait de coupe ; choisir les paramètres de blanc/profil dans VersaWorks. Vérifier l'échelle à 100 %, l'orientation et faire un essai avant production.</p>
+        <p class="print-tip"><b>Important :</b> le fichier laser est désormais fourni uniquement en SVG. Le gabarit UV et le PDF couleur UV sont générés sur une page de <b>89 × 49 mm</b>, avec le contour utile de la carte <b>85 × 45 mm</b> centré et un <b>fond perdu de 2 mm</b> tout autour pour la sécurité en cas de décalage. Le gabarit est un repère de placement : <b>ne pas le lancer comme image à imprimer</b>. Le PDF UV est en RVB, sans calque d'encre blanche ; choisir les paramètres de blanc/profil dans VersaWorks et vérifier l'échelle à 100 % avant production.</p>
       </div>
     </aside>
   </main>
@@ -82,7 +82,7 @@ const COLORS=[
  {name:'Turquoise',dark:'#123C57',accent:'#17A8B8',bright:'#A3E2E9',pale:'#E7FAFB',text:'#173241'},
  {name:'Graphite',dark:'#2C3340',accent:'#448DEF',bright:'#ACD3F8',pale:'#EDF2F7',text:'#232932'}
 ];
-const CARD_W_MM=90, CARD_H_MM=50, CORNER_R_MM=1.8;
+const CARD_W_MM=85, CARD_H_MM=45, CORNER_R_MM=1.8;
 const DEFAULT={firstName:'Camille',lastName:'Dupont',phone:'0470 00 00 00',email:'camille@exemple.be',website:'www.exemple.be',location:'Liège, Belgique'};
 let state={model:4,color:0,showQR:false,qrData:'',qrName:'',...DEFAULT};
 const $=id=>document.getElementById(id);
@@ -137,7 +137,12 @@ function mockQR(x,y,size,c){let out=`<rect x="${x}" y="${y}" width="${size}" hei
  out+=text(x+size/2,y+size/2+8,'QR',20,c.accent,700,`text-anchor="middle"`);return out;}
 function qrAt(x,y,size,c,preview=true){if(!qrActive())return '';
  if(!hasImage())return preview?mockQR(x,y,size,c):'';
- const inner=12;return `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="3" fill="white"/><image x="${x+inner}" y="${y+inner}" width="${size-inner*2}" height="${size-inner*2}" preserveAspectRatio="xMidYMid meet" href="${esc(state.qrData)}"/>`;
+ // The approved cyan dotted QR frame stays visible after an imported QR replaces the placeholder.
+ // Leave a white quiet zone; do not draw the mock QR's finder squares over the real code.
+ const inner=16;
+ return `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="#fff"/>`+
+   `<image x="${x+inner}" y="${y+inner}" width="${size-inner*2}" height="${size-inner*2}" preserveAspectRatio="xMidYMid meet" href="${esc(state.qrData)}"/>`+
+   `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="none" stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"/>`;
 }
 function decorations(i,c){switch(i){
 case 0:return `<path d="M72 108V392" stroke="${c.dark}" stroke-width="6"/><path d="M460 100V397" stroke="${c.dark}" stroke-width="2.4"/>`;
@@ -180,34 +185,77 @@ case 4:{
 
 case 5:return `<path d="M0 0H343C411 0 443 61 443 136V363C443 439 411 500 343 500H0Z" fill="${c.dark}"/><path d="M343 0C401 0 443 57 443 136V363C443 438 401 500 343 500H375C451 499 470 439 470 363V137C470 58 440 0 375 0Z" fill="${c.accent}" opacity=".11"/>`;
 }}
-function cardElements(i,c,preview=true){const name=title().toLocaleUpperCase('fr-BE');let a=decorations(i,c);let qr=qrActive();switch(i){
-case 0:
- a+=fitText(112,246,name,328,46,c.text,700);a+=contactsVertical(497,151,68,c,{size:22,max:316});if(qr)a+=qrAt(275,296,158,c,preview);break;
-case 1:
- a+=fitText(259,246,name,331,43,c.text,700);a+=contactsVertical(639,146,67,c,{size:21,max:208});if(qr)a+=qrAt(370,299,155,c,preview);break;
-case 2:
- a+=fitText(72,238,name,510,55,c.text,750);a+=qrAt(676,103,186,c,preview);a+=contactsHorizontal(c,437,true);break;
-case 3:
- a+=fitText(56,223,name,540,53,c.text,700);
- if(qr){
-   // QR is an explicit opt-in on this model: keep the wave motif unchanged.
-   a+=contactsVertical(60,346,54,c,{size:21,max:435});
-   a+=qrAt(695,312,148,c,preview);
- }else{
-   a+=waveContacts(c,427);
- }
- break;
-case 4:
- a+=fitText(51,152,name,568,59,c.text,750);
- a+=`<path d="M56 188H166" stroke="${c.accent}" stroke-width="7" stroke-linecap="round"/>`;
- a+=contactsVertical(55,268,55,c,{size:25,max:505});
- if(qr)a+=qrAt(700,305,166,c,preview);
- break;
-case 5:
- a+=fitText(62,239,name,346,45,'#fff',730);a+=contactsVertical(519,142,83,c,{size:22,max:315,pastille:true});if(qr)a+=qrAt(267,318,157,c,preview);break;
-}return a;
+function contentElements(i,c,preview=true){
+  const name=title().toLocaleUpperCase('fr-BE');
+  let a='';const qr=qrActive();
+  switch(i){
+  case 0: { // Minimaliste — keep the dividing rule and reserve a quiet lower-right QR area.
+    a+=fitText(112,235,name,328,46,c.text,700);
+    if(!qr){a+=contactsVertical(497,151,68,c,{size:22,max:316});}
+    else {
+      const fields=[['phone',state.phone],['email',state.email],['website',state.website]];
+      fields.forEach(([kind,val],idx)=>{a+=contactRow(496,145+idx*65,kind,val,c,{size:21,max:305});});
+      if(simplify(state.location))a+=contactRow(112,363,'location',state.location,c,{size:20,max:300});
+      a+=qrAt(683,300,144,c,preview);
+    }
+    break;
+  }
+  case 1: { // Bandeau — QR anchored under name inside the middle panel.
+    a+=fitText(259,238,name,331,43,c.text,700);
+    a+=contactsVertical(639,146,67,c,{size:21,max:208});
+    if(qr){
+      a+=`<path d="M261 277H355" stroke="${c.accent}" stroke-width="6" stroke-linecap="round"/>`;
+      a+=qrAt(421,301,151,c,preview);
+    }
+    break;
+  }
+  case 2: { // Mandatory QR model — unchanged approved positioning.
+    a+=fitText(72,238,name,510,55,c.text,750);
+    a+=qrAt(676,103,186,c,preview);
+    a+=contactsHorizontal(c,437,true);
+    break;
+  }
+  case 3: { // Lignes modernes — two rows of small contact details, QR on right, no overflow.
+    a+=fitText(56,223,name,540,53,c.text,700);
+    if(qr){
+      a+=contactRow(60,350,'website',state.website,c,{size:21,max:210});
+      a+=contactRow(332,350,'location',state.location,c,{size:21,max:240});
+      a+=contactRow(60,435,'phone',state.phone,c,{size:21,max:202});
+      a+=line(295,400,295,445,c.text,2);
+      a+=contactRow(326,435,'email',state.email,c,{size:21,max:303});
+      a+=qrAt(704,316,145,c,preview);
+    }else{a+=waveContacts(c,427);}
+    break;
+  }
+  case 4: { // Organique — framed QR in open top-right area, don't cover the lower ribbons.
+    a+=fitText(51,152,name,568,59,c.text,750);
+    a+=`<path d="M56 188H166" stroke="${c.accent}" stroke-width="7" stroke-linecap="round"/>`;
+    a+=contactsVertical(55,268,55,c,{size:25,max:505});
+    if(qr)a+=qrAt(695,78,163,c,preview);
+    break;
+  }
+  case 5: { // Signature — QR centered on dark identity panel, contacts remain untouched.
+    a+=fitText(62,qr?214:239,name,346,45,'#fff',730);
+    a+=contactsVertical(519,142,83,c,{size:22,max:315,pastille:true});
+    if(qr)a+=qrAt(153,281,153,c,preview);
+    break;
+  }
+  }
+  return a;
 }
-function buildSVG(model=state.model,color=state.color,preview=true){const c=COLORS[color];const body=cardElements(model,c,preview);return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90mm" height="50mm" viewBox="0 0 900 500" role="img" aria-label="Carte de visite, ${esc(MODELS[model].name)}"><defs><clipPath id="cutCard"><rect x="0" y="0" width="900" height="500" rx="18" ry="18"/></clipPath></defs><g clip-path="url(#cutCard)">${body}</g></svg>`;}
+function cardElements(i,c,preview=true){return decorations(i,c)+contentElements(i,c,preview);}
+// The original layout was authored at 900 x 500 units. It is now fitted to
+// an actual 85 x 45 mm card without stretching names or square QR codes.
+// Decorations cover the card face edge to edge; the informational layer
+// is uniformly scaled, ensuring the QR remains physically square.
+const DESIGN_W=900, DESIGN_H=500, CARD_W_UNITS=850, CARD_H_UNITS=450;
+const DECO_SCALE_X=CARD_W_UNITS/DESIGN_W, DECO_SCALE_Y=CARD_H_UNITS/DESIGN_H;
+const CONTENT_SCALE=CARD_H_UNITS/DESIGN_H;
+const CONTENT_OFFSET_X=(CARD_W_UNITS-DESIGN_W*CONTENT_SCALE)/2;
+function buildSVG(model=state.model,color=state.color,preview=true,clipRounded=true){
+ const c=COLORS[color], decoration=decorations(model,c), personal=contentElements(model,c,preview);
+ return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_UNITS} ${CARD_H_UNITS}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte de visite, ${esc(MODELS[model].name)}"><defs><clipPath id="cutCard"><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" rx="${CORNER_R_MM*10}" ry="${CORNER_R_MM*10}"/></clipPath></defs><g ${clipRounded?'clip-path="url(#cutCard)"':''}><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" fill="#fff"/><g transform="scale(${DECO_SCALE_X} ${DECO_SCALE_Y})">${decoration}</g><g transform="translate(${CONTENT_OFFSET_X} 0) scale(${CONTENT_SCALE})">${personal}</g></g></svg>`;
+}
 function drawChoices(){const c=COLORS[state.color];$('modelChoices').innerHTML=MODELS.map(m=>{const was=state.model;state.model=m.id;let svg=buildSVG(m.id,state.color,true);state.model=was;return `<button type="button" class="model ${m.id===state.model?'active':''}" data-model="${m.id}" aria-pressed="${m.id===state.model}"><div class="model-art">${svg}</div><div class="model-footer"><span class="model-name">${esc(m.name)}</span><span class="model-check">✓</span></div></button>`;}).join('');$('modelChoices').querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{state.model=Number(button.dataset.model);render();}));
 $('colorChoices').innerHTML=COLORS.map((c,i)=>`<button type="button" class="palette ${i===state.color?'active':''}" data-color="${i}" aria-pressed="${i===state.color}"><div class="palette-swatches"><span style="background:${c.dark}"></span><span style="background:${c.accent}"></span><span style="background:${c.bright}"></span></div><span class="name">${esc(c.name)}</span></button>`).join('');$('colorChoices').querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{state.color=Number(button.dataset.color);render();}));}
 function render(){drawChoices();$('cardPreview').innerHTML=buildSVG();const required=state.model===2;
@@ -237,27 +285,29 @@ async function importQR(file){if(!file)return;if(file.size>8*1024*1024){toast('F
  state.qrData=uri;state.qrName=file.name;state.showQR=true;render();toast('QR importé. Vérifie qu’il est lisible sur la carte.');
  }catch(e){toast(e.message||'Erreur pendant l’importation du QR.');}}
 $('qrInput').addEventListener('change',async e=>{await importQR(e.target.files[0]);});
-const drop=$('dropTarget');drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#7b63bd';});drop.addEventListener('dragleave',()=>drop.style.borderColor='');drop.addEventListener('drop',async e=>{e.preventDefault();drop.style.borderColor='';await importQR(e.dataTransfer?.files?.[0]);});
+const drop=$('dropTarget');drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#5b60a8';});drop.addEventListener('dragleave',()=>drop.style.borderColor='');drop.addEventListener('drop',async e=>{e.preventDefault();drop.style.borderColor='';await importQR(e.dataTransfer?.files?.[0]);});
 function download(blob,file){const url=URL.createObjectURL(blob);let a=document.createElement('a');a.href=url;a.download=file;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);}
 function basename(){const raw=[state.firstName,state.lastName].filter(Boolean).join('-').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'carte';return `DF-${raw}-${String(state.model).padStart(2,'0')}-${state.color+1}`;}
 function fileSvg(){if(missingQR()){toast('Importe un QR avant l’exportation.');return;}download(new Blob([buildSVG(state.model,state.color,false)],{type:'image/svg+xml;charset=utf-8'}),basename()+'.svg');}
 function dataImage(svg){return new Promise((resolve,reject)=>{const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'}));const im=new Image();im.onload=()=>{URL.revokeObjectURL(url);resolve(im)};im.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Impossible de convertir la carte en image.'))};im.src=url;});}
-async function filePng(){if(missingQR()){toast('Importe un QR avant l’exportation.');return;}const btn=$('downloadPng');btn.disabled=true;btn.textContent='Préparation du PNG…';try{await document.fonts.ready;const scale=600/25.4;const pxw=Math.round(90*scale),pxh=Math.round(50*scale);const canvas=document.createElement('canvas');canvas.width=pxw;canvas.height=pxh;const cx=canvas.getContext('2d');cx.clearRect(0,0,pxw,pxh);
+async function filePng(){if(missingQR()){toast('Importe un QR avant l’exportation.');return;}const btn=$('downloadPng');btn.disabled=true;btn.textContent='Préparation du PNG…';try{await document.fonts.ready;const scale=600/25.4;const pxw=Math.round(CARD_W_MM*scale),pxh=Math.round(CARD_H_MM*scale);const canvas=document.createElement('canvas');canvas.width=pxw;canvas.height=pxh;const cx=canvas.getContext('2d');cx.clearRect(0,0,pxw,pxh);
  const image=await dataImage(buildSVG(state.model,state.color,false));cx.drawImage(image,0,0,pxw,pxh);
  const blob=await new Promise(res=>canvas.toBlob(res,'image/png'));if(!blob)throw new Error('Échec de la création du PNG.');download(blob,basename()+'-600dpi.png');}
  catch(e){toast(e.message||'Impossible d’exporter en PNG.');}finally{btn.textContent='Télécharger PNG · 600 dpi';btn.disabled=missingQR();}}
 function filePrint(){if(missingQR()){toast('Importe un QR avant l’impression.');return;}$('printSheet').innerHTML=buildSVG(state.model,state.color,false);setTimeout(()=>window.print(),80);}
 
-// --- Production exports: physical units and same origin for laser, jig and printed artwork. ---
+// --- Production exports: laser path and UV bleed alignment in physical units. ---
+const BLEED_MM=2;
+const UV_W_MM=CARD_W_MM+2*BLEED_MM;
+const UV_H_MM=CARD_H_MM+2*BLEED_MM;
+const BLEED_UNITS=BLEED_MM*10;
 function cutSvg(){
-  // Unique continuous closed vector, no fill. Width is in viewBox mm units.
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_MM} ${CARD_H_MM}"><title>Découpe laser - carte ${CARD_W_MM} x ${CARD_H_MM} mm - R ${CORNER_R_MM} mm</title><rect x="0" y="0" width="${CARD_W_MM}" height="${CARD_H_MM}" rx="${CORNER_R_MM}" ry="${CORNER_R_MM}" fill="none" stroke="#FF0000" stroke-width="0.001"/></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_MM} ${CARD_H_MM}"><title>Découpe laser ${CARD_W_MM} x ${CARD_H_MM} mm</title><rect x="0" y="0" width="${CARD_W_MM}" height="${CARD_H_MM}" rx="${CORNER_R_MM}" ry="${CORNER_R_MM}" fill="none" stroke="#FF0000" stroke-width="0.001"/></svg>`;
 }
-function cutSvgFile(){download(new Blob([cutSvg()],{type:'image/svg+xml;charset=utf-8'}),'DF-gabarit-decoupe-90x50.svg');toast('SVG de découpe : 90 × 50 mm, contour vectoriel seul.');}
+function cutSvgFile(){download(new Blob([cutSvg()],{type:'image/svg+xml;charset=utf-8'}),'DF-gabarit-decoupe-85x45.svg');toast('SVG de découpe : 85 × 45 mm, contour vectoriel seul.');}
 function mmToPt(n){return n*72/25.4;}
 const pdfEncoder=new TextEncoder();
 function pdfDoc(objects){
-  // Each object is an array of string/Uint8Array parts. Exact byte offsets for PDF xref.
   let parts=[],offset=0,locs=[0];
   const put=p=>{const b=typeof p==='string'?pdfEncoder.encode(p):p;parts.push(b);offset+=b.byteLength;};
   put('%PDF-1.4\n%DFUV\n');
@@ -273,46 +323,57 @@ function roundedPathPdf(w,h,r){
   const f=v=>Number(v.toFixed(6));
   return `${f(r)} 0 m ${f(w-r)} 0 l ${f(w-r+k*r)} 0 ${f(w)} ${f(r-k*r)} ${f(w)} ${f(r)} c ${f(w)} ${f(h-r)} l ${f(w)} ${f(h-r+k*r)} ${f(w-r+k*r)} ${f(h)} ${f(w-r)} ${f(h)} c ${f(r)} ${f(h)} l ${f(r-k*r)} ${f(h)} 0 ${f(h-r+k*r)} 0 ${f(h-r)} c 0 ${f(r)} l 0 ${f(r-k*r)} ${f(r-k*r)} 0 ${f(r)} 0 c h`;
 }
-function contourPdf(gabarit=false){
-  const w=mmToPt(CARD_W_MM),h=mmToPt(CARD_H_MM),r=mmToPt(CORNER_R_MM);
-  // Laser: RGB red, hairline 0.001 mm, no fill. Jig: readable graphite outline.
-  const path=roundedPathPdf(w,h,r);
-  const width=mmToPt(gabarit?0.12:0.001);
-  const command=`q\n${gabarit?'0.20 0.26 0.37':'1 0 0'} RG\n${width.toFixed(7)} w\n${path}\nS\nQ\n`;
+function guidePdf(){
+  const pageW=mmToPt(UV_W_MM),pageH=mmToPt(UV_H_MM),r=mmToPt(CORNER_R_MM);
+  const contour=roundedPathPdf(mmToPt(CARD_W_MM),mmToPt(CARD_H_MM),r);
+  const insetX=mmToPt(BLEED_MM), insetY=mmToPt(BLEED_MM);
+  const command=`q\n0.20 0.26 0.37 RG\n${mmToPt(0.12).toFixed(7)} w\n1 0 0 1 ${insetX.toFixed(6)} ${insetY.toFixed(6)} cm\n${contour}\nS\nQ\n`;
   const stream=pdfEncoder.encode(command);
-  return pdfDoc([['<< /Type /Catalog /Pages 2 0 R >>'],
-    ['<< /Type /Pages /Count 1 /Kids [3 0 R] >>'],
-    [`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${w.toFixed(6)} ${h.toFixed(6)}] /Resources << >> /Contents 4 0 R >>`],
-    [`<< /Length ${stream.length} >>\nstream\n`,stream,'\nendstream']]);
+  return pdfDoc([['<< /Type /Catalog /Pages 2 0 R >>'],['<< /Type /Pages /Count 1 /Kids [3 0 R] >>'],[`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageW.toFixed(6)} ${pageH.toFixed(6)}] /Resources << >> /Contents 4 0 R >>`],[`<< /Length ${stream.length} >>\nstream\n`,stream,'\nendstream']]);
 }
 async function imagePdf(){
-  // Lossless PDF: pure RGB raster XObject at 600 dpi, no clipping/cut strokes in artwork.
-  // Embedding a Flate-compressed RGB image preserves QR edge sharpness (unlike JPEG).
-  const scale=600/25.4, pw=Math.round(CARD_W_MM*scale),ph=Math.round(CARD_H_MM*scale);
+  // Print size 89 x 49 mm = the 85 x 45 mm card PLUS 2 mm bleed per side.
+  // First render the exact, undistorted card; then extend the edge pixels
+  // outward (rather than rescaling the entire graphic). Text and QR retain
+  // their layout, and edge graphics carry safely past the cutting contour.
+  const dpi=600, scale=dpi/25.4;
+  const b=Math.round(BLEED_MM*scale);
+  const iw=Math.round(CARD_W_MM*scale), ih=Math.round(CARD_H_MM*scale);
+  const pw=Math.round(UV_W_MM*scale), ph=Math.round(UV_H_MM*scale);
+  const ink=document.createElement('canvas');ink.width=iw;ink.height=ih;
+  const inkctx=ink.getContext('2d');inkctx.fillStyle='#FFFFFF';inkctx.fillRect(0,0,iw,ih);
+  // Print face remains rectangular for full ink coverage; laser rounds the corners after cutting.
+  inkctx.drawImage(await dataImage(buildSVG(state.model,state.color,false,false)),0,0,iw,ih);
   const canvas=document.createElement('canvas');canvas.width=pw;canvas.height=ph;
   const ctx=canvas.getContext('2d',{willReadFrequently:true});
   ctx.fillStyle='#FFFFFF';ctx.fillRect(0,0,pw,ph);
-  const svgImage=await dataImage(buildSVG(state.model,state.color,false));
-  ctx.drawImage(svgImage,0,0,pw,ph);
+  const right=pw-b-iw, bottom=ph-b-ih;
+  ctx.drawImage(ink,0,0,iw,ih,b,b,iw,ih);
+  // Left and right bleeds continue exactly the pixels touching the card edge.
+  ctx.drawImage(ink,0,0,1,ih,0,b,b,ih);
+  ctx.drawImage(ink,iw-1,0,1,ih,b+iw,b,right,ih);
+  // Top and bottom bleeds extend the edge of the image without stretching the artwork.
+  ctx.drawImage(ink,0,0,iw,1,b,0,iw,b);
+  ctx.drawImage(ink,0,ih-1,iw,1,b,b+ih,iw,bottom);
+  // Four corners likewise continue the nearest printed color.
+  ctx.drawImage(ink,0,0,1,1,0,0,b,b);
+  ctx.drawImage(ink,iw-1,0,1,1,b+iw,0,right,b);
+  ctx.drawImage(ink,0,ih-1,1,1,0,b+ih,b,bottom);
+  ctx.drawImage(ink,iw-1,ih-1,1,1,b+iw,b+ih,right,bottom);
   const raw=ctx.getImageData(0,0,pw,ph).data, pixels=new Uint8Array(pw*ph*3);
   for(let i=0,j=0;i<raw.length;i+=4){pixels[j++]=raw[i];pixels[j++]=raw[i+1];pixels[j++]=raw[i+2];}
   if(typeof CompressionStream==='undefined')throw Error('Le navigateur ne prend pas en charge le PDF couleur. Utilise Chrome ou Edge récent.');
   const compressed=new Uint8Array(await new Response(new Blob([pixels]).stream().pipeThrough(new CompressionStream('deflate'))).arrayBuffer());
-  const w=mmToPt(CARD_W_MM),h=mmToPt(CARD_H_MM);
-  const content=pdfEncoder.encode(`q\n${w.toFixed(7)} 0 0 ${h.toFixed(7)} 0 0 cm\n/Artwork Do\nQ\n`);
-  return pdfDoc([['<< /Type /Catalog /Pages 2 0 R >>'],
-    ['<< /Type /Pages /Count 1 /Kids [3 0 R] >>'],
-    [`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${w.toFixed(6)} ${h.toFixed(6)}] /Resources << /XObject << /Artwork 4 0 R >> >> /Contents 5 0 R >>`],
-    [`<< /Type /XObject /Subtype /Image /Width ${pw} /Height ${ph} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode /Length ${compressed.length} >>\nstream\n`,compressed,'\nendstream'],
-    [`<< /Length ${content.length} >>\nstream\n`,content,'\nendstream']]);
+  const pageW=mmToPt(UV_W_MM), pageH=mmToPt(UV_H_MM);
+  const content=pdfEncoder.encode(`q\n${pageW.toFixed(7)} 0 0 ${pageH.toFixed(7)} 0 0 cm\n/Artwork Do\nQ\n`);
+  return pdfDoc([['<< /Type /Catalog /Pages 2 0 R >>'],['<< /Type /Pages /Count 1 /Kids [3 0 R] >>'],[`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageW.toFixed(6)} ${pageH.toFixed(6)}] /Resources << /XObject << /Artwork 4 0 R >> >> /Contents 5 0 R >>`],[`<< /Type /XObject /Subtype /Image /Width ${pw} /Height ${ph} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode /Length ${compressed.length} >>\nstream\n`,compressed,'\nendstream'],[`<< /Length ${content.length} >>\nstream\n`,content,'\nendstream']]);
 }
 $('downloadCutSvg').addEventListener('click',cutSvgFile);
-$('downloadCutPdf').addEventListener('click',()=>{download(contourPdf(false),'DF-gabarit-decoupe-90x50.pdf');toast('PDF découpe vectorielle exporté.');});
-$('downloadGuidePdf').addEventListener('click',()=>{download(contourPdf(true),'DF-gabarit-placement-UV-90x50.pdf');toast('Gabarit de placement UV exporté.');});
+$('downloadGuidePdf').addEventListener('click',()=>{download(guidePdf(),'DF-gabarit-placement-UV-89x49-avec-debord.pdf');toast('Gabarit UV : page 89 × 49 mm, contour utile 85 × 45 mm centré.');});
 $('downloadUvPdf').addEventListener('click',async()=>{
   if(missingQR()){toast('Importe le QR obligatoire avant d’exporter le PDF couleur.');return;}
   const b=$('downloadUvPdf');b.disabled=true;b.textContent='Préparation du PDF UV…';
-  try{await document.fonts.ready;const pdf=await imagePdf();download(pdf,basename()+'-impression-UV-90x50.pdf');toast('PDF couleur UV à 600 dpi exporté.');}
+  try{await document.fonts.ready;const pdf=await imagePdf();download(pdf,basename()+'-impression-UV-89x49-bleed2mm.pdf');toast('PDF UV : 89 × 49 mm avec débord de 2 mm.');}
   catch(e){toast('PDF UV impossible : '+(e.message||'Erreur inconnue'));console.error(e);}
   finally{b.textContent='Télécharger le PDF couleur UV';b.disabled=missingQR();}
 });

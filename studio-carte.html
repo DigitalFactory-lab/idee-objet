@@ -237,7 +237,7 @@ function floralArt(c){
 function decorations(i,c){switch(i){
  case 0:return `<path d="M72 108V392" stroke="${c.dark}" stroke-width="6"/><path d="M460 100V397" stroke="${c.dark}" stroke-width="2.4"/>`;
  case 1:return `<path d="M0 399L900 388V500H0Z" fill="${c.accent}"/><path d="M760 392L900 388V500H719Z" fill="${c.dark}" opacity=".56"/>`;
- case 2:return `<path d="M75 312H561" stroke="${c.text}" stroke-width="2"/><rect x="75" y="338" width="90" height="6" rx="3" fill="${c.accent}"/><path d="M615 98V349" stroke="${c.dark}" stroke-width="2.4"/>`;
+ case 2:return `<rect x="75" y="338" width="90" height="6" rx="3" fill="${c.accent}"/><path d="M615 98V349" stroke="${c.dark}" stroke-width="2.4"/>`;
  case 3:return `<rect width="900" height="500" fill="${c.accent}"/>`;
  case 4:return '';
  case 5:return `<rect width="900" height="500" fill="${c.bg}"/>${floralArt(c)}`;

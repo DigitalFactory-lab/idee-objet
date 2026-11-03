@@ -184,7 +184,7 @@ function qrAt(x,y,size,c,preview=true){if(!qrActive())return '';
  if(!hasImage())return preview?mockQR(x,y,size,c):'';
  // Dotted QR frame: only on the « QR essentiel » model (2).
  // Transparent QR (no white backing square); keep an inner margin as quiet zone.
- const inner=16;
+ const inner=6; // the imported PNG already carries its own quiet zone
  return `<image x="${x+inner}" y="${y+inner}" width="${size-inner*2}" height="${size-inner*2}" preserveAspectRatio="xMidYMid meet" href="${esc(state.qrData)}"/>`+
    (state.model===2?`<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="none" stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"/>`:'');
 }
@@ -331,7 +331,7 @@ function contentElements(i,c,preview=true){
    a+=line(586,144,586,434,'#151515',2.6);
    if(qr){
     a+=text(744,174,'SCANNE-MOI',22,'#121212',700,'text-anchor="middle"');
-        a+=qrAt(650,221,185,c,preview);
+        a+=qrAt(615,190,252,c,preview); // QR agrandi
    }
    break;
  }
@@ -340,7 +340,7 @@ function contentElements(i,c,preview=true){
    a+=roundedPanel(30,26,qrPanel?550:838,295,'#FFFFFF','#161616',7,34);
    if(qrPanel){
      a+=roundedPanel(594,26,273,295,c.accent,'#121212',7,34);
-     a+=qrAt(635,76,188,c,preview);
+     a+=qrAt(604.5,47.5,252,c,preview); // QR agrandi, centré dans le panneau coloré
    }
    a+=fitText(78,174,simplify(state.firstName||'Prénom').toUpperCase(),qrPanel?453:720,66,'#101115',900,{family:'Montserrat,Poppins,Arial,sans-serif'});
    a+=fitText(78,243,simplify(state.lastName||'Nom').toUpperCase(),qrPanel?453:720,66,'#101115',900,{family:'Montserrat,Poppins,Arial,sans-serif'});

@@ -395,6 +395,49 @@ tbody tr:last-child td { border-bottom: 0; }
 td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 700; }
 .note p { color: var(--muted); font-size: 15px; }
 
+/* Métiers liés aux technologies */
+.jobs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; align-items: start; }
+.jobs-penurie { border-color: var(--violet); }
+.jobs-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.badge-penurie {
+  display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px;
+  background: var(--violet); color: var(--on-dark); font-size: 13px; font-weight: 700; white-space: nowrap;
+}
+.badge-autres {
+  display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px;
+  border: 1.5px solid var(--line); background: var(--bg); color: var(--navy); font-size: 13px; font-weight: 700; white-space: nowrap;
+}
+.jobs-count { font-size: 13px; font-weight: 600; color: var(--muted); }
+.jobs-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.jobs-list li { display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.45; }
+.jobs-list li:first-child { border-top: 0; padding-top: 4px; }
+.job-name { font-weight: 600; color: var(--navy); }
+.job-note { font-size: 13.5px; color: var(--muted); }
+.jobs-empty { font-size: 15px; color: var(--muted); }
+.jobs-foot { display: flex; flex-wrap: wrap; gap: 0 20px; font-size: 14.5px; }
+.jobs-foot a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 600; }
+.jobs-banner { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 18px 24px; }
+.jobs-banner-ic { width: 56px; height: 56px; border-radius: 16px; background: var(--violet); color: var(--on-dark); display: grid; place-items: center; flex: none; }
+.jobs-banner-text { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.jobs-banner-text h2 { font-size: clamp(20px, 2.6vw, 24px); font-weight: 700; }
+.jobs-banner .btn { align-self: center; }
+.legend { gap: 14px; }
+.legend-row { display: flex; align-items: flex-start; gap: 8px 12px; flex-wrap: wrap; }
+.legend-row p { flex: 1 1 260px; min-width: 0; font-size: 15px; line-height: 1.55; }
+.legend-note { padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.6; color: var(--muted); }
+.tech-groups { display: flex; flex-direction: column; gap: 44px; }
+.tech-group { display: flex; flex-direction: column; gap: 14px; }
+.tech-head { display: flex; flex-direction: column; gap: 10px; }
+.tech-head h2 { font-size: clamp(20px, 2.6vw, 24px); font-weight: 700; }
+.mchips { display: flex; flex-wrap: wrap; gap: 8px; }
+.mchip {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 8px; border-radius: 999px;
+  border: 1.5px solid var(--line); background: var(--card); color: var(--navy); font-size: 14px; font-weight: 600; text-decoration: none;
+}
+.mchip:hover { border-color: var(--blue); color: var(--navy); }
+.mchip .ic { width: 28px; height: 28px; border-radius: 8px; background: var(--navy); color: var(--on-dark); display: grid; place-items: center; }
+.tech-all { font-size: 14px; font-weight: 600; color: var(--muted); }
+
 /* Pied de page et message */
 .site-footer { background: var(--navy); color: var(--on-dark); }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-block: 22px; }
@@ -441,6 +484,7 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
     <nav class="header-nav" aria-label="Navigation principale">
       <a class="hnav" href="index.html#intro" aria-label="Retour à l’atelier De l’idée à l’objet"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span class="hnav-label">Atelier</span></a>
       <a class="hnav hnav-home" href="#accueil" data-nav="home">Machines</a>
+      <a class="hnav hnav-home" href="#metiers" data-nav="metiers">Métiers</a>
       <a class="hnav" href="#favoris" data-nav="favoris" aria-label="Mes favoris">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>
         <span class="hnav-label">Mes favoris</span>
@@ -510,7 +554,8 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
     copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
     phone: '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
     home: '<path d="M3 11l9-7 9 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/>',
-    trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>'
+    trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12.5h18"/>'
   };
 
   var FAMILLES = [
@@ -830,6 +875,125 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
     }
   ];
 
+  /* Métiers liés aux technologies.
+     penurie : métiers de la liste 2026 des métiers en pénurie du Forem.
+     autres : métiers hors de cette liste qui utilisent une technologie proche.
+     Le studio vidéo n'est relié à aucun métier. */
+  var SOURCE_PENURIE = "https://www.leforem.be/documents/citoyens/penuries-liste-metiers-2026.pdf";
+  var INFOS_METIERS = "https://www.leforem.be/infos-metiers/secteurs.html";
+  var TECHNOS = [
+    {
+      id: "laser", nom: "Découpe et gravure laser", machines: ["laser", "graveuse"],
+      penurie: [{ n: "Tôlier industriel / Tôlière industrielle" }, { n: "Serrurier / Serrurière", note: "Lien plus faible" }],
+      autres: [{ n: "Graveur / Graveuse" }, { n: "Maroquinier / Maroquinière" }]
+    },
+    {
+      id: "fraisage", nom: "Fraisage numérique", machines: ["cnc", "cncman"],
+      penurie: [
+        { n: "Régleur-opérateur / Régleuse-opératrice machines-outils" },
+        { n: "Régleur-ajusteur / Régleuse-ajusteuse de machines de production" },
+        { n: "Menuisier / Menuisière d'atelier" },
+        { n: "Menuisier-ébéniste / Menuisière-ébéniste" },
+        { n: "Constructeur / Constructrice de machines" },
+        { n: "Dentiste", note: "Prothèses fabriquées par machine au cabinet" }
+      ],
+      autres: [
+        { n: "Modeleur / Modeleuse de matériaux non métalliques", note: "Calibres et gabarits" },
+        { n: "Technologue orthopédique", note: "Orthèses fraisées" },
+        { n: "Agenceur / Agenceuse d'intérieur" }
+      ]
+    },
+    {
+      id: "impression", nom: "Impression 3D et modélisation", machines: ["fdm", "sla"],
+      penurie: [
+        { n: "Technicien / Technicienne en prothèse dentaire" },
+        { n: "Ergothérapeute", note: "Aides techniques sur mesure" },
+        { n: "Audiologue-audicien / audicienne", note: "Embouts et coques sur mesure" },
+        { n: "Responsable des processus et méthodes de production en industrie" },
+        { n: "Chargé / Chargée de projets en industrie" }
+      ],
+      autres: [
+        { n: "Technicien / Technicienne en fabrication additive" },
+        { n: "Technicien / Technicienne en procédés et méthodes de production" },
+        { n: "Bijoutier / Bijoutière", note: "Modèles pour la fonte" },
+        { n: "Technologue orthopédique" },
+        { n: "Podologue", note: "Semelles sur mesure" }
+      ]
+    },
+    {
+      id: "scan", nom: "Scan 3D et mesure numérique", machines: ["scanner"],
+      penurie: [
+        { n: "Géomètre" },
+        { n: "Dessinateur / Dessinatrice de la construction" },
+        { n: "Métreur / Métreuse" },
+        { n: "Technicien / Technicienne en prothèse dentaire" },
+        { n: "Dentiste", note: "Empreinte optique" },
+        { n: "Audiologue-audicien / audicienne", note: "Empreinte de l'oreille" },
+        { n: "Opticien / Opticienne", note: "Mesures de centrage" },
+        { n: "Technologue en imagerie médicale" }
+      ],
+      autres: [{ n: "Technologue orthopédique" }, { n: "Podologue" }, { n: "Technicien / Technicienne en métrologie" }]
+    },
+    {
+      id: "electronique", nom: "Électronique programmable", machines: ["arduino"],
+      penurie: [
+        { n: "Électromécanicien industriel / Électromécanicienne industrielle" },
+        { n: "Technicien / Technicienne de maintenance industrielle" },
+        { n: "Technicien / Technicienne de maintenance en électronique industrielle" },
+        { n: "Technicien / Technicienne en électricité industrielle" },
+        { n: "Technicien / Technicienne d'appareils électriques et électroniques" },
+        { n: "Dessinateur-concepteur / Dessinatrice-conceptrice en électricité et électronique" },
+        { n: "Installateur électricien / Installatrice électricienne" },
+        { n: "Installateur / Installatrice de systèmes de sécurité" },
+        { n: "Responsable de maintenance industrielle" },
+        { n: "Technicien / Technicienne de maintenance et de diagnostic automobile" }
+      ],
+      autres: [{ n: "Technicien / Technicienne en automatisation industrielle" }, { n: "Concepteur / Conceptrice d'automatisation industrielle" }]
+    },
+    {
+      id: "vr", nom: "Réalité virtuelle", machines: ["vr"],
+      penurie: [
+        { n: "Conducteur / Conductrice de chariots élévateurs" },
+        { n: "Conducteur / Conductrice de chariots à mât rétractable" },
+        { n: "Conducteur / Conductrice de grue mobile" },
+        { n: "Conducteur / Conductrice d'engins de terrassement" },
+        { n: "Soudeur / Soudeuse" },
+        { n: "Infirmier / Infirmière", note: "Outil de formation" },
+        { n: "Aide-soignant / Aide-soignante", note: "Outil de formation" }
+      ],
+      autres: [{ n: "Concepteur / Conceptrice de contenus multimédias", note: "Réalité virtuelle et augmentée" }]
+    },
+    {
+      id: "marquage", nom: "Marquage : vinyle, UV, textile", machines: ["vinyle", "uv", "dtf"],
+      penurie: [],
+      autres: [{ n: "Opérateur / Opératrice print & sign" }, { n: "Graphiste infographiste" }]
+    },
+    {
+      id: "thermo", nom: "Thermoformage", machines: ["thermo"],
+      penurie: [{ n: "Ergothérapeute", note: "Orthèses" }],
+      autres: [{ n: "Opérateur / Opératrice de transformation de plastiques et caoutchouc" }]
+    },
+    {
+      id: "plan", nom: "Lecture de plan, vision 3D, gabarits", machines: [],
+      penurie: [
+        { n: "Maçon / Maçonne" },
+        { n: "Carreleur / Carreleuse" },
+        { n: "Charpentier / Charpentière" },
+        { n: "Coffreur-bétonneur / Coffreuse-bétonneuse" },
+        { n: "Couvreur / Couvreuse de toits" },
+        { n: "Poseur / Poseuse de revêtements de sol en bois" },
+        { n: "Plafonneur / Plafonneuse" },
+        { n: "Monteur / Monteuse de structures bois" },
+        { n: "Chef / Cheffe de chantier" },
+        { n: "Conducteur / Conductrice de chantier" },
+        { n: "Architecte" }
+      ],
+      autres: [{ n: "Maquettiste en architecture" }, { n: "Agenceur / Agenceuse d'intérieur" }]
+    }
+  ];
+  var TECHNO_BY_MACHINE = {};
+  TECHNOS.forEach(function (tq) { tq.machines.forEach(function (mid) { TECHNO_BY_MACHINE[mid] = tq; }); });
+
   /* Index et compteurs */
   var MACHINES_BY_ID = {}, SECTEURS_BY_ID = {}, FAMILLES_BY_ID = {};
   var TOTAL_REAL = 0;
@@ -912,6 +1076,7 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
     if (!h || h === "accueil") return { view: "home" };
     if (h === "favoris") return { view: "favoris" };
     if (h === "formateur") return { view: "formateur" };
+    if (h === "metiers") return { view: "metiers" };
     if ((m = h.match(/^machine-([a-z0-9]+)$/)) && MACHINES_BY_ID[m[1]]) return { view: "machine", id: m[1] };
     if ((m = h.match(/^secteur-([a-z0-9]+)$/)) && SECTEURS_BY_ID[m[1]]) return { view: "secteur", id: m[1] };
     if ((m = h.match(/^selection-([a-z0-9-]+)$/))) {
@@ -1028,6 +1193,12 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
       '<section class="block" aria-labelledby="t-machines">' +
       '<div class="block-head"><h2 id="t-machines">Ou choisis une machine</h2><p>Chaque fiche explique la machine, ce que tu y travailles et ce qu' + "'" + "on fabrique avec.</p></div>" +
       '<div class="machines">' + groups + "</div></section>" +
+      '<section class="block" aria-labelledby="t-metiers-home"><div class="panel jobs-banner">' +
+      '<span class="jobs-banner-ic">' + svg("briefcase", 28) + "</span>" +
+      '<div class="jobs-banner-text"><h2 id="t-metiers-home">' + t("Quels métiers utilisent ces technologies ?") + "</h2>" +
+      "<p>" + t("Découvre les métiers liés à chaque machine, dont ceux pour lesquels les employeurs wallons ont du mal à recruter (liste du Forem 2026).") + "</p></div>" +
+      '<a class="btn" href="#metiers">Voir les métiers ' + svg("arrow-right", 18) + "</a>" +
+      "</div></section>" +
       '<section class="block no-print" aria-labelledby="t-emporter">' +
       '<div class="block-head"><h2 id="t-emporter">Emporte l' + "'" + 'appli</h2><p>Elle marche aussi sur ton téléphone, à la Digital Factory comme chez toi.</p></div>' +
       '<div class="takeaway">' +
@@ -1081,6 +1252,7 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
     var prev = MACHINES[(m.index - 1 + n) % n];
     var next = MACHINES[(m.index + 1) % n];
     var fav = isFav(id);
+    var tech = TECHNO_BY_MACHINE[id];
     return '<section class="fiche-hero"><div class="wrap fiche-hero-inner">' +
       '<div class="fiche-top">' +
       '<a class="back" href="#accueil">' + svg("arrow-left", 20) + " Toutes les machines</a>" +
@@ -1102,6 +1274,7 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
       '<button type="button" class="jump" data-action="jump" data-target="s-bref">En bref</button>' +
       '<button type="button" class="jump" data-action="jump" data-target="s-competences">Ce que tu travailles</button>' +
       '<button type="button" class="jump" data-action="jump" data-target="s-realisations">Réalisations · ' + m.realisations.length + "</button>" +
+      (tech ? '<button type="button" class="jump" data-action="jump" data-target="s-metiers">Métiers</button>' : "") +
       '<button type="button" class="jump" data-action="jump" data-target="s-securite">Sécurité</button>' +
       "</div></div></nav>" +
       '<div class="wrap page">' +
@@ -1115,12 +1288,70 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
       '<section class="block section" id="s-realisations" aria-labelledby="t-real"><div class="block-head"><h2 id="t-real">Ce qu' + "'" + "on fabrique avec, dans les métiers</h2><p>" +
       t(m.realisations.length + " exemples concrets. « Voir en photo » ouvre une recherche d'images sur Google.") + "</p></div>" +
       '<div class="grid-real">' + m.realisations.map(function (r) { return realCard(m, r, null, false); }).join("") + "</div></section>" +
+      (tech ? jobsSection(tech) : "") +
       '<section class="block section" id="s-securite" aria-labelledby="t-secu"><div class="block-head"><h2 id="t-secu">Sécurité</h2><p>Les règles à suivre avec cette machine à la Digital Factory.</p></div>' +
       '<div class="panel"><ul class="safety-list">' + m.securite.map(function (s) { return "<li>" + t(s) + "</li>"; }).join("") + "</ul></div></section>" +
       '<nav class="prevnext no-print" aria-label="Autres machines">' +
       '<a class="pn lift" href="#machine-' + prev.id + '"><span class="pn-dir">' + svg("arrow-left", 18) + " Machine précédente</span><span class=\"pn-name\">" + t(prev.nom) + "</span></a>" +
       '<a class="pn pn-next lift" href="#machine-' + next.id + '"><span class="pn-dir">Machine suivante ' + svg("arrow-right", 18) + "</span><span class=\"pn-name\">" + t(next.nom) + "</span></a>" +
       "</nav>" +
+      "</div>";
+  }
+
+  /* Métiers : rubrique des fiches et page de synthèse */
+  function jobItems(list) {
+    return list.map(function (j) {
+      return '<li><span class="job-name">' + t(j.n) + "</span>" + (j.note ? '<span class="job-note">' + t(j.note) + "</span>" : "") + "</li>";
+    }).join("");
+  }
+  function jobsPanels(tq) {
+    var p = tq.penurie, a = tq.autres;
+    return '<div class="jobs">' +
+      '<div class="panel jobs-panel jobs-penurie">' +
+      '<div class="jobs-head"><span class="badge-penurie">En pénurie 2026</span><span class="jobs-count">' + (p.length ? plural(p.length, "métier", "métiers") : "") + "</span></div>" +
+      (p.length ? '<ul class="jobs-list">' + jobItems(p) + "</ul>" : '<p class="jobs-empty">Aucun métier de la liste 2026 ne correspond à cette technologie.</p>') +
+      "</div>" +
+      '<div class="panel jobs-panel">' +
+      '<div class="jobs-head"><span class="badge-autres">Autres métiers proches</span><span class="jobs-count">' + plural(a.length, "métier", "métiers") + "</span></div>" +
+      '<ul class="jobs-list">' + jobItems(a) + "</ul>" +
+      "</div></div>";
+  }
+  function jobsSection(tq) {
+    return '<section class="block section" id="s-metiers" aria-labelledby="t-metiers">' +
+      '<div class="block-head"><h2 id="t-metiers">Les métiers liés à cette technologie</h2>' +
+      "<p>" + t("Technologie : " + tq.nom + ". Ces métiers utilisent une technologie proche ou demandent le même type de compétences. Le badge « En pénurie 2026 » signale un métier pour lequel les employeurs wallons ont du mal à recruter, selon le Forem.") + "</p></div>" +
+      jobsPanels(tq) +
+      '<p class="jobs-foot no-print"><a href="#metiers">' + svg("briefcase", 18) + " Tous les métiers liés aux machines</a>" +
+      '<a href="' + INFOS_METIERS + '" target="_blank" rel="noopener">Infos Métiers du Forem</a></p>' +
+      "</section>";
+  }
+  function viewMetiers() {
+    var uniques = [];
+    TECHNOS.forEach(function (tq) {
+      tq.penurie.forEach(function (j) { if (uniques.indexOf(j.n) === -1) uniques.push(j.n); });
+    });
+    var groups = TECHNOS.map(function (tq) {
+      var chips = tq.machines.length
+        ? tq.machines.map(function (mid) {
+            return '<a class="mchip" href="#machine-' + mid + '"><span class="ic">' + mIcon(mid, 16) + "</span>" + t(MACHINES_BY_ID[mid].nom) + "</a>";
+          }).join("")
+        : '<span class="tech-all">Avec toutes les machines de fabrication</span>';
+      return '<section class="tech-group" aria-labelledby="tg-' + tq.id + '">' +
+        '<div class="tech-head"><h2 id="tg-' + tq.id + '">' + t(tq.nom) + '</h2><div class="mchips">' + chips + "</div></div>" +
+        jobsPanels(tq) +
+        "</section>";
+    }).join("");
+    return subhero("Orientation", "Les métiers liés aux machines",
+        t("Pour chaque technologie de la Digital Factory, les métiers qui l'utilisent ou qui demandent le même type de compétences. " + uniques.length + " d'entre eux figurent dans la liste 2026 des métiers en pénurie en Wallonie."),
+        svg("briefcase", 34), "#accueil", "Accueil") +
+      '<div class="wrap page">' +
+      '<div class="panel legend">' +
+      '<div class="legend-row"><span class="badge-penurie">En pénurie 2026</span><p>' + t("Métier pour lequel les employeurs wallons ont du mal à recruter, selon la liste du Forem (144 métiers).") + "</p></div>" +
+      '<div class="legend-row"><span class="badge-autres">Autres métiers proches</span><p>' + t("Métier hors de cette liste qui utilise une technologie proche. Être hors liste ne veut pas dire qu'il ne recrute pas.") + "</p></div>" +
+      '<p class="legend-note">' + t("Ces liens sont une proposition de la Digital Factory. Ils montrent une technologie proche ou des compétences communes, et ne remplacent pas une formation au métier.") +
+      ' <a href="' + SOURCE_PENURIE + '" target="_blank" rel="noopener">Liste 2026 du Forem</a> · <a href="' + INFOS_METIERS + '" target="_blank" rel="noopener">Infos Métiers</a></p>' +
+      "</div>" +
+      '<div class="tech-groups">' + groups + "</div>" +
       "</div>";
   }
 
@@ -1206,11 +1437,11 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
       '<p class="form-msg" id="adresse-msg" role="status"></p>' +
       "</form></div></section>" +
       '<section class="block" aria-labelledby="t-codes"><div class="block-head"><h2 id="t-codes">Ouvrir directement une fiche</h2>' +
-      "<p>Ajoute le code à la fin de l" + "'" + "adresse de l" + "'" + "appli. Pour une sélection, enchaîne les codes, par exemple <code>#selection-laser-cnc-vr</code>. Les anciens liens <code>?m=fdm,sla</code> fonctionnent toujours.</p></div>" +
+      "<p>Ajoute le code à la fin de l" + "'" + "adresse de l" + "'" + "appli. Pour une sélection, enchaîne les codes, par exemple <code>#selection-laser-cnc-vr</code>. Les anciens liens <code>?m=fdm,sla</code> fonctionnent toujours. La page des métiers s'ouvre avec <code>#metiers</code>.</p></div>" +
       '<div class="table-wrap"><table><thead><tr><th scope="col">N°</th><th scope="col">Machine</th><th scope="col">Lien direct</th><th scope="col">Ancien format</th></tr></thead><tbody>' + rows + "</tbody></table></div></section>" +
       '<section class="block" aria-labelledby="t-scodes"><div class="block-head"><h2 id="t-scodes">Ouvrir directement un secteur</h2></div>' +
       '<div class="table-wrap"><table><thead><tr><th scope="col">Secteur</th><th scope="col">Lien direct</th></tr></thead><tbody>' + srows + "</tbody></table></div></section>" +
-      '<section class="block"><div class="panel note"><p>' + t("Les métiers cités sont indicatifs : adapte-les au Centre de compétence visé. Les consignes de sécurité reprennent les fiches machines de la Digital Factory.") + "</p></div></section>" +
+      '<section class="block"><div class="panel note"><p>' + t("Les métiers cités sont indicatifs : adapte-les au Centre de compétence visé. Les métiers en pénurie viennent de la liste 2026 du Forem (144 métiers) ; les liens entre technologies et métiers sont une proposition de la Digital Factory. Les consignes de sécurité reprennent les fiches machines de la Digital Factory.") + "</p></div></section>" +
       "</div>";
   }
 
@@ -1301,7 +1532,7 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
   var app = document.getElementById("app");
   var favs = loadFavs();
   var lastKey = null;
-  var TITRES = { home: "Machines de la Digital Factory", favoris: "Mes favoris · Machines DF", formateur: "Espace formateur · Machines DF", selection: "Sélection · Machines DF" };
+  var TITRES = { home: "Machines de la Digital Factory", favoris: "Mes favoris · Machines DF", formateur: "Espace formateur · Machines DF", selection: "Sélection · Machines DF", metiers: "Métiers liés aux machines · Machines DF" };
 
   function updateCount() {
     var c = document.getElementById("fav-count");
@@ -1311,7 +1542,7 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
     if (link) link.setAttribute("aria-label", favs.length ? "Mes favoris, " + plural(favs.length, "machine", "machines") : "Mes favoris");
   }
   function setNavCurrent(view) {
-    var map = { home: "home", favoris: "favoris" };
+    var map = { home: "home", favoris: "favoris", metiers: "metiers" };
     Array.prototype.forEach.call(document.querySelectorAll("[data-nav]"), function (a) {
       if (a.getAttribute("data-nav") === map[view]) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
@@ -1328,6 +1559,7 @@ td.num { font-variant-numeric: tabular-nums; color: var(--violet); font-weight: 
     else if (r.view === "favoris") html = viewFavoris();
     else if (r.view === "selection") html = viewSelection(r.ids);
     else if (r.view === "formateur") html = viewFormateur();
+    else if (r.view === "metiers") html = viewMetiers();
     else html = viewHome();
     var y = window.scrollY || 0;
     app.classList.toggle("no-anim", !!opts.keepScroll);

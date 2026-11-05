@@ -29,6 +29,7 @@
 </style>
 <link rel="stylesheet" href="design.css?v=df-20261105-1">
 <script defer src="navigation.js?v=df-20261105-1"></script>
+<style>#personalImagePanel[hidden]{display:none}.art-fitting{display:flex;gap:8px;margin-top:14px}.art-fitting button{flex:1;min-height:42px;border:1px solid #dcdce7;border-radius:6px;background:#fff;color:#2f3a48;font-size:12px}.art-fitting button[aria-pressed="true"]{background:#5b60a8;color:#fff;border-color:#5b60a8}</style>
 </head>
 <body data-df-page="studio">
 <div class="app-shell">
@@ -39,6 +40,13 @@
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">01</span> Choisis ton support</div><span class="section-help">85 × 45 mm</span></div><div class="kind-switch" role="group" aria-label="Support"><button type="button" data-kind="carte" aria-pressed="true">Carte de visite<small>Nom et coordonnées</small></button><button type="button" data-kind="badge" aria-pressed="false">Badge<small>Prénom, nom, profession et QR code</small></button></div></section>
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">02</span> Choisis ton modèle</div><span class="section-help">6 propositions</span></div><div class="models" id="modelChoices"></div></section>
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">03</span> Choisis ta couleur</div><span class="section-help">4 variantes</span></div><div class="palette-grid" id="colorChoices"></div></section>
+      <section class="panel" id="personalImagePanel" hidden>
+        <div class="section-head"><div class="section-heading">Ton image à droite</div><span class="section-help">Zone réservée</span></div>
+        <div class="file-area"><div class="file-actions"><button type="button" class="import-btn" id="importArt">Importer mon image</button><p class="file-name" id="artFileName"></p></div><button type="button" class="remove-btn" id="removeArt" hidden>Retirer</button></div>
+        <input class="screen-reader" type="file" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp" id="artInput">
+        <div class="art-fitting" role="group" aria-label="Cadrage de l’image"><button type="button" data-art-fit="meet" aria-pressed="true">Image entière</button><button type="button" data-art-fit="slice" aria-pressed="false">Remplir le cadre</button></div>
+        <p class="microcopy">L’image reste dans le cadre de droite, séparée du texte. « Remplir le cadre » recadre les bords. Elle est intégrée aux exports et reste sur cet appareil.</p>
+      </section>
       <section class="panel"><div class="section-head"><div class="section-heading"><span class="section-number">04</span> Remplis tes informations</div><span class="section-help card-only">Sans fonction</span><span class="section-help badge-only">Avec profession</span></div>
         <div class="fields"><div class="field"><label for="firstName">Prénom</label><input id="firstName" maxlength="60" value="Camille" autocomplete="given-name"></div><div class="field"><label for="lastName">Nom</label><input id="lastName" maxlength="60" value="Dupont" autocomplete="family-name"></div>
         <div class="field wide badge-only"><label for="profession">Profession</label><input id="profession" maxlength="70" value="Technicienne en fabrication numérique"></div>
@@ -51,7 +59,7 @@
           <div class="switch-line"><span id="qrHelp">Afficher le QR code sur la carte</span><button type="button" id="qrToggle" class="toggle" role="switch" aria-label="Afficher le QR code" aria-checked="false"></button></div>
           <div class="file-area" id="dropTarget"><div class="qr-square" id="qrThumbnail" aria-hidden="true">▦</div><div class="file-actions"><button type="button" class="import-btn" id="importButton">+ Importer un QR</button><div class="file-name" id="qrFileName">PNG, JPG, WebP ou SVG</div></div><button type="button" id="removeQr" class="remove-btn" hidden>Retirer</button></div>
           <input class="screen-reader" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,image/png,image/jpeg,image/webp,image/svg+xml" id="qrInput">
-          <p class="file-help">Le QR code n'est pas généré ici. Importe ton QR déjà créé : l’encadré pointillé reste visible après l’importation et dans le PDF UV. Le placement du QR s’adapte à chaque composition. Le fichier reste sur cet appareil.</p><p class="df-next"><span>Pas encore de QR code ?</span><a href="qr-code.html">Le créer avec le générateur →</a></p>
+          <p class="file-help">Le QR code n'est pas généré ici. Importe ton QR déjà créé. Le cadre pointillé concerne le modèle « QR essentiel » ; le modèle botanique utilise une réserve blanche organique. Le placement du QR s’adapte à chaque composition. Le fichier reste sur cet appareil.</p><p class="df-next"><span>Pas encore de QR code ?</span><a href="qr-code.html">Le créer avec le générateur →</a></p>
         </div>
       </section>
     </div>
@@ -75,7 +83,7 @@
 <script>
 'use strict';
 const MODELS=[
- {id:0,name:'Minimaliste',detail:'Composition épurée · coordonnées à droite'},
+ {id:0,name:'Image personnelle',detail:'Texte à gauche · image réservée à droite'},
  {id:1,name:'Bandeau graphique',detail:'Nom centré · QR à gauche · bandeau en bas'},
  {id:2,name:'QR essentiel',detail:'QR obligatoire · coordonnées en bas'},
  {id:3,name:'Typographie XXL',detail:'Fond vif · identité typographique forte'},
@@ -117,15 +125,16 @@ const MODEL_COLORS={
 function palettesFor(model=state.model){return MODEL_COLORS[model]||COLORS;}
 const CARD_W_MM=85, CARD_H_MM=45, CORNER_R_MM=1.8;
 const DEFAULT={firstName:'Camille',lastName:'Dupont',profession:'Technicienne en fabrication numérique',phone:'0470 00 00 00',email:'camille@exemple.be',website:'www.exemple.be',location:'Liège, Belgique'};
-let state={kind:'carte',model:1,color:0,showQR:false,qrData:'',qrName:'',...DEFAULT};
+let state={kind:'carte',model:1,color:0,modelColors:[0,0,0,0,0,0],artData:'',artName:'',artFit:'meet',showQR:false,qrData:'',qrName:'',...DEFAULT};
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
 const simplify=s=>String(s??'').trim().replace(/\s+/g,' ');
 function title(){return simplify([state.firstName,state.lastName].filter(Boolean).join(' '))||'PRÉNOM NOM';}
 function hasImage(){return !!state.qrData;}
-const QR_UNAVAILABLE=[5]; // Botanique : pas de QR
+const QR_UNAVAILABLE=[]; // QR facultatif sur Botanique, dans une réserve organique.
 function qrAllowed(m=state.model){return state.kind==='badge'||!QR_UNAVAILABLE.includes(m);}
 function qrActive(){return qrAllowed()&&(state.model===2||state.showQR);}
+function missingArtwork(){return state.model===0&&!state.artData;}
 function missingQR(){return qrActive()&&!hasImage();}
 function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(window._toastT);window._toastT=setTimeout(()=>$('toast').classList.remove('show'),3400);}
 function text(x,y,t,size=28,color='#222',weight=500,extra='',family='Poppins,Arial,sans-serif'){return `<text x="${x}" y="${y}" font-family="${family}" font-size="${size}" fill="${color}" font-weight="${weight}" ${extra}>${esc(t)}</text>`;}
@@ -154,7 +163,7 @@ function contactRow(x,y,type,value,c,options={}){if(!simplify(value))return '';
   while(size>14&&context.measureText(label).width>max){size-=1;context.font=`500 ${size}px Poppins,Arial,sans-serif`;}
   const isPastille=options.pastille;
   let deco=isPastille?`<circle cx="${x+17}" cy="${y-11}" r="24" fill="${c.bright}" opacity=".82"/>`:'';
-  return `${deco}${icon(type,x+3,y-27,isPastille?c.dark:c.text,28)}${text(x+48,y,label,size,c.text,500)}`;
+  return `${deco}${icon(type,x+3,y-27,isPastille?c.dark:c.text,28)}${text(x+48,y,label,size,c.text,500,context.measureText(label).width>max?`textLength="${max}" lengthAdjust="spacingAndGlyphs"`:'')}`;
 }
 function contactsVertical(x,start,step,c,opts={}){let out='';const fields=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]].filter(([,v])=>simplify(v));fields.forEach(([type,val],i)=>{out+=contactRow(x,start+i*step,type,val,c,opts);});return out;}
 function contactsHorizontal(c,y,qrOn=false){
@@ -192,6 +201,19 @@ function qrAt(x,y,size,c,preview=true){if(!qrActive())return '';
  const inner=6; // the imported PNG already carries its own quiet zone
  return `<image x="${x+inner}" y="${y+inner}" width="${size-inner*2}" height="${size-inner*2}" preserveAspectRatio="xMidYMid meet" href="${esc(state.qrData)}"/>`+
    (state.model===2?`<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="12" fill="none" stroke="${c.accent}" stroke-opacity=".55" stroke-dasharray="8 7" stroke-width="2.5"/>`:'');
+}
+// The image can never leave this frame; all text ends before x=520.
+function personalImage(c,preview=true){
+ const x=570,y=35,w=290,h=430;
+ let a=`<defs><clipPath id="personalImageClip"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="24"/></clipPath></defs><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="24" fill="${c.pale}"/>`;
+ if(state.artData)a+=`<image data-personal-image="true" x="${x}" y="${y}" width="${w}" height="${h}" href="${esc(state.artData)}" preserveAspectRatio="xMidYMid ${state.artFit}" clip-path="url(#personalImageClip)"/>`;
+ else if(preview)a+=`<g fill="none" stroke="${c.accent}" stroke-width="3"><rect x="670" y="193" width="90" height="68" rx="7"/><circle cx="695" cy="213" r="8"/><path d="M674 253l25-23 17 15 16-19 24 27"/></g>`+text(715,295,'TON IMAGE',18,c.dark,600,'text-anchor="middle"');
+ return a+`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="24" fill="none" stroke="${c.accent}" stroke-opacity=".35" stroke-width="1.5"/>`;
+}
+function botanicalQR(c,preview){
+ // Asymmetric white reserve; the square QR and its clear margins stay intact.
+ const shape='<path data-organic-qr="true" d="M-25-25H405C330 12 342 92 300 148C265 197 201 222 133 211C63 202 12 183-25 160Z" fill="#fff"/>';
+ return shape+qrAt(86,20,160,{...c,text:'#455664',accent:'#5b60a8'},preview);
 }
 // Original, procedurally drawn botanical line art: scalable vector paths, no external image.
 function bloomShape(stroke){
@@ -237,7 +259,7 @@ function floralArt(c){
  `<g opacity=".58" transform="translate(989 473) rotate(-96) scale(.58)">${bloomShape(ink)}</g>`;
 }
 function decorations(i,c){switch(i){
- case 0:return `<path d="M72 108V392" stroke="${c.dark}" stroke-width="6"/><path d="M460 100V397" stroke="${c.dark}" stroke-width="2.4"/>`;
+ case 0:return '';
  case 1:return `<path d="M0 399L900 388V500H0Z" fill="${c.accent}"/><path d="M760 392L900 388V500H719Z" fill="${c.dark}" opacity=".56"/>`;
  case 2:return `<rect x="75" y="338" width="90" height="6" rx="3" fill="${c.accent}"/><path d="M615 98V349" stroke="${c.dark}" stroke-width="2.4"/>`;
  case 3:return `<rect width="900" height="500" fill="${c.accent}"/>`;
@@ -288,16 +310,15 @@ function moduleContacts(c){
 function contentElements(i,c,preview=true){
  const name=title().toLocaleUpperCase('fr-BE');let a='';const qr=qrActive();
  switch(i){
- case 0:{ // Original Minimaliste — unchanged.
-   a+=fitText(112,qr?205:222,simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),328,44,c.text,700);
-   a+=fitText(112,qr?258:275,simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE'),328,44,c.text,700);
-   if(!qr){a+=contactsVertical(497,151,68,c,{size:22,max:316});}
-   else{
-    const fields=[['phone',state.phone],['email',state.email],['website',state.website]];
-    fields.forEach(([kind,val],idx)=>{a+=contactRow(496,145+idx*65,kind,val,c,{size:21,max:305});});
-    if(simplify(state.location))a+=contactRow(112,340,'location',state.location,c,{size:20,max:300});
-    a+=qrAt(683,300,144,c,preview);
-   }break;
+ case 0:{
+   a+=personalImage(c,preview);
+   a+=fitText(55,100,simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),455,47,c.text,700);
+   a+=fitText(55,157,simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE'),455,47,c.text,700);
+   a+=line(55,190,150,190,c.accent,4);
+   const fields=[['phone',state.phone],['email',state.email],['website',state.website],['location',state.location]];
+   if(qr){a+=qrAt(55,267,170,c,preview);a+=inlineContacts(248,270,48,220,c,fields,{size:20});}
+   else a+=inlineContacts(55,250,51,407,c,fields,{size:23});
+   break;
  }
  case 1:{ // Strip design: centered name, QR left, details right, bottom bar.
    const contactItems=[['phone',state.phone],['email',state.email],['location',state.location]];
@@ -379,11 +400,7 @@ function contentElements(i,c,preview=true){
      if(y>480)return;
      a+=fitText(96,y,simplify(val),410,21,ink,400);
    });
-   if(qr){
-    a+=`<rect x="681" y="278" width="191" height="191" rx="14" fill="#FFFFFF" stroke="${c.floralInk}" stroke-width="2"/>`;
-    // QR remains on a clean white quiet-zone block for scanning, even on dark floral cards.
-    a+=qrAt(694,291,164,c,preview);
-   }
+   if(qr)a+=botanicalQR(c,preview);
    break;
  }
  }
@@ -404,18 +421,13 @@ function badgeElements(i,c,preview=true){
  const first=simplify(state.firstName||'Prénom').toLocaleUpperCase('fr-BE'),last=simplify(state.lastName||'Nom').toLocaleUpperCase('fr-BE');
  const job=state.profession,qr=qrActive(),MONT='Montserrat,Poppins,Arial,sans-serif',FRAU='Fraunces,Georgia,serif';let a='';
  switch(i){
- case 0:{ // Minimaliste : identité entre les deux filets, QR à droite.
-   if(qr){
-    a+=fitText(112,200,first,320,46,c.text,700);
-    a+=fitText(112,256,last,320,46,c.text,700);
-    a+=`<path d="M114 288H170" stroke="${c.accent}" stroke-width="5" stroke-linecap="round"/>`;
-    a+=wrapText(112,334,job,320,26,c.accent,600,34);
-    a+=qrAt(560,128,244,c,preview);
-   }else{
-    a+=fitText(112,228,first,320,48,c.text,700);
-    a+=fitText(112,288,last,320,48,c.text,700);
-    a+=wrapText(505,240,job,340,34,c.accent,600,46);
-   }
+ case 0:{
+   a+=personalImage(c,preview);
+   a+=fitText(55,119,first,455,49,c.text,700);
+   a+=fitText(55,179,last,455,49,c.text,700);
+   a+=line(55,213,150,213,c.accent,4);
+   a+=wrapText(55,263,job,455,26,c.dark,500,34);
+   if(qr)a+=qrAt(55,324,145,c,preview);
    break;}
  case 1:{ // Bandeau graphique : nom en tête, QR encadré à gauche, profession à droite.
    a+=fitCenteredText(450,108,`${first} ${last}`,690,59,c.text,750,1.2);
@@ -459,11 +471,7 @@ function badgeElements(i,c,preview=true){
    break;}
  case 5:{ // Botanique : prénom et nom en Fraunces, profession fine, QR sur une pastille claire lisible.
    const ink=c.text;
-   const y0=qr?50:0; // with a QR, the text column moves down below it
-   if(qr){
-    a+=`<rect x="96" y="34" width="156" height="156" rx="14" fill="${c.pale}"/>`;
-    a+=qrAt(99,37,150,c,preview);
-   }
+   if(qr)a+=botanicalQR(c,preview);
    a+=fitText(96,(qr?268:232),first,380,qr?44:50,ink,900,{letterSpacing:1,family:FRAU});
    a+=fitText(96,(qr?318:287),last,380,qr?44:50,ink,900,{letterSpacing:1,family:FRAU});
    a+=`<path d="M98 ${qr?344:318}H168" stroke="${ink}" stroke-width="2"/>`;
@@ -488,15 +496,15 @@ function buildSVG(model=state.model,color=state.color,preview=true,clipRounded=t
  const c=palettesFor(model)[color], decoration=decorations(model,c), personal=state.kind==='badge'?badgeElements(model,c,preview):contentElements(model,c,preview);
  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${CARD_W_MM}mm" height="${CARD_H_MM}mm" viewBox="0 0 ${CARD_W_UNITS} ${CARD_H_UNITS}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${state.kind==='badge'?'Badge':'Carte de visite'}, ${esc(MODELS[model].name)}"><defs>${!preview&&EMBED_CSS?`<style>${EMBED_CSS}</style>`:''}<clipPath id="cutCard"><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" rx="${CORNER_R_MM*10}" ry="${CORNER_R_MM*10}"/></clipPath></defs><g ${clipRounded?'clip-path="url(#cutCard)"':''}><rect x="0" y="0" width="${CARD_W_UNITS}" height="${CARD_H_UNITS}" fill="#fff"/><g transform="scale(${DECO_SCALE_X} ${DECO_SCALE_Y})">${decoration}</g><g transform="translate(${CONTENT_OFFSET_X} 0) scale(${CONTENT_SCALE})">${personal}</g></g></svg>`;
 }
-function drawChoices(){const c=palettesFor(state.model)[state.color];$('modelChoices').innerHTML=MODELS.map(m=>{const was=state.model;state.model=m.id;let svg=buildSVG(m.id,state.color,true);state.model=was;return `<button type="button" class="model ${m.id===state.model?'active':''}" data-model="${m.id}" aria-pressed="${m.id===state.model}"><div class="model-art">${svg}</div><div class="model-footer"><span class="model-name">${esc(m.name)}</span><span class="model-check">✓</span></div></button>`;}).join('');$('modelChoices').querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{state.model=Number(button.dataset.model);render();}));
-$('colorChoices').innerHTML=palettesFor(state.model).map((c,i)=>`<button type="button" class="palette ${i===state.color?'active':''}" data-color="${i}" aria-pressed="${i===state.color}"><div class="palette-swatches"><span style="background:${c.dark}"></span><span style="background:${c.accent}"></span><span style="background:${c.bright}"></span></div><span class="name">${esc(c.name)}</span></button>`).join('');$('colorChoices').querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{state.color=Number(button.dataset.color);render();}));}
-function render(){document.body.classList.toggle('badge-mode',state.kind==='badge');document.querySelectorAll('[data-kind]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.kind===state.kind)));drawChoices();$('cardPreview').innerHTML=buildSVG();const required=state.model===2;
+function drawChoices(){const c=palettesFor(state.model)[state.color];$('modelChoices').innerHTML=MODELS.map(m=>{const was=state.model;state.model=m.id;let svg=buildSVG(m.id,state.modelColors[m.id],true);state.model=was;return `<button type="button" class="model ${m.id===state.model?'active':''}" data-model="${m.id}" aria-pressed="${m.id===state.model}"><div class="model-art">${svg}</div><div class="model-footer"><span class="model-name">${esc(m.name)}</span><span class="model-check">✓</span></div></button>`;}).join('');$('modelChoices').querySelectorAll('[data-model]').forEach(button=>button.addEventListener('click',()=>{state.model=Number(button.dataset.model);state.color=state.modelColors[state.model];render();}));
+$('colorChoices').innerHTML=palettesFor(state.model).map((c,i)=>`<button type="button" class="palette ${i===state.color?'active':''}" data-color="${i}" aria-pressed="${i===state.color}"><div class="palette-swatches"><span style="background:${c.dark}"></span><span style="background:${c.accent}"></span><span style="background:${c.bright}"></span></div><span class="name">${esc(c.name)}</span></button>`).join('');$('colorChoices').querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{state.color=Number(button.dataset.color);state.modelColors[state.model]=state.color;render();}));}
+function render(){$('personalImagePanel').hidden=state.model!==0;$('artFileName').textContent=state.artName||'PNG, JPG ou WebP · 12 Mo maximum';$('removeArt').hidden=!state.artData;document.querySelectorAll('[data-art-fit]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.artFit===state.artFit)));document.body.classList.toggle('badge-mode',state.kind==='badge');document.querySelectorAll('[data-kind]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.kind===state.kind)));drawChoices();$('cardPreview').innerHTML=buildSVG();const required=state.model===2;
  $('qrRequired').textContent=required?'Obligatoire':'Facultatif';$('qrRequired').className=required?'required':'optional';const noQr=!qrAllowed();$('qrHelp').textContent=noQr?'Pas de QR code sur ce modèle':required?'QR code requis pour ce modèle':state.kind==='badge'?'Afficher le QR code sur le badge':'Afficher le QR code sur la carte';if(noQr){$('qrRequired').textContent='Indisponible';$('qrRequired').className='optional';}
  $('qrToggle').classList.toggle('on',qrActive());$('qrToggle').setAttribute('aria-checked',String(qrActive()));$('qrToggle').disabled=required||noQr;$('importButton').disabled=noQr;
  $('qrFileName').textContent=state.qrName||'PNG, JPG, WebP ou SVG';$('qrThumbnail').innerHTML=hasImage()?`<img alt="Aperçu du QR importé" src="${esc(state.qrData)}">`:'▦';$('removeQr').hidden=!hasImage();
- const miss=missingQR();$('status').classList.toggle('error',miss);$('status').querySelector('span').textContent=miss?'QR à importer':'Prêt à exporter';
+ const miss=missingQR()||(state.model===0&&!state.artData);$('status').classList.toggle('error',miss);$('status').querySelector('span').textContent=miss?(missingQR()?'QR à importer':'Image à importer'):'Prêt à exporter';
  $('selectedLabel').textContent=MODELS[state.model].name;$('selectedDetails').textContent=`${state.kind==='badge'?'Badge':'Carte de visite'} · ${palettesFor(state.model)[state.color].name} · ${state.kind==='badge'?'prénom, nom, profession et QR code':MODELS[state.model].detail}`;
- $('exportNotice').classList.toggle('visible',miss);$('exportNotice').textContent=miss?'Un QR code personnel doit être importé avant l’exportation. Le modèle 2 l’impose ; sur les autres modèles, désactive simplement l’option pour exporter sans QR.':'';
+ $('exportNotice').classList.toggle('visible',miss);$('exportNotice').textContent=state.model===0&&!state.artData?'Importe ton image avant d’exporter ce modèle.':miss?'Un QR code personnel doit être importé avant l’exportation. Le modèle 2 l’impose ; sur les autres modèles, désactive simplement l’option pour exporter sans QR.':'';
  ['downloadPng','downloadSvg','printButton','downloadUvPdf'].forEach(id=>$(id).disabled=miss);
 }
 for(const key of Object.keys(DEFAULT))$(key).addEventListener('input',e=>{state[key]=e.target.value;render();});
@@ -517,17 +525,35 @@ async function importQR(file){if(!file)return;if(file.size>8*1024*1024){toast('F
  await new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{if(im.naturalWidth<90||im.naturalHeight<90)toast('Attention : QR peu détaillé. Vérifie sa lisibilité à l’impression.');resolve();};im.onerror=()=>reject(new Error('Impossible d’ouvrir cette image QR.'));im.src=uri;});
  state.qrData=uri;state.qrName=file.name;state.showQR=true;render();toast('QR importé. Vérifie qu’il est lisible sur la carte.');
  }catch(e){toast(e.message||'Erreur pendant l’importation du QR.');}}
+$('importArt').addEventListener('click',()=>$('artInput').click());
+$('removeArt').addEventListener('click',()=>{artImportVersion++;state.artData='';state.artName='';$('artInput').value='';render();});
+document.querySelectorAll('[data-art-fit]').forEach(b=>b.addEventListener('click',()=>{state.artFit=b.dataset.artFit;render();}));
+let artImportVersion=0;
+$('artInput').addEventListener('change',async e=>{
+ const file=e.target.files[0];if(!file)return;const version=++artImportVersion;
+ try{
+  if(file.size>12*1024*1024)throw Error('Image trop volumineuse (12 Mo maximum).');
+  if(!['image/png','image/jpeg','image/webp'].includes(file.type)&&!/\.(png|jpe?g|webp)$/i.test(file.name))throw Error('Choisis une image PNG, JPG ou WebP.');
+  const uri=await bufferToDataUrl(file);
+  const img=await new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error('Impossible de lire cette image.'));im.src=uri;});
+  // Embed a normalized bitmap so previews and PDF exports share identical pixels.
+  const ratio=Math.min(1,2400/Math.max(img.naturalWidth,img.naturalHeight));
+  const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*ratio));canvas.height=Math.max(1,Math.round(img.naturalHeight*ratio));canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+  if(version!==artImportVersion)return;
+  state.artData=canvas.toDataURL('image/png');state.artName=file.name;render();toast('Image importée dans le cadre de droite.');
+ }catch(err){toast(err.message||'Importation impossible.');}finally{e.target.value='';}
+});
 $('qrInput').addEventListener('change',async e=>{await importQR(e.target.files[0]);});
 const drop=$('dropTarget');drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#5b60a8';});drop.addEventListener('dragleave',()=>drop.style.borderColor='');drop.addEventListener('drop',async e=>{e.preventDefault();drop.style.borderColor='';await importQR(e.dataTransfer?.files?.[0]);});
 function download(blob,file){window.dfDownload(blob,file);}
 function basename(){const raw=[state.firstName,state.lastName].filter(Boolean).join('-').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'carte';return `DF-${state.kind==='badge'?'badge-':''}${raw}-${String(state.model).padStart(2,'0')}-${state.color+1}`;}
-async function fileSvg(){await fontsEmbedded;if(missingQR()){toast('Importe un QR avant l’exportation.');return;}download(new Blob([buildSVG(state.model,state.color,false)],{type:'image/svg+xml;charset=utf-8'}),basename()+'.svg');}
+async function fileSvg(){if(missingArtwork()){toast('Importe ton image avant l’exportation.');return;}await fontsEmbedded;if(missingQR()){toast('Importe un QR avant l’exportation.');return;}download(new Blob([buildSVG(state.model,state.color,false)],{type:'image/svg+xml;charset=utf-8'}),basename()+'.svg');}
 function dataImage(svg){return new Promise((resolve,reject)=>{const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'}));const im=new Image();im.onload=()=>{URL.revokeObjectURL(url);resolve(im)};im.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Impossible de convertir la carte en image.'))};im.src=url;});}
-async function filePng(){await fontsEmbedded;if(missingQR()){toast('Importe un QR avant l’exportation.');return;}const btn=$('downloadPng');btn.disabled=true;btn.textContent='Préparation du PNG…';try{await document.fonts.ready;const scale=600/25.4;const pxw=Math.round(CARD_W_MM*scale),pxh=Math.round(CARD_H_MM*scale);const canvas=document.createElement('canvas');canvas.width=pxw;canvas.height=pxh;const cx=canvas.getContext('2d');cx.clearRect(0,0,pxw,pxh);
+async function filePng(){if(missingArtwork()){toast('Importe ton image avant l’exportation.');return;}await fontsEmbedded;if(missingQR()){toast('Importe un QR avant l’exportation.');return;}const btn=$('downloadPng');btn.disabled=true;btn.textContent='Préparation du PNG…';try{await document.fonts.ready;const scale=600/25.4;const pxw=Math.round(CARD_W_MM*scale),pxh=Math.round(CARD_H_MM*scale);const canvas=document.createElement('canvas');canvas.width=pxw;canvas.height=pxh;const cx=canvas.getContext('2d');cx.clearRect(0,0,pxw,pxh);
  const image=await dataImage(buildSVG(state.model,state.color,false));cx.drawImage(image,0,0,pxw,pxh);
  const blob=await new Promise(res=>canvas.toBlob(res,'image/png'));if(!blob)throw new Error('Échec de la création du PNG.');download(blob,basename()+'-600dpi.png');}
  catch(e){toast(e.message||'Impossible d’exporter en PNG.');}finally{btn.textContent='Télécharger PNG · 600 dpi';btn.disabled=missingQR();}}
-function filePrint(){if(missingQR()){toast('Importe un QR avant l’impression.');return;}$('printSheet').innerHTML=buildSVG(state.model,state.color,false);setTimeout(()=>window.print(),80);}
+function filePrint(){if(missingArtwork()){toast('Importe ton image avant l’exportation.');return;}if(missingQR()){toast('Importe un QR avant l’impression.');return;}$('printSheet').innerHTML=buildSVG(state.model,state.color,false);setTimeout(()=>window.print(),80);}
 
 // --- Production exports: laser path and UV bleed alignment in physical units. ---
 const BLEED_MM=2;
@@ -560,7 +586,7 @@ function guidePdf(){
   const stream=pdfEncoder.encode(command);
   return pdfDoc([['<< /Type /Catalog /Pages 2 0 R >>'],['<< /Type /Pages /Count 1 /Kids [3 0 R] >>'],[`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageW.toFixed(6)} ${pageH.toFixed(6)}] /Resources << >> /Contents 4 0 R >>`],[`<< /Length ${stream.length} >>\nstream\n`,stream,'\nendstream']]);
 }
-async function imagePdf(){
+async function imagePdf(){if(missingArtwork()){toast('Importe ton image avant l’exportation.');return;}
   await fontsEmbedded;
   // Print size 89 x 49 mm = the 85 x 45 mm card PLUS 2 mm bleed per side.
   // First render the exact, undistorted card; then extend the edge pixels
@@ -600,11 +626,12 @@ async function imagePdf(){
 }
 $('downloadGuidePdf').addEventListener('click',()=>{download(guidePdf(),'DF-gabarit-decoupe-laser-UV-89x49.pdf');toast('Gabarit découpe laser & UV : PDF vectoriel, contour noir 85 × 45 mm centré.');});
 $('downloadUvPdf').addEventListener('click',async()=>{
+  if(missingArtwork()){toast('Importe ton image avant l’exportation.');return;}
   if(missingQR()){toast('Importe le QR obligatoire avant d’exporter le PDF couleur.');return;}
   const b=$('downloadUvPdf');b.disabled=true;b.textContent='Préparation du PDF UV…';
   try{await document.fonts.ready;const pdf=await imagePdf();download(pdf,basename()+'-impression-UV-89x49-bleed2mm.pdf');toast('PDF UV : 89 × 49 mm avec débord de 2 mm.');}
   catch(e){toast('PDF UV impossible : '+(e.message||'Erreur inconnue'));console.error(e);}
-  finally{b.textContent='Télécharger le PDF couleur UV';b.disabled=missingQR();}
+  finally{b.textContent='Télécharger le PDF couleur UV';b.disabled=missingQR()||missingArtwork();}
 });
 
 $('downloadPng').addEventListener('click',filePng);$('downloadSvg').addEventListener('click',fileSvg);$('printButton').addEventListener('click',filePrint);
@@ -616,4 +643,5 @@ render();
 </script>
 </body>
 </html>
+
 

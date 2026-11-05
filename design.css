@@ -1,0 +1,122 @@
+/* Digital Factory — shared interface, distinct from printable artwork. */
+:root{--df-ink:#2f3a48;--df-purple:#5b60a8;--df-accent:#8c4292;--df-flash:#11c6f4;--df-paper:#faf9fc;--df-line:#dcdce7;--df-wash:#eeedf6}
+[data-df-page]{color:var(--df-ink);background:var(--df-paper)}
+[data-df-page] button,[data-df-page] a{-webkit-tap-highlight-color:transparent}
+[data-df-page] :is(button,a,input,select,textarea):focus-visible{outline:3px solid #007fbd;outline-offset:4px}
+/* Stable workshop shell. */
+[data-df-page^=part] .topbar{height:auto;min-height:94px;padding:16px 3.2vw;gap:20px}
+[data-df-page^=part] .brand{flex-shrink:0}
+.route-switch{display:flex;gap:4px;padding:4px;border:1px solid var(--df-line);border-radius:10px;background:#fff}
+.route-switch a{display:flex;align-items:center;gap:9px;text-decoration:none;font-size:12px;font-weight:600;padding:10px 13px;min-height:42px;border-radius:6px;white-space:nowrap}
+.route-switch a>span{font-size:10px;opacity:.7}
+.route-switch a[aria-current]{background:var(--df-ink);color:white}
+.route-switch a:hover{background:var(--df-wash);color:var(--df-ink)}
+.route-menu{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:10px 14px;border:1px solid var(--df-line);border-radius:6px;background:#fff;font:600 12px Poppins,Arial,sans-serif;cursor:pointer;color:var(--df-ink)}
+[data-df-page^=part] .toptools{gap:6px}[data-df-page^=part] .quiet{font-size:12px;padding:10px}[data-df-page^=part] .clock{font-size:12px;min-width:96px;padding:12px}
+[data-df-page^=part] #stage{max-width:1600px;margin:auto;padding:28px 3.2vw 36px;min-height:calc(100svh - 244px)}
+[data-df-page^=part] .kicker-line{margin-bottom:20px}
+[data-df-page^=part] .section-head{align-items:end;gap:30px;margin:8px 0 26px}
+[data-df-page^=part] .section-head h2{font-size:clamp(34px,4vw,62px);line-height:1.06}
+[data-df-page^=part] .section-head .lede{font-size:17px;line-height:1.55;color:#616a77}
+[data-df-page^=part] .bottom{position:sticky;bottom:0;z-index:20;background:rgba(250,249,252,.97);backdrop-filter:blur(12px);padding:14px 3.2vw;min-height:82px;box-shadow:0 -6px 24px #2f3a4805}
+[data-df-page^=part] :is(.next,.primary){color:#fff;border-radius:7px;min-height:48px;gap:20px;transition:background .2s,transform .2s}
+[data-df-page^=part] :is(.next,.primary):hover{background:var(--df-ink);transform:translateY(-1px)}
+[data-df-page^=part] :is(.nav-arrow,.quiet,.clock){border-radius:7px}
+[data-df-page^=part] .tabbar{gap:6px;padding:5px;background:var(--df-wash);border:0;border-radius:9px;margin:20px 0}
+[data-df-page^=part] .tab{flex:1;border-radius:6px;font-size:14px;min-height:44px;white-space:nowrap}
+[data-df-page^=part] .tab[aria-pressed=true]{background:var(--df-purple);color:white}
+[data-df-page^=part] :is(.step-btn,.pill,.p2-mat){transition:background .2s,border-color .2s;border-color:var(--df-line)}
+[data-df-page^=part] .step-btn{border-radius:8px;background:#fff;min-height:62px}
+[data-df-page^=part] .step-btn[aria-pressed=true]{background:var(--df-purple);color:#fff;border-color:var(--df-purple)}
+[data-df-page^=part] .step-btn>span{flex-shrink:0}
+[data-df-page^=part] .pill{border-radius:7px;background:#fff}
+[data-df-page^=part] .pill[aria-pressed=true]{background:var(--df-ink);color:white}
+[data-df-page^=part] .notice{background:var(--df-wash);border-radius:0 7px 7px 0;color:var(--df-ink)}
+[data-df-page^=part] .challenge .symbol{color:white;flex-shrink:0}
+[data-df-page^=part] .process-copy{gap:16px}
+[data-df-page^=part] .process-copy .lede{font-size:18px;line-height:1.65}
+[data-df-page^=part] :is(.case-photo,.first-layers-photo,.practical-example,.layer-demo,.closing-card){border-radius:10px}
+[data-df-page^=part] .workshop-note{background:var(--df-ink);border-radius:10px;color:white}
+[data-df-page^=part] .workshop-note .micro{color:var(--df-flash)}
+[data-df-page^=part] .workshop-note .primary{background:var(--df-purple)}
+[data-df-page^=part] .workshop-note h2{line-height:1.12}
+[data-df-page^=part] .finish h1{font-size:clamp(42px,4.6vw,70px);line-height:1.05}
+[data-df-page^=part] .finish-tag{color:var(--df-purple);background:var(--df-wash);font-size:11px;letter-spacing:.1em;border-radius:4px}
+/* Keep the introduction spare, with two clear choices. */
+[data-df-page^=part] .intro-screen{padding:30px 6vw 36px;gap:20px}
+[data-df-page^=part] .intro-content{padding-top:14px}
+[data-df-page^=part] .intro-title{font-size:clamp(48px,7.5vw,118px)}
+[data-df-page^=part] .intro-layers{max-height:21svh;margin-top:4px}
+.intro-journey{width:100%;max-width:1080px}
+.journey-label{font:600 10px/1.6 Poppins,Arial,sans-serif;letter-spacing:.15em;color:#606979;margin:0 0 12px}
+[data-df-page^=part] .intro-choices{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+.route-card{display:flex;align-items:center;gap:18px;border:1px solid var(--df-line);background:#fff;border-radius:10px;padding:20px 24px;min-height:108px;color:var(--df-ink);text-align:left;text-decoration:none;font-family:inherit;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.route-card:hover{transform:translateY(-3px);border-color:var(--df-purple);box-shadow:0 8px 24px #5b60a810}
+.route-index{font-size:26px;font-weight:600;letter-spacing:-.05em;color:var(--df-purple)}
+.route-card strong{display:block;font-size:17px;line-height:1.4}.route-card small{display:block;font-size:12px;line-height:1.6;color:#636d7a;margin-top:4px}
+.route-arrow{margin-left:auto;font-size:24px;color:var(--df-purple)}
+.intro-description{font-size:16px;line-height:1.6;margin:0 0 18px;color:#636d7a}.intro-back{font-size:13px;text-underline-offset:5px;justify-self:start;padding:14px}
+.part-bridge{display:flex;align-items:center;gap:17px;margin-top:22px;padding:20px;border:1px solid var(--df-line);border-left:3px solid var(--df-purple);border-radius:8px;text-decoration:none;background:#fff}
+.bridge-number{font-size:34px;color:var(--df-purple);font-weight:600}.part-bridge small{display:block;font-size:9px;letter-spacing:.13em;color:#616a77}.part-bridge strong{display:block;font-size:16px;margin:4px 0}.part-bridge span span{font-size:12px;line-height:1.6;display:block;color:#616a77}.part-bridge b{margin-left:auto;font-size:24px;color:var(--df-purple)}
+/* Part 2: lighter cards and clearer reading order. */
+.p2-duo{gap:22px}
+.p2-machine,.p2-machine.uv{position:relative;background:#fff;color:var(--df-ink);border:1px solid var(--df-line);border-top:3px solid var(--df-purple);border-radius:10px;padding:26px;gap:15px}
+.p2-machine.uv{border-top-color:var(--df-accent)}
+.p2-machine .eyebrow,.p2-machine.uv .eyebrow{color:var(--df-purple);font-size:11px}
+.p2-machine.uv .eyebrow{color:var(--df-accent)}
+.p2-machine h3{font-size:27px;line-height:1.15}.p2-machine p{color:#616a77;font-size:15px;line-height:1.65}
+.p2-machine ul{font-size:14px;line-height:1.8;padding-top:12px;border-top:1px solid var(--df-line)}
+.p2-quiz{background:#fff;border-radius:10px;padding:12px 24px;margin-top:26px}
+.p2-quiz-head{padding:8px 0 16px}.p2-need{font-size:15px}.p2-quiz-row{padding:16px 0}
+.p2-quiz-choices .pill{min-width:62px;padding:10px 14px;font-size:12px}
+.p2-materials{gap:10px}.p2-mat{background:#fff;border-radius:8px;font-size:13px;min-height:58px}.p2-mat[aria-pressed=true]{background:var(--df-purple);border-color:var(--df-purple)}
+.p2-mat-card{background:#fff;border:1px solid var(--df-line);border-radius:10px;padding:28px;margin-top:20px}
+.p2-verdicts>div{background:var(--df-wash);padding:18px}.p2-mat-card>.body{font-size:16px;line-height:1.7;max-width:900px}
+.p2-case-id h3{font-size:26px}.p2-case-photo img{aspect-ratio:4/3}
+.p2-create li{padding:17px 20px}.p2-create li>span{background:var(--df-wash);color:var(--df-purple);border-radius:6px}.p2-create li:last-child>span{color:white}
+/* Persistent, animated entrance; never flashes continuously. */
+.df-metiers-dock{position:fixed;right:0;top:46%;z-index:35;display:flex;align-items:center;gap:10px;padding:12px 13px 12px 12px;border:1px solid #ffffff26;border-right:0;border-radius:13px 0 0 13px;background:var(--df-ink);color:#fff!important;text-decoration:none;box-shadow:0 8px 28px #2f3a4824;font-family:Poppins,Arial,sans-serif;animation:dock-arrive .7s .6s both;transition:padding .2s,background .2s}
+.df-metiers-dock:hover,.df-metiers-dock:focus-visible{padding-right:23px;background:var(--df-purple)}
+.dock-icon{width:27px;height:27px;color:var(--df-flash);flex-shrink:0}.dock-icon svg{width:100%;height:100%}.dock-copy{display:grid;gap:2px}.dock-copy small{font-size:8px;letter-spacing:.15em;color:#cbd3df;line-height:1.4}.dock-copy strong{font-size:12px;line-height:1.4;font-weight:600}.dock-arrow{font-size:17px;color:var(--df-flash)}
+@keyframes dock-arrive{from{transform:translateX(110%)}to{transform:translateX(0)}}
+/* Shared all-step navigator. */
+.journey-dialog{border:1px solid var(--df-line);border-radius:14px;background:var(--df-paper);color:var(--df-ink);padding:28px;width:min(860px,calc(100% - 28px));max-width:860px;max-height:88svh;font-family:Poppins,Arial,sans-serif;box-shadow:0 24px 100px #0003;overflow:auto}
+.journey-dialog::backdrop{background:#1f2636b3;backdrop-filter:blur(6px)}
+.journey-head{display:flex;justify-content:space-between;align-items:start;gap:20px}.journey-head h2{margin:0;font-size:36px;line-height:1.1;letter-spacing:-.04em}.journey-head .journey-label{margin-bottom:8px}.journey-close{width:44px;height:44px;flex-shrink:0;background:#fff;border:1px solid var(--df-line);color:var(--df-ink);border-radius:7px;font-size:26px;cursor:pointer}
+.journey-intro{font-size:13px;line-height:1.6;color:#616a77;margin:18px 0 22px}.journey-columns{display:grid;grid-template-columns:1fr 1fr;gap:28px}.journey-columns h3{display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.5;margin:0 0 12px;letter-spacing:-.02em}.journey-columns h3>span{color:var(--df-purple);font-size:12px}.journey-columns ol{list-style:none;padding:0;margin:0}.journey-columns li{border-top:1px solid var(--df-line)}.journey-columns a{display:flex;align-items:center;gap:10px;min-height:47px;padding:9px 10px;text-decoration:none;color:var(--df-ink);font-size:12px;line-height:1.4;border-radius:4px}.journey-columns a>span{font-size:10px;color:#747b89}.journey-columns a>b{margin-left:auto;font-weight:400}.journey-columns a:hover{background:var(--df-wash)}.journey-columns a[aria-current]{background:var(--df-purple);color:white}.journey-columns a[aria-current]>span{color:#fff}.journey-resources{display:flex;flex-wrap:wrap;gap:16px;border-top:1px solid var(--df-line);margin-top:24px;padding-top:18px}.journey-resources a{font-size:12px;color:var(--df-purple);font-weight:600}
+/* Tools: same hierarchy without changing card designs or export dimensions. */
+[data-df-page=studio] .hero,[data-df-page=qr] .df-hero{padding-block:28px;margin:0}
+[data-df-page=studio] .hero h1,[data-df-page=qr] .df-hero h1{font-size:clamp(32px,3.8vw,54px);line-height:1.1;letter-spacing:-.045em}
+[data-df-page=studio] .hero p,[data-df-page=qr] .df-hero p{font-size:14px;line-height:1.7;color:#616a77;max-width:760px}
+[data-df-page=studio] :is(.panel,.preview-panel),[data-df-page=qr] .panel{border-radius:10px;border-color:var(--df-line);box-shadow:none}
+[data-df-page] .df-bar{background:var(--df-paper);color:var(--df-ink)}
+[data-df-page] .df-nav a{border-radius:6px;font-size:12px}
+/* Careers: keep the catalogue; bring its chrome into the workshop identity. */
+[data-df-page=metiers]{--bg:var(--df-paper);--line:var(--df-line);--radius:10px;--shadow:none}
+[data-df-page=metiers] .site-header{background:var(--df-paper);color:var(--df-ink);border-bottom:1px solid var(--df-line);box-shadow:none}
+[data-df-page=metiers] .brand,[data-df-page=metiers] .hnav{color:var(--df-ink)}
+[data-df-page=metiers] .brand-mark{background:var(--df-wash);color:var(--df-purple);border-radius:8px}
+[data-df-page=metiers] .hnav{font-size:12px;border-radius:6px}
+[data-df-page=metiers] .hnav:hover,[data-df-page=metiers] .hnav[aria-current]{background:var(--df-wash);border-color:var(--df-line);color:var(--df-purple)}
+[data-df-page=metiers] :is(.hero,.subhero,.fiche-hero){background:var(--df-paper);color:var(--df-ink);border-bottom:1px solid var(--df-line)}
+[data-df-page=metiers] :is(.hero h1,.hero h2,.subhero h1,.fiche-hero h1){color:var(--df-ink);letter-spacing:-.045em;font-size:clamp(32px,4.3vw,62px);line-height:1.08}
+[data-df-page=metiers] .eyebrow{color:var(--df-purple);font-size:11px;letter-spacing:.15em}
+[data-df-page=metiers] .lead{color:#616a77;font-size:16px}
+[data-df-page=metiers] :is(.stats li,.mosaic span,.back,.pager-btn){background:var(--df-wash);color:var(--df-purple);border-color:var(--df-line)}
+[data-df-page=metiers] .mosaic span{border-radius:12px}
+[data-df-page=metiers] .back:hover,[data-df-page=metiers] .pager-btn:hover{background:var(--df-purple);color:#fff}
+[data-df-page=metiers] .family-badge{background:var(--df-purple)}
+@media(min-width:1000px){[data-df-page^=part] #stage{padding-right:72px}.df-metiers-dock{max-width:56px;overflow:hidden;transition:max-width .25s,padding .25s}.dock-copy,.dock-arrow{flex-shrink:0}.df-metiers-dock:hover,.df-metiers-dock:focus-visible,body.intro-active .df-metiers-dock{max-width:190px}.df-metiers-dock:after{content:'Les métiers';position:absolute;top:58px;right:8px;writing-mode:vertical-rl;font-size:10px;letter-spacing:.03em;color:#fff}.df-metiers-dock{min-height:126px;align-items:flex-start}.df-metiers-dock:hover,.df-metiers-dock:focus-visible,body.intro-active .df-metiers-dock{min-height:62px;align-items:center}.df-metiers-dock:hover:after,.df-metiers-dock:focus-visible:after,body.intro-active .df-metiers-dock:after{display:none}[data-df-page=metiers] .df-metiers-dock:after{content:'L’atelier'}}
+@media(max-width:1150px){[data-df-page^=part] .topbar{gap:12px}.route-switch a{font-size:11px;padding:8px}.route-menu{font-size:11px;padding:10px}.toptools #guide{display:none}}
+@media(max-width:999px){.df-metiers-dock{top:auto;bottom:104px;padding:10px 12px;min-height:54px}.dock-copy small{display:none}.dock-icon{width:21px;height:21px}.dock-arrow{display:none}[data-df-page^=part] .topbar{flex-wrap:wrap}.route-switch{order:3;width:100%;justify-content:center}.route-switch a{flex:1;justify-content:center}.toptools{margin-left:auto}[data-df-page^=part] .section-head{display:block}[data-df-page^=part] .section-head .lede{margin-top:14px;max-width:100%}.p2-duo{gap:16px}}
+@media(max-width:750px){[data-df-page^=part] #stage{padding:24px 20px 84px}[data-df-page^=part] .topbar{padding:13px 20px}.route-switch{margin-top:2px}[data-df-page^=part] .bottom{padding:12px 16px;gap:10px}[data-df-page^=part] .next{font-size:12px;gap:10px;padding:12px;max-width:220px}[data-df-page^=part] .chapter{font-size:10px;max-width:90px}[data-df-page^=part] .tabbar{flex-wrap:nowrap;overflow-x:auto;max-width:100%}[data-df-page^=part] .tab{flex:0 0 auto;font-size:12px}.p2-duo{grid-template-columns:1fr}.p2-machine{padding:22px}.p2-quiz{padding:12px 18px}.p2-quiz-row{grid-template-columns:1fr}.p2-materials{grid-template-columns:1fr 1fr}.p2-verdicts{grid-template-columns:1fr}.p2-steps{grid-template-columns:1fr 1fr}[data-df-page^=part] .intro-screen{padding:26px 6vw 94px}[data-df-page^=part] .intro-choices{grid-template-columns:1fr;gap:12px}[data-df-page^=part] .intro-title{font-size:clamp(44px,9vw,68px)}.route-card{min-height:90px;padding:17px 20px}.route-card strong{font-size:15px}.route-card small{font-size:11px}.route-index{font-size:23px}.journey-columns{grid-template-columns:1fr;gap:24px}.journey-dialog{padding:20px}.journey-head h2{font-size:30px}.part-bridge{padding:17px;gap:12px}.part-bridge strong{font-size:14px}.intro-description{font-size:14px}.df-metiers-dock{bottom:104px}.intro-active .df-metiers-dock{bottom:22px}}
+@media(max-width:400px){.route-menu{padding:10px;font-size:10px}[data-df-page^=part] .clock{min-width:80px;padding:10px;font-size:10px}[data-df-page^=part] .brand{font-size:13px}[data-df-page^=part] .brandmark{font-size:30px}.toptools{gap:4px!important}}
+@media(prefers-reduced-motion:reduce){[data-df-page] *,[data-df-page] *:before,[data-df-page] *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{.df-metiers-dock,.journey-dialog,.route-switch,.route-menu{display:none!important}}
+@media(min-width:1000px){.df-metiers-dock .dock-copy,.df-metiers-dock .dock-arrow{opacity:0}.df-metiers-dock:hover .dock-copy,.df-metiers-dock:hover .dock-arrow,.df-metiers-dock:focus-visible .dock-copy,.df-metiers-dock:focus-visible .dock-arrow,.intro-active .df-metiers-dock .dock-copy,.intro-active .df-metiers-dock .dock-arrow{opacity:1}}
+@media(max-width:999px){.intro-active .df-metiers-dock{bottom:22px}[data-df-page^=part] .intro-screen{padding-bottom:96px}}
+@media(max-width:600px){[data-df-page^=part] .brand-sub{display:none}[data-df-page^=part] .brand{font-size:13px;gap:8px}[data-df-page^=part] .topbar{gap:10px}.route-switch{margin-top:0}}
+[data-df-page=qr] .df-hero{max-width:1180px;margin:0 auto;width:100%;padding:28px 3.2vw 12px}
+[data-df-page=qr] main{max-width:1180px;padding:24px 3.2vw 80px}
+[data-df-page^=part] #stage{width:100%;min-width:0}
+[data-df-page^=part] .tabbar{min-width:0}

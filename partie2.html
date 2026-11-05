@@ -6,30 +6,32 @@
   <title>Laser &amp; UV · De l’idée à l’objet · Digital Factory</title>
   <meta name="description" content="Partie 2 de l’atelier Digital Factory : comprendre la découpe laser et l’impression UV, de l’idée à l’objet.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css?v=ce148054038e"><script type="module" src="partie2.js?v=0db75bf3cae2"></script>
+  <link rel="stylesheet" href="style.css?v=df-20261105-1"><script type="module" src="partie2.js?v=df-20261105-1"></script>
+<link rel="stylesheet" href="design.css?v=df-20261105-1">
+<script defer src="navigation.js?v=df-20261105-1"></script>
 </head>
-<body class="intro-active">
+<body data-df-page="part2" class="intro-active">
   <section class="intro-screen" aria-labelledby="intro-title">
     <p class="intro-brand">DE L’IDÉE À L’OBJET · PARTIE 2</p>
     <div class="intro-content">
-      <h1 class="intro-title" id="intro-title" tabindex="-1">Couper avec la lumière.<br>Imprimer <span>la couleur.</span></h1>
+      <h1 class="intro-title" id="intro-title" tabindex="-1">La forme.<br>Puis <span>la couleur.</span></h1>
       <svg class="intro-layers" viewBox="0 0 1200 230" fill="none" aria-hidden="true">
         <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-          <path pathLength="1" d="M2 120H520L560 40L600 200L640 40L680 200L720 120H1198"/>
-          <path pathLength="1" d="M2 160H1198" stroke-dasharray=".012 .008"/>
+          <path pathLength="1" d="M2 105H380C620 105 655 18 795 18S935 125 1198 125"/>
+          <path pathLength="1" d="M2 127H380C620 127 655 50 795 50S935 147 1198 147"/>
+          <path pathLength="1" d="M2 149H380C620 149 655 82 795 82S935 169 1198 169"/>
+          <path pathLength="1" d="M2 171H380C620 171 655 114 795 114S935 191 1198 191"/>
+          <path pathLength="1" d="M2 193H380C620 193 655 146 795 146S935 213 1198 213"/>
+          <path pathLength="1" d="M2 215H380C620 215 655 178 795 178S935 229 1198 229"/>
         </g>
-        <circle cx="600" cy="120" r="5" fill="var(--flash)" stroke="none"/>
       </svg>
     </div>
-    <div class="intro-choices">
-      <button class="intro-enter" id="enter-workshop">Entrer dans la partie 2 · Laser &amp; UV <span aria-hidden="true">→</span></button>
-      <a class="intro-enter intro-alt" href="index.html#intro">← Partie 1 · Impression 3D</a>
-    <a class="intro-enter intro-alt" href="machines.html">Les machines de la Digital Factory <span aria-hidden="true">→</span></a></div>
+    <div class="intro-journey"><p class="journey-label">PARTIE 02 · APRÈS L’IMPRESSION 3D, DEUX AUTRES PROCÉDÉS</p><p class="intro-description">Le laser découpe et grave. L’UV imprime sur l’objet.<br>Explore les deux procédés, puis crée ta carte.</p><div class="intro-choices"><button class="route-card" id="enter-workshop"><span class="route-index">02</span><span><strong>Découvrir le laser &amp; l’UV</strong><small>Des usages métiers à ta propre création.</small></span><span class="route-arrow" aria-hidden="true">→</span></button><a class="intro-back" href="index.html#etape-9">← Revenir au bilan 3D</a></div></div>
   </section>
   <a class="skip" href="#stage">Aller à l’atelier</a>
   <header class="topbar">
-    <button class="brand" id="home" aria-label="Retour à l’introduction"><span class="brandmark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<span class="brand-sub">PARTIE 2 · LASER &amp; UV</span></span></button>
-    <div class="toptools"><a class="machines-link" href="machines.html" aria-label="Les machines de la Digital Factory" title="Les machines de la Digital Factory"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 7.5h18"/><path d="M10 7.5v3l2 2 2-2v-3"/><path d="M6 18h12"/></svg><span>Les machines DF</span></a><button class="quiet" id="guide">Guide animateur</button><button class="clock" id="clock" title="Démarrer ou mettre en pause le chrono de l’atelier">▷ <span id="clock-text">Démarrer</span></button></div>
+    <button class="brand" id="home" aria-label="Retour à l’introduction"><span class="brandmark" aria-hidden="true">≋</span><span>DE L’IDÉE<br>À L’OBJET<span class="brand-sub">DIGITAL FACTORY · LE FOREM</span></span></button>
+    <nav class="route-switch" aria-label="Les deux parties de l’atelier"><a href="index.html#etape-1"><span>01</span> Impression 3D</a><a href="partie2.html#etape-1" aria-current="page"><span>02</span> Laser &amp; UV</a></nav><div class="toptools"><button class="route-menu" data-open-journey aria-haspopup="dialog">Le parcours <span aria-hidden="true">☰</span></button><button class="quiet" id="guide">Guide animateur</button><button class="clock" id="clock" title="Démarrer ou mettre en pause le chrono de l’atelier">▷ <span id="clock-text">Démarrer</span></button></div>
   </header>
   <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
   <main id="stage" tabindex="-1"></main>
@@ -39,3 +41,4 @@
   <div id="announcement" class="sr-only" aria-live="polite"></div>
   <noscript><p>Active JavaScript pour naviguer dans l’atelier.</p></noscript>
 </body></html>
+
